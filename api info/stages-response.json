@@ -1,0 +1,2776 @@
+{
+  "stages": [
+    {
+      "companyId": 90,
+      "companyName": "Acme Ink",
+      "companyShortName": "ACME",
+      "projectId": 7155,
+      "projectName": "Release 20250411 Test",
+      "inProduction": true,
+      "inGuidance": true,
+      "timezone": "America/Chicago",
+      "notificationURL": null,
+      "wellId": 54102,
+      "wellNumber": "Pad 1 - Well W - FDI Banner",
+      "brand": "LIVE",
+      "stageId": 268542,
+      "hide": false,
+      "stageName": "47",
+      "ordinal": 101,
+      "createdAt": "2025-04-11T17:45:05.022Z",
+      "startTimestamp": 1646760677000,
+      "endTimestamp": 1646766406000,
+      "state": "LOADING",
+      "comment": "Restarted job. ",
+      "clientComment": "Client comment here",
+      "updatedAt": "2025-04-11T17:51:10.020Z",
+      "control": {
+        "parameters": {
+          "fdi": [
+            {
+              "name": "offset_pressure_4",
+              "state": "activefracperf",
+              "suspend": false,
+              "wellLabel": "Offset C",
+              "minDeltaPressureFracHit": 100,
+              "minDerivPressureFracHit": 100
+            },
+            {
+              "name": "offset_pressure_1",
+              "state": "activefracwl",
+              "suspend": false,
+              "wellLabel": "Offset A",
+              "minDeltaPressureFracHit": 500
+            },
+            {
+              "name": "offset_pressure_2",
+              "state": "activefracperf",
+              "suspend": false,
+              "wellLabel": "Offset B",
+              "minDeltaPressureFracHit": 500
+            },
+            {
+              "name": "offset_pressure_5",
+              "state": "ducswpm",
+              "suspend": false,
+              "wellLabel": "Offset Duplicate aad",
+              "minDeltaPressureFracHit": 100
+            }
+          ],
+          "plot": {
+            "lines": [
+              {
+                "show": true,
+                "color": "red",
+                "label": "Pressure_268538",
+                "attribute": "measuredPressure",
+                "colorDark": "red",
+                "yAxisName": "pressure"
+              },
+              {
+                "show": true,
+                "color": "#000000",
+                "label": "Guidance",
+                "attribute": "guidance",
+                "colorDark": "#FAFAFA",
+                "yAxisName": "rate"
+              },
+              {
+                "show": true,
+                "color": "green",
+                "label": "Predicted Pressure",
+                "attribute": "predictedPressure",
+                "colorDark": "green",
+                "yAxisName": "pressure"
+              },
+              {
+                "show": true,
+                "color": "#15E503",
+                "label": "Fracture Intensity",
+                "attribute": "fractureIntensity",
+                "colorDark": "#15E503",
+                "yAxisName": "shearFracs"
+              },
+              {
+                "show": true,
+                "color": "#1B5E20",
+                "label": "Fracture Effectiveness",
+                "attribute": "fracEffectiveness",
+                "colorDark": "#81C784",
+                "yAxisName": "Fracture Surface Area"
+              },
+              {
+                "show": true,
+                "color": "black",
+                "label": "Fracture Frequency",
+                "attribute": "fracFrequency",
+                "colorDark": "white",
+                "yAxisName": "BlockSize"
+              },
+              {
+                "show": true,
+                "color": "blue",
+                "label": "Slurry Rate",
+                "attribute": "slurryRate",
+                "colorDark": "#0288D1",
+                "yAxisName": "rate"
+              },
+              {
+                "show": true,
+                "color": "#FFEB3B",
+                "label": "Surface Proppant",
+                "attribute": "proppant_1_concentration",
+                "colorDark": "#FFEB3B",
+                "yAxisName": "proppant"
+              },
+              {
+                "show": true,
+                "color": "orange",
+                "label": "BH Proppant",
+                "attribute": "plottedProppant",
+                "colorDark": "orange",
+                "yAxisName": "proppant"
+              },
+              {
+                "show": true,
+                "color": "#AB47BC",
+                "label": "FR Conc",
+                "attribute": "friction_reducer",
+                "colorDark": "#AB47BC",
+                "yAxisName": "proppant"
+              }
+            ],
+            "yAxes": [
+              {
+                "name": "pressure",
+                "unit": "psi",
+                "title": "Pressure",
+                "limits": {
+                  "max": 14000,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "rate",
+                "unit": "bpm",
+                "title": "Slurry Rate",
+                "limits": {
+                  "max": 140,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "proppant",
+                "unit": "ppg",
+                "title": "Proppant",
+                "limits": {
+                  "max": 6,
+                  "min": 0
+                },
+                "position": "right"
+              },
+              {
+                "name": "cumShearFracs",
+                "unit": "",
+                "title": "Cumulative Shear Fracs",
+                "limits": {
+                  "max": 1400000,
+                  "min": 0
+                },
+                "position": "right"
+              },
+              {
+                "name": "shearFracs",
+                "unit": "",
+                "title": "Fracture Intensity",
+                "limits": {
+                  "max": 4800,
+                  "min": 0
+                },
+                "position": "right"
+              },
+              {
+                "name": "OffsetPressure",
+                "unit": "psi",
+                "title": "Offset Pressure",
+                "limits": {
+                  "max": 4500,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "BlockSize",
+                "unit": "",
+                "title": "Fracture Frequency",
+                "limits": {
+                  "max": 1.4,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "Fracture Surface Area",
+                "unit": "",
+                "title": "Fracture Effectiveness",
+                "limits": {
+                  "max": 72,
+                  "min": 0
+                },
+                "position": "right"
+              }
+            ],
+            "useUTC": true,
+            "endTime": 1646768794780,
+            "secondary": {
+              "additives": {
+                "yaxis": {
+                  "max": null,
+                  "min": null
+                }
+              },
+              "fdiWarning": {
+                "yaxis": {
+                  "max": null,
+                  "min": null
+                }
+              },
+              "pressureDerivative": {
+                "yaxis": {
+                  "max": null,
+                  "min": null
+                }
+              },
+              "relativeDerivative": {
+                "yaxis": {
+                  "max": null,
+                  "min": null
+                }
+              }
+            },
+            "startTime": 1646761155304
+          },
+          "source": {
+            "attributes": [
+              {
+                "name": "time",
+                "unit": "milliseconds",
+                "index": 0,
+                "multiplier": 1
+              },
+              {
+                "name": "pressure",
+                "unit": "psi",
+                "index": 74,
+                "multiplier": 1
+              },
+              {
+                "name": "rate",
+                "unit": "bpm",
+                "index": 7,
+                "multiplier": 1
+              },
+              {
+                "name": "proppant",
+                "unit": "ppg",
+                "index": 53,
+                "multiplier": 1
+              },
+              {
+                "name": "cleanRate",
+                "unit": "bpm",
+                "index": 9,
+                "multiplier": 1
+              },
+              {
+                "name": "vanCumProppantMass",
+                "unit": "lb",
+                "index": 15,
+                "multiplier": 1
+              },
+              {
+                "name": "vanCumCleanVolume",
+                "unit": "bbl",
+                "index": 10,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_5",
+                "unit": "psi",
+                "index": 71,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_1",
+                "unit": "psi",
+                "index": 72,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_2",
+                "unit": "psi",
+                "index": 73,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_4",
+                "unit": "psi",
+                "index": 71,
+                "multiplier": 1
+              },
+              {
+                "name": "hvfr",
+                "unit": "gal/mgal",
+                "index": 23,
+                "multiplier": 1
+              },
+              {
+                "name": "biocide",
+                "unit": "gal/mgal",
+                "index": 44,
+                "multiplier": 1
+              },
+              {
+                "name": "breaker",
+                "unit": "ppt",
+                "index": 48,
+                "multiplier": 1
+              },
+              {
+                "name": "scaleinhibitor",
+                "unit": "gal/mgal",
+                "index": 21,
+                "multiplier": 1
+              },
+              {
+                "name": "claycontrol",
+                "unit": "gal/mgal",
+                "index": 35,
+                "multiplier": 1
+              }
+            ]
+          },
+          "fbsFlag": true,
+          "meshLag": 0,
+          "features": [
+            "fracFrequency",
+            "default",
+            "fdi",
+            "fracEffectiveness",
+            "experimentalguidance"
+          ],
+          "rateClip": 20,
+          "sandBase": 1,
+          "pauseFlag": true,
+          "sandShift": 0,
+          "fdiEndTime": 0,
+          "guideWidth": 20,
+          "sandWindow": 0,
+          "stageLength": 210,
+          "experimental": {
+            "rateCeiling": 100,
+            "blockSizeFloor": 0.4,
+            "minAbsRateChange": 0.5,
+            "rateChangeHurdle": 1,
+            "fdiSmoothingWindow": 201,
+            "singleRateDropAtCeiling": 5,
+            "derivPressureWindowWidth": 600,
+            "minAbsRateChangeIncrement": 0.5,
+            "isNewFdiOffsetPressureDerivativeRun": true
+          },
+          "fdiStartTime": 0,
+          "plannedWater": 10961,
+          "pressureBase": 1000,
+          "cumShearStart": 1646761884319,
+          "maxPseudoSand": 2,
+          "minPseudoSand": 1,
+          "pressureShift": 3,
+          "boreholeVolume": 310.3930905,
+          "guideRateDelta": 1.5,
+          "panicRateDelta": 5,
+          "regrCoeff2Sand": 0.005,
+          "regrYIntercept": 0.7,
+          "velocityWindow": 50,
+          "blockSizeHurdle": 0.03,
+          "frequencyWindow": 100,
+          "plannedProppant": 625000,
+          "pressureCaution": 0.98,
+          "pressureCeiling": 11000,
+          "regrCoeff1Water": 0.38,
+          "fdiWarningWindow": 10,
+          "pressureIncrease": 100,
+          "rateMessageDelay": 180,
+          "rateStepVariance": 1,
+          "tensileStartTime": 1646761644659,
+          "blockSizeSmoother": 50,
+          "fracAmplitudeBias": 0.3,
+          "fracBrainPlaybook": {
+            "suspend": false,
+            "cleanSource": "vancumcleanvolume",
+            "proppantSource": "vancumproppantmass"
+          },
+          "guidanceStartTime": 1646763940042,
+          "minimumRateChange": 0.3,
+          "stageMeasuredDepth": 13391,
+          "boreholeVolumeUnits": "Field",
+          "fracIntensityScalar": 12,
+          "downholeconcentrates": [
+            {
+              "name": "proppant",
+              "unit": "ppg",
+              "output": "sfgBHSand",
+              "multiplier": 1
+            }
+          ],
+          "pseudoProppantWindow": 150,
+          "fracIntensitySmoother": 300,
+          "isipTimestampOverride": 0,
+          "yInterceptOverrideTime": 0,
+          "plannedConsumablesUnits": "Field",
+          "fdiWLFirstDerivThreshold": 100000,
+          "derivativePercentIncrease": 3,
+          "fdiWLSecondDerivThreshold": 100000000,
+          "fracBrainPlaybookStartTime": 0,
+          "fracSurfaceAreaCoefficient": 10000,
+          "predictivePressureSmoothing": false,
+          "boreholeMidPerfMeasuredDepth": 13471
+        }
+      },
+      "summary": {
+        "fdiVFR1": null,
+        "fdiVFR2": null,
+        "fdiVFR4": 0.01,
+        "fdiVFR5": 0.01,
+        "release": "FracBRAIN® 4.17.656",
+        "fdiPFFH1": null,
+        "fdiPFFH2": null,
+        "fdiPFFH4": 108.8260271997882,
+        "fdiPFFH5": null,
+        "fdiVFFH1": null,
+        "fdiVFFH2": null,
+        "fdiVFFH4": 5400.62,
+        "fdiVFFH5": null,
+        "pumpTime": 79,
+        "fdiIdxFR1": null,
+        "fdiIdxFR2": null,
+        "fdiIdxFR4": 469,
+        "fdiIdxFR5": 469,
+        "timeDelay": 97609460000,
+        "fdiEndTime": 1646768794780,
+        "fdiIdxFFH1": null,
+        "fdiIdxFFH2": null,
+        "fdiIdxFFH4": 4944,
+        "fdiIdxFFH5": null,
+        "peak_count": 1415,
+        "stageLength": 210,
+        "fdiStartTime": 1646761155304,
+        "maxCleanRate": 90.926,
+        "plateau_size": 1,
+        "maxSlurryRate": 99.409,
+        "meanCleanRate": 76.023,
+        "modeCleanRate": 80,
+        "notifications": {
+          "FracStress": {
+            "type": "info",
+            "message": "FracStress is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "TotalCosts": {
+            "type": "info",
+            "message": "TotalCosts is missing costPerUnitPumpTime, costPerUnitClean, costPerUnitProppant, plannedPumpTime, plannedCleanVolume, plannedProppantMass as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "FdiPlaybook": [
+            {
+              "type": "fdiPlaybook",
+              "color": "#d45757",
+              "ruleId": 80543,
+              "message": "Major Frac Hit - Drop rate by 10 bpm & then increase prop conc by 0.5 ppg",
+              "timestamp": 1646764969000,
+              "offsetWellName": "offset_pressure_4"
+            },
+            {
+              "type": "fdiPlaybook",
+              "color": "#d45757",
+              "ruleId": 80545,
+              "message": "Be aware - FDI greater than 60psi",
+              "timestamp": 1646763923000,
+              "offsetWellName": "offset_pressure_5"
+            },
+            {
+              "type": "fdiPlaybook",
+              "color": "#f7f68b",
+              "ruleId": 80542,
+              "message": "Be aware - FDI greater than 50psi",
+              "timestamp": 1646763333000,
+              "offsetWellName": "offset_pressure_4"
+            },
+            {
+              "type": "fdiPlaybook",
+              "color": "#f5b16b",
+              "ruleId": 80544,
+              "message": "Be aware - FDI greater than 40psi",
+              "timestamp": 1646762773000,
+              "offsetWellName": "offset_pressure_5"
+            },
+            {
+              "type": "fdiPlaybook",
+              "color": "#f7f68b",
+              "ruleId": 80546,
+              "message": "Be aware - FDI greater than 30psi",
+              "timestamp": 1646762312000,
+              "offsetWellName": "offset_pressure_5"
+            }
+          ],
+          "ShiftMesh40": {
+            "type": "info",
+            "message": "ShiftMesh40 is missing mesh40 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "ShiftMesh100": {
+            "type": "info",
+            "message": "ShiftMesh100 is missing mesh100 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "FracAmplitude2": {
+            "type": "info",
+            "message": "FracAmplitude2 is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "QcPressureDiff": {
+            "type": "info",
+            "message": "QcPressureDiff is missing vanpressure as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "CumulativeFracs": {
+            "type": "info",
+            "message": "CumulativeFracs is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedHVFR2Conc": {
+            "type": "info",
+            "message": "PlottedHVFR2Conc is missing hvfr2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedHVFR3Conc": {
+            "type": "info",
+            "message": "PlottedHVFR3Conc is missing hvfr3 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "FilteredFrequency": {
+            "type": "info",
+            "message": "FilteredFrequency is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "FracBrainPlaybook": [
+            {
+              "type": "fracBrainPlaybook",
+              "color": "#f5b16b",
+              "ruleId": 80541,
+              "message": "FE less than 40 when proppant is at 350,000 lbs",
+              "timestamp": 1646765753000
+            }
+          ],
+          "PlottedBufferConc": {
+            "type": "info",
+            "message": "PlottedBufferConc is missing buffer as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PressureShiftAuto": {
+            "type": "info",
+            "message": "PressureShiftAuto is missing isPressureShiftAutoInUse as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "NormalizedProppant": {
+            "type": "info",
+            "message": "NormalizedProppant is missing isProppantNanInterpolated as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedBuffer2Conc": {
+            "type": "info",
+            "message": "PlottedBuffer2Conc is missing buffer2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedGellantConc": {
+            "type": "info",
+            "message": "PlottedGellantConc is missing gellant as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedBiocide2Conc": {
+            "type": "info",
+            "message": "PlottedBiocide2Conc is missing biocide2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedBreaker2Conc": {
+            "type": "info",
+            "message": "PlottedBreaker2Conc is missing breaker2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedDiverterConc": {
+            "type": "info",
+            "message": "PlottedDiverterConc is missing diverter as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedGellant2Conc": {
+            "type": "info",
+            "message": "PlottedGellant2Conc is missing gellant2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "GuidanceExperimental": [
+            {
+              "type": "guidance",
+              "value": "2.0",
+              "message": "Code 5100 - Recommended Rate Change: 2.0 bpm",
+              "subtype": "rate:increase",
+              "timestamp": 1646766372000
+            },
+            {
+              "type": "guidance",
+              "value": "2.0",
+              "message": "Code 5100 - Recommended Rate Change: 2.0 bpm",
+              "subtype": "rate:increase",
+              "timestamp": 1646765208000
+            },
+            {
+              "type": "guidance",
+              "value": "1.0",
+              "message": "Code 5110 - Recommended Rate Change: 1.0 bpm",
+              "subtype": "rate:increase",
+              "timestamp": 1646764726000
+            },
+            {
+              "type": "guidance",
+              "value": "0.5",
+              "message": "Code 5110 - Recommended Rate Change: 0.5 bpm",
+              "subtype": "rate:increase",
+              "timestamp": 1646764486000
+            },
+            {
+              "type": "guidance",
+              "value": "2.0",
+              "message": "Code 5100 - Recommended Rate Change: 2.0 bpm",
+              "subtype": "rate:increase",
+              "timestamp": 1646764061000
+            }
+          ],
+          "PlottedDiverter2Conc": {
+            "type": "info",
+            "message": "PlottedDiverter2Conc is missing diverter2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedSurfactantConc": {
+            "type": "info",
+            "message": "PlottedSurfactantConc is missing surfactant as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedCrosslinkerConc": {
+            "type": "info",
+            "message": "PlottedCrosslinkerConc is missing crosslinker as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedSurfactant2Conc": {
+            "type": "info",
+            "message": "PlottedSurfactant2Conc is missing surfactant2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedClaycontrol2Conc": {
+            "type": "info",
+            "message": "PlottedClaycontrol2Conc is missing claycontrol2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedCrossLinker2Conc": {
+            "type": "info",
+            "message": "PlottedCrossLinker2Conc is missing crosslinker2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "FracBrainPlaybookWarnings": {
+            "type": "warning",
+            "message": "FB Playbook: No warnings. INFO: Clean volume totalizer = vancumcleanvolume. Proppant mass totalizer = vancumproppantmass.",
+            "timestamp": 1646766406000
+          },
+          "PlottedFrictionReducerConc": {
+            "type": "info",
+            "message": "PlottedFrictionReducerConc is missing frictionreducer as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedScaleInhibitor2Conc": {
+            "type": "info",
+            "message": "PlottedScaleInhibitor2Conc is missing scaleinhibitor2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedFrictionReducer2Conc": {
+            "type": "info",
+            "message": "PlottedFrictionReducer2Conc is missing frictionreducer2 as input. It was not run.",
+            "timestamp": 1646766406000
+          },
+          "PlottedFrictionReducer3Conc": {
+            "type": "info",
+            "message": "PlottedFrictionReducer3Conc is missing frictionreducer3 as input. It was not run.",
+            "timestamp": 1646766406000
+          }
+        },
+        "boreholeVolume": 310.3930905,
+        "fdiIsWireline1": true,
+        "fdiIsWireline2": false,
+        "fdiIsWireline4": false,
+        "fdiIsWireline5": false,
+        "meanSlurryRate": 82.064,
+        "modeSlurryRate": 90,
+        "sampleRateMean": 1.0040145287707896,
+        "fdiPressureMax1": null,
+        "fdiPressureMax2": 6676.6920371484985,
+        "fdiPressureMax4": 699.8815285622517,
+        "fdiPressureMax5": 699.8815285622517,
+        "fdiPressureMin1": null,
+        "fdiPressureMin2": 6570.391443164522,
+        "fdiPressureMin4": 362.0579538983205,
+        "fdiPressureMin5": 362.0579538983205,
+        "totalCostActual": null,
+        "totalShearCount": 431364,
+        "fdiPressureMean1": null,
+        "fdiPressureMean2": 6623.715103493218,
+        "fdiPressureMean4": 438.1537186370976,
+        "fdiPressureMean5": 438.1537186370976,
+        "fdiVFRtimestamp1": null,
+        "fdiVFRtimestamp2": null,
+        "fdiVFRtimestamp4": 1646761155000,
+        "fdiVFRtimestamp5": 1646761155000,
+        "fracFrequencyMax": 0.74,
+        "fracFrequencyMin": 0.44,
+        "totalCleanVolume": 5983.62,
+        "totalCostPlanned": null,
+        "fdiMaxFirstDeriv1": null,
+        "fdiMaxFirstDeriv2": 0.22,
+        "fdiMaxFirstDeriv4": 2.13,
+        "fdiMaxFirstDeriv5": null,
+        "fdiVFFHtimestamp1": null,
+        "fdiVFFHtimestamp2": null,
+        "fdiVFFHtimestamp4": 1646765649000,
+        "fdiVFFHtimestamp5": null,
+        "fracFrequencyMean": 0.61,
+        "pressureShiftAuto": null,
+        "totalAdditiveHVFR": 750.12075012075,
+        "totalProppantMass": 409271.02,
+        "totalSandPumpTime": 70.28,
+        "totalSlurryVolume": 6458.28,
+        "totalTensileCount": 13375,
+        "fdiMaxSecondDeriv1": null,
+        "fdiMaxSecondDeriv2": 176.59,
+        "fdiMaxSecondDeriv4": 7251.73,
+        "fdiMaxSecondDeriv5": null,
+        "fdiPressureChange1": null,
+        "fdiPressureChange2": null,
+        "fdiPressureChange4": 337.8235746639312,
+        "fdiPressureChange5": 337.8235746639312,
+        "pseudoEndTimeIndex": 5699,
+        "pumpTimeStageTotal": 87.18333333333334,
+        "stageMeasuredDepth": 13391,
+        "totalAdditiveHVFR2": null,
+        "totalAdditiveHVFR3": null,
+        "fallOffEndTimestamp": null,
+        "fracFrequencyMedian": 0.61,
+        "fracFrequencyStdDev": 0.05,
+        "hasFdiPlaybookRules": true,
+        "maxMeasuredPressure": 10525,
+        "totalAdditiveBuffer": null,
+        "vanTotalCleanVolume": 6089.9033203125,
+        "breakdownPressureMax": 10525,
+        "fractureIntensityMax": 1712.22,
+        "meanMeasuredPressure": 9822,
+        "modeMeasuredPressure": 10000,
+        "qcPressureDiffMedian": null,
+        "totalAdditiveBiocide": 24.360024360024358,
+        "totalAdditiveBreaker": 368.21,
+        "totalAdditiveBuffer2": null,
+        "totalAdditiveGellant": null,
+        "totalCostActualClean": null,
+        "vanTotalProppantMass": 443749.5625,
+        "fallOffStartTimestamp": null,
+        "fdiPressureChangeMax1": null,
+        "fdiPressureChangeMax2": null,
+        "fdiPressureChangeMax4": 337.8235746639312,
+        "fdiPressureChangeMax5": 337.8235746639312,
+        "fractureEffectiveness": 43.13641064034151,
+        "fractureIntensityMode": 864,
+        "meanPredictedPressure": 10133,
+        "qcCleanRateDiffMedian": 0,
+        "totalAdditiveBiocide2": null,
+        "totalAdditiveBreaker2": null,
+        "totalAdditiveDiverter": null,
+        "totalAdditiveGellant2": null,
+        "totalCostPlannedClean": null,
+        "isFdiPlaybookTriggered": true,
+        "medianMeasuredPressure": 9945,
+        "qcSlurryRateDiffMedian": 0,
+        "totalAdditiveDiverter2": null,
+        "totalShearCountPerHVFR": 575.0599904015357,
+        "fdiOffsetPressureAtEnd1": null,
+        "fdiOffsetPressureAtEnd2": 6570.391443164522,
+        "fdiOffsetPressureAtEnd4": 699.8815285622517,
+        "fdiOffsetPressureAtEnd5": 699.8815285622517,
+        "fractureIntensityMedian": 1253.58,
+        "fractureIntensityStdDev": 431.47,
+        "totalAdditiveSurfactant": null,
+        "totalCostActualProppant": null,
+        "totalCostActualPumpTime": null,
+        "totalShearCountPerHVFR2": null,
+        "totalShearCountPerHVFR3": null,
+        "totalAdditiveClayControl": 75.18007518007518,
+        "totalAdditiveCrossLinker": null,
+        "totalAdditiveSurfactant2": null,
+        "totalCostPlannedProppant": null,
+        "totalCostPlannedPumpTime": null,
+        "totalProppantMassSurface": 439806.58,
+        "boreholePerfMeasuredDepth": 13471,
+        "fdiOffsetPressureAtStart1": null,
+        "fdiOffsetPressureAtStart2": 6676.6920371484985,
+        "fdiOffsetPressureAtStart4": 362.0579538983205,
+        "fdiOffsetPressureAtStart5": 362.0579538983205,
+        "fdiOffsetPressureCurrent1": 5979.2019452090135,
+        "fdiOffsetPressureCurrent2": 6570.391443164522,
+        "fdiOffsetPressureCurrent4": 699.8815285622517,
+        "fdiOffsetPressureCurrent5": 699.8815285622517,
+        "hasFracBrainPlaybookRules": true,
+        "qcTotalDuplicateAllValues": 0,
+        "totalAdditiveClayControl2": null,
+        "totalAdditiveCrossLinker2": null,
+        "qcPressureLargeDiffPercent": null,
+        "qcTotalDuplicateTimestamps": 0,
+        "totalCleanVolumeStageTotal": 6063.14,
+        "totalShearCountPerPumpTime": 90.92451970899522,
+        "fdiMinDeltaPressureFracHit1": 500,
+        "fdiMinDeltaPressureFracHit2": 500,
+        "fdiMinDeltaPressureFracHit4": 100,
+        "fdiMinDeltaPressureFracHit5": 100,
+        "fdiMinDerivPressureFracHit1": null,
+        "fdiMinDerivPressureFracHit2": null,
+        "fdiMinDerivPressureFracHit4": 100,
+        "fdiMinDerivPressureFracHit5": null,
+        "fdiPressureChangeDirection1": 0,
+        "fdiPressureChangeDirection2": 0,
+        "fdiPressureChangeDirection4": 2.5033467077525984,
+        "fdiPressureChangeDirection5": 2.5033467077525984,
+        "instantaneousShutInPressure": null,
+        "totalAdditiveScaleInhibitor": 0,
+        "totalPumpTimePerStageLength": 0.3761904761904762,
+        "totalSlurryVolumeStageTotal": 6538.53,
+        "fractureEffectivenessPerHVFR": 101.44070876961938,
+        "isFracBrainPlaybookTriggered": true,
+        "qcCleanRatePercentDiffMedian": 0,
+        "totalAdditiveFrictionReducer": null,
+        "totalAdditiveScaleInhibitor2": null,
+        "totalTensileCountPerPumpTime": 2.819289236767064,
+        "fractureEffectivenessPerHVFR2": null,
+        "fractureEffectivenessPerHVFR3": null,
+        "qcSlurryRatePercentDiffMedian": 0,
+        "totalAdditiveFrictionReducer2": null,
+        "totalAdditiveFrictionReducer3": null,
+        "totalShearCountPerCleanVolume": 72.09082568803083,
+        "totalShearCountPerStageLength": 2054.114285714286,
+        "totalShearFracsPerTensileFrac": 32.250866113070465,
+        "fdiOffsetPressureDerivativeMax": 371.62445396266077,
+        "fdiOffsetPressureDerivativeMin": -26.4773412038928,
+        "qcTotalDuplicatePressureValues": 42,
+        "totalCleanVolumePerStageLength": 28.49342857142857,
+        "totalShearCountPerProppantMass": 1.0539815557999077,
+        "totalShearCountPerSandPumpTime": 102.2965534062358,
+        "totalShearCountPerSlurryVolume": 66.79241321271533,
+        "instantaneousShutInPressure1min": null,
+        "instantaneousShutInPressure5min": null,
+        "totalAdditiveHVFRperStageLength": 3.572000000000001,
+        "totalProppantMassPerStageLength": 1948.9096190476191,
+        "totalSandPumpTimePerStageLength": 0.33466666666666667,
+        "totalSlurryVolumePerStageLength": 30.753714285714285,
+        "totalTensileCountPerCleanVolume": 2.235314407845135,
+        "totalTensileCountPerStageLength": 63.69047619047619,
+        "fractureEffectivenessPerPumpTime": 0.00910050857391171,
+        "instantaneousShutInPressure10min": null,
+        "qcPercentTotalDuplicateAllValues": 0,
+        "totalAdditiveHVFR2perStageLength": null,
+        "totalAdditiveHVFR3perStageLength": null,
+        "totalTensileCountPerProppantMass": 0.032680720948847795,
+        "totalTensileCountPerSandPumpTime": 3.171900966863571,
+        "totalTensileCountPerSlurryVolume": 2.0710269602851388,
+        "qcPercentTotalDuplicateTimestamps": 0,
+        "totalAdditiveBufferPerStageLength": null,
+        "totalShearCountPerFrictionReducer": null,
+        "fractureIntensityDerivativeCurrent": 73.59126715130736,
+        "totalAdditiveBiocidePerStageLength": 0.11600000000000003,
+        "totalAdditiveBreakerPerStageLength": 1.7533809523809523,
+        "totalAdditiveBuffer2PerStageLength": null,
+        "totalAdditiveGellantPerStageLength": null,
+        "totalShearCountPerFrictionReducer2": null,
+        "totalShearCountPerFrictionReducer3": null,
+        "fdiOffsetPressureDerivativeCurrent1": -20.995936460746055,
+        "fdiOffsetPressureDerivativeCurrent2": -22.596918092776008,
+        "fdiOffsetPressureDerivativeCurrent4": 256.7193965492772,
+        "fdiOffsetPressureDerivativeCurrent5": 256.7193965492772,
+        "fracBrainPlaybookAppliedCleanScalar": "vanTotalCleanVolume",
+        "fracBrainPlaybookCleanSourceMatches": true,
+        "fractureEffectivenessPerCleanVolume": 0.007209082568803084,
+        "fractureEffectivenessPerStageLength": 0.20541147923972147,
+        "totalAdditiveBiocide2PerStageLength": null,
+        "totalAdditiveBreaker2PerStageLength": null,
+        "totalAdditiveDiverterPerStageLength": null,
+        "totalAdditiveGellant2PerStageLength": null,
+        "fractureEffectivenessPerProppantMass": 0.00010539815557999075,
+        "fractureEffectivenessPerSandPumpTime": 0.010229655340623579,
+        "fractureEffectivenessPerSlurryVolume": 0.006679241321271532,
+        "instantaneousShutInPressureTimestamp": null,
+        "totalAdditiveDiverter2PerStageLength": null,
+        "qcPercentTotalDuplicatePressureValues": 0.008029057541579048,
+        "totalAdditiveSurfactantPerStageLength": null,
+        "fracBrainPlaybookAppliedProppantScalar": "vanTotalProppantMass",
+        "fracBrainPlaybookProppantSourceMatches": true,
+        "totalAdditiveClayControlPerStageLength": 0.3580000000000001,
+        "totalAdditiveCrossLinkerPerStageLength": null,
+        "totalAdditiveSurfactant2PerStageLength": null,
+        "totalProppantMassSurfacePerStageLength": 2094.3170476190476,
+        "fractureEffectivenessPerFrictionReducer": null,
+        "totalAdditiveClayControl2PerStageLength": null,
+        "totalAdditiveCrossLinker2PerStageLength": null,
+        "fractureEffectivenessPerFrictionReducer2": null,
+        "fractureEffectivenessPerFrictionReducer3": null,
+        "totalCleanVolumeStageTotalPerStageLength": 28.87209523809524,
+        "fdiOffsetPressureDerivativeSecondCurrent1": -101.55911465374629,
+        "fdiOffsetPressureDerivativeSecondCurrent2": -106.3005939839768,
+        "fdiOffsetPressureDerivativeSecondCurrent4": 337.8235746639312,
+        "fdiOffsetPressureDerivativeSecondCurrent5": 337.8235746639312,
+        "totalAdditiveScaleInhibitorPerStageLength": 0,
+        "totalSlurryVolumeStageTotalPerStageLength": 31.13585714285714,
+        "totalAdditiveFrictionReducerPerStageLength": null,
+        "totalAdditiveScaleInhibitor2PerStageLength": null,
+        "totalAdditiveFrictionReducer2PerStageLength": null,
+        "totalAdditiveFrictionReducer3PerStageLength": null,
+        "instantaneousShutInPressureTimestampOverride": 0
+      }
+    },
+    {
+      "companyId": 1628,
+      "companyName": "BPX Energy",
+      "companyShortName": "BPX",
+      "projectId": 7105,
+      "projectName": "Hodges Family 36-1",
+      "inProduction": true,
+      "inGuidance": false,
+      "timezone": "America/Chicago",
+      "notificationURL": null,
+      "wellId": 53633,
+      "wellNumber": "HC2",
+      "brand": "LIVE",
+      "stageId": 269021,
+      "hide": false,
+      "stageName": "6",
+      "ordinal": 850,
+      "createdAt": "2025-04-15T23:43:13.804Z",
+      "startTimestamp": 1744742548692,
+      "endTimestamp": 1744751564499,
+      "state": "LOADING",
+      "comment": "",
+      "clientComment": "",
+      "updatedAt": "2025-04-16T02:13:00.266Z",
+      "control": {
+        "parameters": {
+          "fdi": [
+            {
+              "name": "offset_pressure_1",
+              "state": "activefracperf",
+              "suspend": false,
+              "wellLabel": "HC1",
+              "minDeltaPressureFracHit": 100
+            },
+            {
+              "name": "offset_pressure_3",
+              "state": "activefracperf",
+              "suspend": false,
+              "wellLabel": "HC3",
+              "minDeltaPressureFracHit": 100
+            },
+            {
+              "name": "offset_pressure_4",
+              "state": "depletedproducing",
+              "suspend": false,
+              "wellLabel": "MAGNOLIA POINT LAND 38H-1",
+              "minDeltaPressureFracHit": 100
+            },
+            {
+              "name": "offset_pressure_5",
+              "state": "activefracperf",
+              "suspend": false,
+              "wellLabel": "CUPPLES 12-1 1ALT",
+              "minDeltaPressureFracHit": 100
+            }
+          ],
+          "plot": {
+            "lines": [
+              {
+                "show": true,
+                "color": "red",
+                "label": "Pressure",
+                "attribute": "measuredPressure",
+                "colorDark": "red",
+                "yAxisName": "pressure"
+              },
+              {
+                "show": false,
+                "color": "green",
+                "label": "Predicted Pressure",
+                "attribute": "predictedPressure",
+                "colorDark": "green",
+                "yAxisName": "pressure"
+              },
+              {
+                "show": true,
+                "color": "#000000",
+                "label": "Guidance",
+                "attribute": "guidance",
+                "colorDark": "#FFFFFF",
+                "yAxisName": "rate"
+              },
+              {
+                "show": true,
+                "color": "#15E503",
+                "label": "Fracture Intensity",
+                "attribute": "fractureIntensity",
+                "colorDark": "#15E503",
+                "yAxisName": "shearFracs"
+              },
+              {
+                "show": true,
+                "color": "blue",
+                "label": "Slurry Rate",
+                "attribute": "slurryRate",
+                "colorDark": "#64B5F6",
+                "yAxisName": "rate"
+              },
+              {
+                "show": true,
+                "color": "#29B6F6",
+                "label": "Clean Rate",
+                "attribute": "cleanRate",
+                "colorDark": "#29B6F6",
+                "yAxisName": "rate"
+              },
+              {
+                "show": true,
+                "color": "#F48FB1",
+                "label": "Surf Prop Conc",
+                "attribute": "proppant",
+                "colorDark": "#FFEB3B",
+                "yAxisName": "proppant"
+              },
+              {
+                "show": true,
+                "color": "orange",
+                "label": "BH Prop Conc",
+                "attribute": "plottedProppant",
+                "colorDark": "orange",
+                "yAxisName": "proppant"
+              },
+              {
+                "show": true,
+                "color": "#000000",
+                "label": "Fracture Frequency",
+                "attribute": "fracFrequency",
+                "colorDark": "#FAFAFA",
+                "yAxisName": "BlockSize"
+              },
+              {
+                "show": true,
+                "color": "#4CAF50",
+                "label": "Fracture Effectiveness",
+                "attribute": "fracEffectiveness",
+                "colorDark": "#4CAF50",
+                "yAxisName": "Fracture Surface Area"
+              },
+              {
+                "show": true,
+                "color": "#AB47BC",
+                "label": "FR Conc.",
+                "attribute": "plottedFrictionReducerConc",
+                "colorDark": "#AB47BC",
+                "yAxisName": "proppant"
+              },
+              {
+                "show": true,
+                "color": "#E53935",
+                "label": "Diverter",
+                "attribute": "plottedDiverterConc",
+                "colorDark": "#E53935",
+                "yAxisName": "Fracture Surface Area"
+              }
+            ],
+            "yAxes": [
+              {
+                "name": "pressure",
+                "unit": "psi",
+                "title": "Pressure",
+                "limits": {
+                  "max": 14000,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "rate",
+                "unit": "bpm",
+                "title": "Slurry Rate",
+                "limits": {
+                  "max": 180,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "proppant",
+                "unit": "ppg",
+                "title": "Proppant",
+                "limits": {
+                  "max": 5,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "shearFracs",
+                "unit": "",
+                "title": "Fracture Intensity",
+                "limits": {
+                  "max": 200,
+                  "min": 0
+                },
+                "position": "right"
+              },
+              {
+                "name": "BlockSize",
+                "unit": "",
+                "title": "Fracture Frequency",
+                "limits": {
+                  "max": 1,
+                  "min": 0
+                },
+                "position": "right"
+              },
+              {
+                "name": "Fracture Surface Area",
+                "unit": "",
+                "title": "Fracture Effectiveness",
+                "limits": {
+                  "max": 100,
+                  "min": 0
+                },
+                "position": "right"
+              }
+            ],
+            "useUTC": true,
+            "endTime": 0,
+            "secondary": {
+              "additives": {
+                "yaxis": {
+                  "max": 4,
+                  "min": null
+                }
+              },
+              "fdiWarning": {
+                "yaxis": {
+                  "max": null,
+                  "min": null
+                }
+              },
+              "pressureDerivative": {
+                "yaxis": {
+                  "max": null,
+                  "min": null
+                }
+              },
+              "relativeDerivative": {
+                "yaxis": {
+                  "max": null,
+                  "min": null
+                }
+              }
+            },
+            "startTime": 1744749525367
+          },
+          "source": {
+            "attributes": [
+              {
+                "name": "time",
+                "unit": "milliseconds",
+                "index": 0,
+                "multiplier": 1
+              },
+              {
+                "name": "pressure",
+                "unit": "psi",
+                "index": 12,
+                "multiplier": 1
+              },
+              {
+                "name": "rate",
+                "unit": "bpm",
+                "index": 44,
+                "multiplier": 1
+              },
+              {
+                "name": "proppant",
+                "unit": "ppg",
+                "index": 52,
+                "multiplier": 1
+              },
+              {
+                "name": "cleanRate",
+                "unit": "bpm",
+                "index": 43,
+                "multiplier": 1
+              },
+              {
+                "name": "vanCumCleanVolume",
+                "unit": "bbl",
+                "index": 57,
+                "multiplier": 1
+              },
+              {
+                "name": "vanCumProppantMass",
+                "unit": "lb",
+                "index": 59,
+                "multiplier": 1
+              },
+              {
+                "name": "vanPressure",
+                "unit": "psi",
+                "index": 49,
+                "multiplier": 1
+              },
+              {
+                "name": "frictionreducer",
+                "unit": "gal/mgal",
+                "index": 65,
+                "multiplier": 1
+              },
+              {
+                "name": "diverter",
+                "unit": "ppg",
+                "index": 45,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_1",
+                "unit": "psi",
+                "index": 11,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_2",
+                "unit": "psi",
+                "index": 12,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_3",
+                "unit": "psi",
+                "index": 13,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_4",
+                "unit": "psi",
+                "index": 63,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_5",
+                "unit": "psi",
+                "index": 64,
+                "multiplier": 1
+              }
+            ]
+          },
+          "fbsFlag": true,
+          "meshLag": 0,
+          "features": [
+            "default",
+            "experimentalGuidance",
+            "fdi",
+            "fracEffectiveness",
+            "fracFrequency"
+          ],
+          "rateClip": 20,
+          "sandBase": 0.5,
+          "pauseFlag": false,
+          "sandShift": 0,
+          "fdiEndTime": 0,
+          "guideWidth": 20,
+          "sandWindow": 0,
+          "stageLength": 149.95999999999913,
+          "experimental": {
+            "rateWindow": 10,
+            "rateCeiling": 107,
+            "blockSizeFloor": 0.1,
+            "minAbsRateChange": 0.5,
+            "rateChangeHurdle": 0.5,
+            "fdiSmoothingWindow": 200,
+            "isTensileAutoStartInUse": true,
+            "singleRateDropAtCeiling": 2,
+            "additiveFilterPercentile": 0.999,
+            "derivPressureWindowWidth": 600,
+            "isPressureShiftAutoInUse": true,
+            "minAbsRateChangeIncrement": 0.5
+          },
+          "fdiStartTime": 0,
+          "plannedWater": 12220,
+          "pressureBase": 1000,
+          "cumShearStart": 1744749602717,
+          "maxPseudoSand": 1.01,
+          "minPseudoSand": 1,
+          "pressureShift": 7,
+          "boreholeVolume": 495.8708091,
+          "guideRateDelta": 1.25,
+          "panicRateDelta": 1.5,
+          "regrCoeff2Sand": 0.08,
+          "regrYIntercept": 0.7,
+          "velocityWindow": 50,
+          "blockSizeHurdle": 0.025,
+          "frequencyWindow": 125,
+          "plannedProppant": 527450,
+          "pressureCaution": 0.962963,
+          "pressureCeiling": 13500,
+          "regrCoeff1Water": 0.5,
+          "fdiWarningWindow": 10,
+          "pressureIncrease": 50,
+          "rateMessageDelay": 600,
+          "rateStepVariance": 0.5,
+          "tensileStartTime": 1744749599587,
+          "blockSizeSmoother": 100,
+          "fracAmplitudeBias": 0.3,
+          "fracBrainPlaybook": {
+            "suspend": false,
+            "cleanSource": "vancumcleanvolume",
+            "proppantSource": "vancumproppantmass"
+          },
+          "guidanceStartTime": 0,
+          "minimumRateChange": 0.5,
+          "stageMeasuredDepth": 20766.900000000005,
+          "boreholeVolumeUnits": "Field",
+          "fracIntensityScalar": 1,
+          "downholeconcentrates": [
+            {
+              "name": "proppant",
+              "unit": "ppg",
+              "output": "sfgBHSand",
+              "multiplier": 1
+            }
+          ],
+          "pseudoProppantWindow": 150,
+          "fracIntensitySmoother": 100,
+          "isipTimestampOverride": 0,
+          "yInterceptOverrideTime": 0,
+          "plannedConsumablesUnits": "Field",
+          "fdiWLFirstDerivThreshold": 5000,
+          "standardDerivWLDetection": true,
+          "derivativePercentIncrease": 5,
+          "fdiWLSecondDerivThreshold": 1000000,
+          "fracBrainPlaybookStartTime": 0,
+          "fracSurfaceAreaCoefficient": 10000,
+          "predictivePressureSmoothing": false,
+          "boreholeMidPerfMeasuredDepth": 20623.92
+        }
+      },
+      "summary": {
+        "fdiVFR1": null,
+        "fdiVFR2": null,
+        "fdiVFR3": 269.09,
+        "fdiVFR4": null,
+        "fdiVFR5": 0,
+        "release": "FracBRAIN® 4.17.656",
+        "fdiPFFH1": null,
+        "fdiPFFH3": null,
+        "fdiPFFH4": null,
+        "fdiPFFH5": null,
+        "fdiVFFH1": null,
+        "fdiVFFH3": null,
+        "fdiVFFH4": null,
+        "fdiVFFH5": null,
+        "pumpTime": 32,
+        "fdiIdxFR1": null,
+        "fdiIdxFR2": null,
+        "fdiIdxFR3": 7300,
+        "fdiIdxFR4": null,
+        "fdiIdxFR5": 6839,
+        "timeDelay": 10000,
+        "fdiEndTime": 0,
+        "fdiIdxFFH1": null,
+        "fdiIdxFFH3": null,
+        "fdiIdxFFH4": null,
+        "fdiIdxFFH5": null,
+        "peak_count": 660,
+        "stageLength": 149.95999999999913,
+        "fdiStartTime": 1744749525367,
+        "maxCleanRate": 104.353,
+        "plateau_size": 0,
+        "maxSlurryRate": 105.929,
+        "meanCleanRate": 87.736,
+        "modeCleanRate": 102,
+        "notifications": {
+          "FdiVfrN": {
+            "type": "info",
+            "message": "FdiVfrN is missing fdiMinDerivPressureFracHit2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "FdiIdxFRN": {
+            "type": "info",
+            "message": "FdiIdxFRN is missing fdiOffsetWellState2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "FracStress": {
+            "type": "info",
+            "message": "FracStress is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "TotalCosts": {
+            "type": "info",
+            "message": "TotalCosts is missing costPerUnitPumpTime, costPerUnitClean, costPerUnitProppant, plannedPumpTime, plannedCleanVolume, plannedProppantMass as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "ShiftMesh40": {
+            "type": "info",
+            "message": "ShiftMesh40 is missing mesh40 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "ShiftMesh100": {
+            "type": "info",
+            "message": "ShiftMesh100 is missing mesh100 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "FracAmplitude2": {
+            "type": "info",
+            "message": "FracAmplitude2 is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "CumulativeFracs": {
+            "type": "info",
+            "message": "CumulativeFracs is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedHVFRConc": {
+            "type": "info",
+            "message": "PlottedHVFRConc is missing hvfr as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedHVFR2Conc": {
+            "type": "info",
+            "message": "PlottedHVFR2Conc is missing hvfr2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedHVFR3Conc": {
+            "type": "info",
+            "message": "PlottedHVFR3Conc is missing hvfr3 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "FilteredFrequency": {
+            "type": "info",
+            "message": "FilteredFrequency is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedBufferConc": {
+            "type": "info",
+            "message": "PlottedBufferConc is missing buffer as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "FdiOffsetPressureN": {
+            "type": "info",
+            "message": "FdiOffsetPressureN is missing fdiWellType2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "NormalizedProppant": {
+            "type": "info",
+            "message": "NormalizedProppant is missing isProppantNanInterpolated as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedBiocideConc": {
+            "type": "info",
+            "message": "PlottedBiocideConc is missing biocide as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedBreakerConc": {
+            "type": "info",
+            "message": "PlottedBreakerConc is missing breaker as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedBuffer2Conc": {
+            "type": "info",
+            "message": "PlottedBuffer2Conc is missing buffer2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedGellantConc": {
+            "type": "info",
+            "message": "PlottedGellantConc is missing gellant as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "FdiPlaybookWarnings": {
+            "type": "warning",
+            "message": "FDI Playbook: No FDI Playbook rules passed to the engine for this stage",
+            "timestamp": 1744751564499
+          },
+          "PlottedBiocide2Conc": {
+            "type": "info",
+            "message": "PlottedBiocide2Conc is missing biocide2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedBreaker2Conc": {
+            "type": "info",
+            "message": "PlottedBreaker2Conc is missing breaker2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedGellant2Conc": {
+            "type": "info",
+            "message": "PlottedGellant2Conc is missing gellant2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "GuidanceExperimental": {
+            "type": "warning",
+            "message": "Guidance start time needs to be picked to start guidance advice",
+            "timestamp": 1744751564499
+          },
+          "PlottedDiverter2Conc": {
+            "type": "info",
+            "message": "PlottedDiverter2Conc is missing diverter2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedSurfactantConc": {
+            "type": "info",
+            "message": "PlottedSurfactantConc is missing surfactant as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedClayControlConc": {
+            "type": "info",
+            "message": "PlottedClayControlConc is missing claycontrol as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedCrosslinkerConc": {
+            "type": "info",
+            "message": "PlottedCrosslinkerConc is missing crosslinker as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedSurfactant2Conc": {
+            "type": "info",
+            "message": "PlottedSurfactant2Conc is missing surfactant2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "FdiPressureChangeCurveN": {
+            "type": "info",
+            "message": "FdiPressureChangeCurveN is missing fdiWellType2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedClaycontrol2Conc": {
+            "type": "info",
+            "message": "PlottedClaycontrol2Conc is missing claycontrol2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedCrossLinker2Conc": {
+            "type": "info",
+            "message": "PlottedCrossLinker2Conc is missing crosslinker2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "FracBrainPlaybookWarnings": {
+            "type": "warning",
+            "message": "FB Playbook: No FracBrain Playbook rules passed to the engine for this stage.",
+            "timestamp": 1744751564499
+          },
+          "PlottedScaleInhibitorConc": {
+            "type": "info",
+            "message": "PlottedScaleInhibitorConc is missing scaleinhibitor as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedScaleInhibitor2Conc": {
+            "type": "info",
+            "message": "PlottedScaleInhibitor2Conc is missing scaleinhibitor2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "FdiOffsetPressureProjectedN": {
+            "type": "info",
+            "message": "FdiOffsetPressureProjectedN is missing fdiWellType2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedFrictionReducer2Conc": {
+            "type": "info",
+            "message": "PlottedFrictionReducer2Conc is missing frictionreducer2 as input. It was not run.",
+            "timestamp": 1744751564499
+          },
+          "PlottedFrictionReducer3Conc": {
+            "type": "info",
+            "message": "PlottedFrictionReducer3Conc is missing frictionreducer3 as input. It was not run.",
+            "timestamp": 1744751564499
+          }
+        },
+        "boreholeVolume": 495.8708091,
+        "fdiIsWireline1": false,
+        "fdiIsWireline3": false,
+        "fdiIsWireline4": false,
+        "fdiIsWireline5": false,
+        "meanSlurryRate": 91.068,
+        "modeSlurryRate": 105,
+        "sampleRateMean": 1.0200024987506244,
+        "fdiPressureMax1": 5933.063893501656,
+        "fdiPressureMax3": 5688.465058883444,
+        "fdiPressureMax4": 1.1216091951168112,
+        "fdiPressureMax5": 717.4411717121419,
+        "fdiPressureMin1": 5828.761229673819,
+        "fdiPressureMin3": 5633.130281283949,
+        "fdiPressureMin4": 1.0835759166726813,
+        "fdiPressureMin5": 715.1285330563335,
+        "totalCostActual": null,
+        "totalShearCount": 97902,
+        "fdiPressureMean1": 5865.823280073193,
+        "fdiPressureMean3": 5651.989528989962,
+        "fdiPressureMean4": 1.1067101077654642,
+        "fdiPressureMean5": 716.2912023603652,
+        "fdiVFRtimestamp1": null,
+        "fdiVFRtimestamp3": 1744749994716,
+        "fdiVFRtimestamp4": null,
+        "fdiVFRtimestamp5": 1744749524495,
+        "fracFrequencyMax": 0.84,
+        "fracFrequencyMin": 0.24,
+        "totalCleanVolume": 2782.83,
+        "totalCostPlanned": null,
+        "fdiMaxFirstDeriv1": 1114.44,
+        "fdiMaxFirstDeriv3": 384.72,
+        "fdiMaxFirstDeriv4": null,
+        "fdiMaxFirstDeriv5": 10.2,
+        "fdiVFFHtimestamp1": null,
+        "fdiVFFHtimestamp3": null,
+        "fdiVFFHtimestamp4": null,
+        "fdiVFFHtimestamp5": null,
+        "fracFrequencyMean": 0.68,
+        "pressureShiftAuto": 0,
+        "totalAdditiveHVFR": null,
+        "totalProppantMass": 11766.46,
+        "totalSandPumpTime": 12.18,
+        "totalSlurryVolume": 2889.63,
+        "totalTensileCount": 9362,
+        "fdiMaxSecondDeriv1": 6408.64,
+        "fdiMaxSecondDeriv3": 1602.91,
+        "fdiMaxSecondDeriv4": null,
+        "fdiMaxSecondDeriv5": 22.59,
+        "fdiPressureChange1": null,
+        "fdiPressureChange2": null,
+        "fdiPressureChange3": 55.33477759949437,
+        "fdiPressureChange4": null,
+        "fdiPressureChange5": 2.3126386558084278,
+        "pseudoEndTimeIndex": 8839,
+        "pumpTimeStageTotal": 33.35,
+        "stageMeasuredDepth": 20766.900000000005,
+        "totalAdditiveHVFR2": null,
+        "totalAdditiveHVFR3": null,
+        "fallOffEndTimestamp": null,
+        "fracFrequencyMedian": 0.7,
+        "fracFrequencyStdDev": 0.11,
+        "hasFdiPlaybookRules": false,
+        "maxMeasuredPressure": 11983,
+        "totalAdditiveBuffer": null,
+        "vanTotalCleanVolume": 2840.76904296875,
+        "breakdownPressureMax": 11983,
+        "fractureIntensityMax": 79.76,
+        "meanMeasuredPressure": 11225,
+        "modeMeasuredPressure": 11399.999999999998,
+        "qcPressureDiffMedian": 425.855,
+        "totalAdditiveBiocide": null,
+        "totalAdditiveBreaker": null,
+        "totalAdditiveBuffer2": null,
+        "totalAdditiveGellant": null,
+        "totalCostActualClean": null,
+        "vanTotalProppantMass": 26629.271484375,
+        "fallOffStartTimestamp": null,
+        "fdiPressureChangeMax1": null,
+        "fdiPressureChangeMax2": null,
+        "fdiPressureChangeMax3": 55.33477759949437,
+        "fdiPressureChangeMax4": null,
+        "fdiPressureChangeMax5": 2.3126386558084278,
+        "fractureEffectiveness": 9.790187638222,
+        "fractureIntensityMode": 60,
+        "meanPredictedPressure": 11567,
+        "qcCleanRateDiffMedian": -2.775,
+        "totalAdditiveBiocide2": null,
+        "totalAdditiveBreaker2": null,
+        "totalAdditiveDiverter": 93823.26,
+        "totalAdditiveGellant2": null,
+        "totalCostPlannedClean": null,
+        "isFdiPlaybookTriggered": false,
+        "medianMeasuredPressure": 11391,
+        "qcSlurryRateDiffMedian": 2.79,
+        "totalAdditiveDiverter2": null,
+        "totalShearCountPerHVFR": null,
+        "fdiOffsetPressureAtEnd1": 5828.761229673819,
+        "fdiOffsetPressureAtEnd3": 5688.465058883444,
+        "fdiOffsetPressureAtEnd4": 1.0835759166726813,
+        "fdiOffsetPressureAtEnd5": 717.4411717121419,
+        "fractureIntensityMedian": 56.81,
+        "fractureIntensityStdDev": 19.57,
+        "totalAdditiveSurfactant": null,
+        "totalCostActualProppant": null,
+        "totalCostActualPumpTime": null,
+        "totalShearCountPerHVFR2": null,
+        "totalShearCountPerHVFR3": null,
+        "totalAdditiveClayControl": null,
+        "totalAdditiveCrossLinker": null,
+        "totalAdditiveSurfactant2": null,
+        "totalCostPlannedProppant": null,
+        "totalCostPlannedPumpTime": null,
+        "totalProppantMassSurface": 24274.59,
+        "boreholePerfMeasuredDepth": 20623.92,
+        "fdiOffsetPressureAtStart1": 5933.063893501656,
+        "fdiOffsetPressureAtStart3": 5635.843358461574,
+        "fdiOffsetPressureAtStart4": 1.1216091951168112,
+        "fdiOffsetPressureAtStart5": 715.1285330563335,
+        "fdiOffsetPressureCurrent1": 5828.761229673819,
+        "fdiOffsetPressureCurrent2": null,
+        "fdiOffsetPressureCurrent3": 5688.465058883444,
+        "fdiOffsetPressureCurrent4": 1.0835759166726813,
+        "fdiOffsetPressureCurrent5": 717.4411717121419,
+        "hasFracBrainPlaybookRules": false,
+        "qcTotalDuplicateAllValues": 0,
+        "totalAdditiveClayControl2": null,
+        "totalAdditiveCrossLinker2": null,
+        "qcPressureLargeDiffPercent": 0.864027149321267,
+        "qcTotalDuplicateTimestamps": 0,
+        "totalCleanVolumeStageTotal": 2785.84,
+        "totalShearCountPerPumpTime": 50.78424960173253,
+        "fdiMinDeltaPressureFracHit1": 100,
+        "fdiMinDeltaPressureFracHit3": 100,
+        "fdiMinDeltaPressureFracHit4": 100,
+        "fdiMinDeltaPressureFracHit5": 100,
+        "fdiMinDerivPressureFracHit1": null,
+        "fdiMinDerivPressureFracHit3": null,
+        "fdiMinDerivPressureFracHit4": null,
+        "fdiMinDerivPressureFracHit5": null,
+        "fdiPressureChangeDirection1": 0,
+        "fdiPressureChangeDirection2": 0,
+        "fdiPressureChangeDirection3": 0.4331032569725721,
+        "fdiPressureChangeDirection4": 0,
+        "fdiPressureChangeDirection5": 0.011331914668176069,
+        "instantaneousShutInPressure": null,
+        "totalAdditiveScaleInhibitor": null,
+        "totalPumpTimePerStageLength": 0.21339023739664034,
+        "totalSlurryVolumeStageTotal": 2891.32,
+        "fractureEffectivenessPerHVFR": null,
+        "isFracBrainPlaybookTriggered": false,
+        "qcCleanRatePercentDiffMedian": 0.03,
+        "totalAdditiveFrictionReducer": 224.28022428022427,
+        "totalAdditiveScaleInhibitor2": null,
+        "totalTensileCountPerPumpTime": 4.856508114313433,
+        "fractureEffectivenessPerHVFR2": null,
+        "fractureEffectivenessPerHVFR3": null,
+        "qcSlurryRatePercentDiffMedian": 0.03,
+        "totalAdditiveFrictionReducer2": null,
+        "totalAdditiveFrictionReducer3": null,
+        "totalShearCountPerCleanVolume": 35.180688860699355,
+        "totalShearCountPerStageLength": 652.8540944251838,
+        "totalShearFracsPerTensileFrac": 10.456947338779836,
+        "fdiOffsetPressureDerivativeMax": 384.71694452512577,
+        "fdiOffsetPressureDerivativeMin": -1114.4398259727932,
+        "qcTotalDuplicatePressureValues": 5,
+        "totalCleanVolumePerStageLength": 18.557148572952894,
+        "totalShearCountPerProppantMass": 8.320418918028022,
+        "totalShearCountPerSandPumpTime": 133.96534808732895,
+        "totalShearCountPerSlurryVolume": 33.88041942470835,
+        "instantaneousShutInPressure1min": null,
+        "instantaneousShutInPressure5min": null,
+        "totalAdditiveHVFRperStageLength": null,
+        "totalProppantMassPerStageLength": 78.46399039743977,
+        "totalSandPumpTimePerStageLength": 0.08122165910909623,
+        "totalSlurryVolumePerStageLength": 19.269338490264182,
+        "totalTensileCountPerCleanVolume": 3.3643364283026407,
+        "totalTensileCountPerStageLength": 62.42998132835459,
+        "fractureEffectivenessPerPumpTime": 0.005099056061573958,
+        "instantaneousShutInPressure10min": null,
+        "qcPercentTotalDuplicateAllValues": 0,
+        "totalAdditiveHVFR2perStageLength": null,
+        "totalAdditiveHVFR3perStageLength": null,
+        "totalTensileCountPerProppantMass": 0.7956833527478475,
+        "totalTensileCountPerSandPumpTime": 12.81113347396475,
+        "totalTensileCountPerSlurryVolume": 3.2399913977822203,
+        "qcPercentTotalDuplicateTimestamps": 0,
+        "totalAdditiveBufferPerStageLength": null,
+        "totalShearCountPerFrictionReducer": 436.5168539325843,
+        "fractureIntensityDerivativeCurrent": 0.36826996745070073,
+        "totalAdditiveBiocidePerStageLength": null,
+        "totalAdditiveBreakerPerStageLength": null,
+        "totalAdditiveBuffer2PerStageLength": null,
+        "totalAdditiveGellantPerStageLength": null,
+        "totalShearCountPerFrictionReducer2": null,
+        "totalShearCountPerFrictionReducer3": null,
+        "fdiOffsetPressureDerivativeCurrent1": -164.06023043974074,
+        "fdiOffsetPressureDerivativeCurrent2": null,
+        "fdiOffsetPressureDerivativeCurrent3": 381.1948281497452,
+        "fdiOffsetPressureDerivativeCurrent4": -0.6537263506965951,
+        "fdiOffsetPressureDerivativeCurrent5": 10.202680036132739,
+        "fracBrainPlaybookAppliedCleanScalar": "vanTotalCleanVolume",
+        "fracBrainPlaybookCleanSourceMatches": true,
+        "fractureEffectivenessPerCleanVolume": 0.003518068886069936,
+        "fractureEffectivenessPerStageLength": 0.06528532700868268,
+        "totalAdditiveBiocide2PerStageLength": null,
+        "totalAdditiveBreaker2PerStageLength": null,
+        "totalAdditiveDiverterPerStageLength": 625.6552413977097,
+        "totalAdditiveGellant2PerStageLength": null,
+        "fractureEffectivenessPerProppantMass": 0.0008320418918028022,
+        "fractureEffectivenessPerSandPumpTime": 0.013396534808732895,
+        "fractureEffectivenessPerSlurryVolume": 0.003388041942470835,
+        "instantaneousShutInPressureTimestamp": null,
+        "totalAdditiveDiverter2PerStageLength": null,
+        "qcPercentTotalDuplicatePressureValues": 0.0024987506246876563,
+        "totalAdditiveSurfactantPerStageLength": null,
+        "fracBrainPlaybookAppliedProppantScalar": "vanTotalProppantMass",
+        "fracBrainPlaybookProppantSourceMatches": true,
+        "totalAdditiveClayControlPerStageLength": null,
+        "totalAdditiveCrossLinkerPerStageLength": null,
+        "totalAdditiveSurfactant2PerStageLength": null,
+        "totalProppantMassSurfacePerStageLength": 161.873766337691,
+        "fractureEffectivenessPerFrictionReducer": 77.00155280779325,
+        "totalAdditiveClayControl2PerStageLength": null,
+        "totalAdditiveCrossLinker2PerStageLength": null,
+        "fractureEffectivenessPerFrictionReducer2": null,
+        "fractureEffectivenessPerFrictionReducer3": null,
+        "totalCleanVolumeStageTotalPerStageLength": 18.577220592158017,
+        "fdiOffsetPressureDerivativeSecondCurrent1": -104.30266382783702,
+        "fdiOffsetPressureDerivativeSecondCurrent2": null,
+        "fdiOffsetPressureDerivativeSecondCurrent3": 52.62170042186972,
+        "fdiOffsetPressureDerivativeSecondCurrent4": -0.03803327844412996,
+        "fdiOffsetPressureDerivativeSecondCurrent5": 2.3126386558084278,
+        "totalAdditiveScaleInhibitorPerStageLength": null,
+        "totalSlurryVolumeStageTotalPerStageLength": 19.280608162176694,
+        "totalAdditiveFrictionReducerPerStageLength": 1.4955988263537034,
+        "totalAdditiveScaleInhibitor2PerStageLength": null,
+        "totalAdditiveFrictionReducer2PerStageLength": null,
+        "totalAdditiveFrictionReducer3PerStageLength": null,
+        "instantaneousShutInPressureTimestampOverride": 0
+      }
+    },
+    {
+      "companyId": 1550,
+      "companyName": "EQT Corporation",
+      "companyShortName": "EQT",
+      "projectId": 7090,
+      "projectName": "Vanderbilt",
+      "inProduction": true,
+      "inGuidance": false,
+      "timezone": "America/New_York",
+      "notificationURL": null,
+      "wellId": 53332,
+      "wellNumber": "4H",
+      "brand": "LIVE",
+      "stageId": 269023,
+      "hide": false,
+      "stageName": "25",
+      "ordinal": 3152,
+      "createdAt": "2025-04-16T00:50:26.455Z",
+      "startTimestamp": 1744750188155,
+      "endTimestamp": 1744755166792,
+      "state": "LOADING",
+      "comment": "",
+      "clientComment": "",
+      "updatedAt": "2025-04-16T02:13:02.424Z",
+      "control": {
+        "parameters": {
+          "fdi": [
+            {
+              "name": "offset_pressure_1",
+              "state": "activefracperf",
+              "suspend": false,
+              "wellLabel": "2H",
+              "minDeltaPressureFracHit": 100
+            },
+            {
+              "name": "offset_pressure_3",
+              "state": "activefracfalloff",
+              "suspend": false,
+              "wellLabel": "6H",
+              "minDeltaPressureFracHit": 100
+            },
+            {
+              "name": "offset_pressure_4",
+              "state": "activefracperf",
+              "suspend": false,
+              "wellLabel": "8H",
+              "minDeltaPressureFracHit": 100
+            },
+            {
+              "name": "offset_pressure_5",
+              "state": "activefracperf",
+              "suspend": false,
+              "wellLabel": "10H",
+              "minDeltaPressureFracHit": 100
+            },
+            {
+              "name": "offset_pressure_6",
+              "state": "depletedshutinfalloff",
+              "suspend": false,
+              "wellLabel": "Carnegie 1H",
+              "minDeltaPressureFracHit": 100
+            }
+          ],
+          "plot": {
+            "lines": [
+              {
+                "show": true,
+                "color": "red",
+                "label": "Pressure",
+                "attribute": "measuredPressure",
+                "colorDark": "red",
+                "yAxisName": "pressure"
+              },
+              {
+                "show": false,
+                "color": "green",
+                "label": "Predicted Pressure",
+                "attribute": "predictedPressure",
+                "colorDark": "green",
+                "yAxisName": "pressure"
+              },
+              {
+                "show": true,
+                "color": "#000000",
+                "label": "Guidance",
+                "attribute": "guidance",
+                "colorDark": "#FFFFFF",
+                "yAxisName": "rate"
+              },
+              {
+                "show": true,
+                "color": "#15E503",
+                "label": "Fracture Intensity",
+                "attribute": "fractureIntensity",
+                "colorDark": "#15E503",
+                "yAxisName": "shearFracs"
+              },
+              {
+                "show": true,
+                "color": "blue",
+                "label": "Slurry Rate",
+                "attribute": "slurryRate",
+                "colorDark": "#64B5F6",
+                "yAxisName": "rate"
+              },
+              {
+                "show": true,
+                "color": "#F48FB1",
+                "label": "Surf Prop Conc",
+                "attribute": "proppant",
+                "colorDark": "#FFEB3B",
+                "yAxisName": "proppant"
+              },
+              {
+                "show": true,
+                "color": "orange",
+                "label": "BH Prop Conc",
+                "attribute": "plottedProppant",
+                "colorDark": "orange",
+                "yAxisName": "proppant"
+              },
+              {
+                "show": true,
+                "color": "#000000",
+                "label": "Fracture Frequency",
+                "attribute": "fracFrequency",
+                "colorDark": "#FAFAFA",
+                "yAxisName": "BlockSize"
+              },
+              {
+                "show": true,
+                "color": "#4CAF50",
+                "label": "Fracture Effectiveness",
+                "attribute": "fracEffectiveness",
+                "colorDark": "#4CAF50",
+                "yAxisName": "Fracture Surface Area"
+              },
+              {
+                "show": true,
+                "color": "#AB47BC",
+                "label": "FR Conc.",
+                "attribute": "plottedFrictionReducerConc",
+                "colorDark": "#AB47BC",
+                "yAxisName": "proppant"
+              }
+            ],
+            "yAxes": [
+              {
+                "name": "pressure",
+                "unit": "psi",
+                "title": "Pressure",
+                "limits": {
+                  "max": 10000,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "rate",
+                "unit": "bpm",
+                "title": "Slurry Rate",
+                "limits": {
+                  "max": 200,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "proppant",
+                "unit": "ppg",
+                "title": "Proppant",
+                "limits": {
+                  "max": 5,
+                  "min": 0
+                },
+                "position": "left"
+              },
+              {
+                "name": "shearFracs",
+                "unit": "",
+                "title": "Fracture Intensity",
+                "limits": {
+                  "max": 200,
+                  "min": 0
+                },
+                "position": "right"
+              },
+              {
+                "name": "BlockSize",
+                "unit": "",
+                "title": "Fracture Frequency",
+                "limits": {
+                  "max": 1,
+                  "min": 0
+                },
+                "position": "right"
+              },
+              {
+                "name": "Fracture Surface Area",
+                "unit": "",
+                "title": "Fracture Effectiveness",
+                "limits": {
+                  "max": 100,
+                  "min": 0
+                },
+                "position": "right"
+              }
+            ],
+            "useUTC": true,
+            "endTime": 0,
+            "secondary": {
+              "additives": {
+                "yaxis": {
+                  "max": 4,
+                  "min": null
+                }
+              },
+              "fdiWarning": {
+                "yaxis": {
+                  "max": null,
+                  "min": null
+                }
+              },
+              "pressureDerivative": {
+                "yaxis": {
+                  "max": 40,
+                  "min": null
+                }
+              },
+              "relativeDerivative": {
+                "yaxis": {
+                  "max": 200,
+                  "min": null
+                }
+              }
+            },
+            "startTime": 1744750497546
+          },
+          "source": {
+            "attributes": [
+              {
+                "name": "time",
+                "unit": "milliseconds",
+                "index": 0,
+                "multiplier": 1
+              },
+              {
+                "name": "pressure",
+                "unit": "psi",
+                "index": 36,
+                "multiplier": 1
+              },
+              {
+                "name": "rate",
+                "unit": "bpm",
+                "index": 31,
+                "multiplier": 1
+              },
+              {
+                "name": "proppant",
+                "unit": "ppg",
+                "index": 69,
+                "multiplier": 1
+              },
+              {
+                "name": "cleanRate",
+                "unit": "bpm",
+                "index": 32,
+                "multiplier": 1
+              },
+              {
+                "name": "vanCumCleanVolume",
+                "unit": "bbl",
+                "index": 71,
+                "multiplier": 1
+              },
+              {
+                "name": "vanCumProppantMass",
+                "unit": "lb",
+                "index": 60,
+                "multiplier": 1
+              },
+              {
+                "name": "vanPressure",
+                "unit": "psi",
+                "index": 42,
+                "multiplier": 1
+              },
+              {
+                "name": "frictionreducer",
+                "unit": "gal/mgal",
+                "index": 83,
+                "multiplier": 1
+              },
+              {
+                "name": "frictionreducerbackup",
+                "unit": "gal/mgal",
+                "index": 84,
+                "multiplier": 1
+              },
+              {
+                "name": "biocide",
+                "unit": "gal/mgal",
+                "index": 61,
+                "multiplier": 1
+              },
+              {
+                "name": "scaleinhibitor",
+                "unit": "gal/mgal",
+                "index": 82,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_1",
+                "unit": "psi",
+                "index": 35,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_2",
+                "unit": "psi",
+                "index": 36,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_3",
+                "unit": "psi",
+                "index": 37,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_4",
+                "unit": "psi",
+                "index": 38,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_5",
+                "unit": "psi",
+                "index": 40,
+                "multiplier": 1
+              },
+              {
+                "name": "offset_pressure_6",
+                "unit": "psi",
+                "index": 77,
+                "multiplier": 1
+              }
+            ]
+          },
+          "fbsFlag": true,
+          "meshLag": 0,
+          "features": [
+            "default",
+            "experimentalGuidance",
+            "fdi",
+            "fracEffectiveness",
+            "fracFrequency"
+          ],
+          "rateClip": 20,
+          "sandBase": 0.5,
+          "pauseFlag": false,
+          "sandShift": 0,
+          "fdiEndTime": 0,
+          "guideWidth": 20,
+          "sandWindow": 0,
+          "stageLength": 201,
+          "experimental": {
+            "rateWindow": 10,
+            "rateCeiling": 115.5,
+            "blockSizeFloor": 0.1,
+            "minAbsRateChange": 0.5,
+            "rateChangeHurdle": 0.5,
+            "fdiSmoothingWindow": 200,
+            "isTensileAutoStartInUse": true,
+            "singleRateDropAtCeiling": 2,
+            "additiveFilterPercentile": 0.999,
+            "derivPressureWindowWidth": 600,
+            "isPressureShiftAutoInUse": true,
+            "isProppantNanInterpolated": true,
+            "minAbsRateChangeIncrement": 0.5,
+            "isNewFdiOffsetPressureDerivativeRun": true,
+            "instantaneousShutInPressureTimestampOverride": 1721178268661
+          },
+          "fdiStartTime": 0,
+          "plannedWater": 9571,
+          "pressureBase": 1000,
+          "cumShearStart": 1744750544367,
+          "maxPseudoSand": 1.1,
+          "minPseudoSand": 1,
+          "pressureShift": 8,
+          "boreholeVolume": 512.2583805,
+          "guideRateDelta": 1.25,
+          "panicRateDelta": 1.5,
+          "regrCoeff2Sand": 0.2,
+          "regrYIntercept": 0.52,
+          "velocityWindow": 50,
+          "blockSizeHurdle": 0.025,
+          "frequencyWindow": 125,
+          "plannedProppant": 440000,
+          "pressureCaution": 0.959184,
+          "pressureCeiling": 11000,
+          "regrCoeff1Water": 0.3,
+          "fdiWarningWindow": 10,
+          "pressureIncrease": 50,
+          "rateMessageDelay": 300,
+          "rateStepVariance": 0.5,
+          "tensileStartTime": 1744750538840,
+          "blockSizeSmoother": 100,
+          "fracAmplitudeBias": 0.3,
+          "fracBrainPlaybook": {
+            "suspend": false,
+            "cleanSource": "vancumcleanvolume",
+            "proppantSource": "vancumproppantmass"
+          },
+          "guidanceStartTime": 0,
+          "minimumRateChange": 0.5,
+          "stageMeasuredDepth": 17608.7,
+          "boreholeVolumeUnits": "Field",
+          "fracIntensityScalar": 1,
+          "downholeconcentrates": [
+            {
+              "name": "proppant",
+              "unit": "ppg",
+              "output": "sfgBHSand",
+              "multiplier": 1
+            }
+          ],
+          "pseudoProppantWindow": 150,
+          "fracIntensitySmoother": 100,
+          "isipTimestampOverride": 0,
+          "yInterceptOverrideTime": 0,
+          "plannedConsumablesUnits": "Field",
+          "fdiWLFirstDerivThreshold": 2000,
+          "standardDerivWLDetection": true,
+          "derivativePercentIncrease": 5,
+          "fdiWLSecondDerivThreshold": 100000,
+          "fracBrainPlaybookStartTime": 0,
+          "fracSurfaceAreaCoefficient": 10000,
+          "predictivePressureSmoothing": false,
+          "boreholeMidPerfMeasuredDepth": 17598.2
+        }
+      },
+      "summary": {
+        "fdiVFR1": null,
+        "fdiVFR2": null,
+        "fdiVFR3": null,
+        "fdiVFR4": null,
+        "fdiVFR5": null,
+        "fdiVFR6": null,
+        "release": "FracBRAIN® 4.17.656",
+        "fdiPFFH1": null,
+        "fdiPFFH3": null,
+        "fdiPFFH4": null,
+        "fdiPFFH5": null,
+        "fdiPFFH6": null,
+        "fdiVFFH1": null,
+        "fdiVFFH3": null,
+        "fdiVFFH4": null,
+        "fdiVFFH5": null,
+        "fdiVFFH6": null,
+        "pumpTime": 75,
+        "fdiIdxFR1": null,
+        "fdiIdxFR2": null,
+        "fdiIdxFR3": null,
+        "fdiIdxFR4": null,
+        "fdiIdxFR5": null,
+        "fdiIdxFR6": null,
+        "timeDelay": 11000,
+        "fdiEndTime": 0,
+        "fdiIdxFFH1": null,
+        "fdiIdxFFH3": null,
+        "fdiIdxFFH4": null,
+        "fdiIdxFFH5": null,
+        "fdiIdxFFH6": null,
+        "peak_count": 1651,
+        "stageLength": 201,
+        "fdiStartTime": 1744750497546,
+        "maxCleanRate": 98.7,
+        "plateau_size": 1,
+        "maxSlurryRate": 100.5,
+        "meanCleanRate": 90.681,
+        "modeCleanRate": 94,
+        "notifications": {
+          "FdiVfrN": {
+            "type": "info",
+            "message": "FdiVfrN is missing fdiMinDerivPressureFracHit2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "FdiIdxFRN": {
+            "type": "info",
+            "message": "FdiIdxFRN is missing fdiOffsetWellState2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "FracStress": {
+            "type": "info",
+            "message": "FracStress is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "TotalCosts": {
+            "type": "info",
+            "message": "TotalCosts is missing costPerUnitPumpTime, costPerUnitClean, costPerUnitProppant, plannedPumpTime, plannedCleanVolume, plannedProppantMass as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "ShiftMesh40": {
+            "type": "info",
+            "message": "ShiftMesh40 is missing mesh40 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "ShiftMesh100": {
+            "type": "info",
+            "message": "ShiftMesh100 is missing mesh100 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "FracAmplitude2": {
+            "type": "info",
+            "message": "FracAmplitude2 is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "CumulativeFracs": {
+            "type": "info",
+            "message": "CumulativeFracs is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedHVFRConc": {
+            "type": "info",
+            "message": "PlottedHVFRConc is missing hvfr as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedHVFR2Conc": {
+            "type": "info",
+            "message": "PlottedHVFR2Conc is missing hvfr2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedHVFR3Conc": {
+            "type": "info",
+            "message": "PlottedHVFR3Conc is missing hvfr3 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "FilteredFrequency": {
+            "type": "info",
+            "message": "FilteredFrequency is missing isFracAmp2Calculated as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedBufferConc": {
+            "type": "info",
+            "message": "PlottedBufferConc is missing buffer as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "FdiOffsetPressureN": {
+            "type": "info",
+            "message": "FdiOffsetPressureN is missing fdiWellType2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedBreakerConc": {
+            "type": "info",
+            "message": "PlottedBreakerConc is missing breaker as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedBuffer2Conc": {
+            "type": "info",
+            "message": "PlottedBuffer2Conc is missing buffer2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedGellantConc": {
+            "type": "info",
+            "message": "PlottedGellantConc is missing gellant as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "FdiPlaybookWarnings": {
+            "type": "warning",
+            "message": "FDI Playbook: No FDI Playbook rules passed to the engine for this stage",
+            "timestamp": 1744755166792
+          },
+          "PlottedBiocide2Conc": {
+            "type": "info",
+            "message": "PlottedBiocide2Conc is missing biocide2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedBreaker2Conc": {
+            "type": "info",
+            "message": "PlottedBreaker2Conc is missing breaker2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedDiverterConc": {
+            "type": "info",
+            "message": "PlottedDiverterConc is missing diverter as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedGellant2Conc": {
+            "type": "info",
+            "message": "PlottedGellant2Conc is missing gellant2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "GuidanceExperimental": {
+            "type": "warning",
+            "message": "Guidance start time needs to be picked to start guidance advice",
+            "timestamp": 1744755166792
+          },
+          "PlottedDiverter2Conc": {
+            "type": "info",
+            "message": "PlottedDiverter2Conc is missing diverter2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedSurfactantConc": {
+            "type": "info",
+            "message": "PlottedSurfactantConc is missing surfactant as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedClayControlConc": {
+            "type": "info",
+            "message": "PlottedClayControlConc is missing claycontrol as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedCrosslinkerConc": {
+            "type": "info",
+            "message": "PlottedCrosslinkerConc is missing crosslinker as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedSurfactant2Conc": {
+            "type": "info",
+            "message": "PlottedSurfactant2Conc is missing surfactant2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "FdiPressureChangeCurveN": {
+            "type": "info",
+            "message": "FdiPressureChangeCurveN is missing fdiWellType2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedClaycontrol2Conc": {
+            "type": "info",
+            "message": "PlottedClaycontrol2Conc is missing claycontrol2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedCrossLinker2Conc": {
+            "type": "info",
+            "message": "PlottedCrossLinker2Conc is missing crosslinker2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "FracBrainPlaybookWarnings": {
+            "type": "warning",
+            "message": "FB Playbook: No FracBrain Playbook rules passed to the engine for this stage.",
+            "timestamp": 1744755166792
+          },
+          "PlottedScaleInhibitor2Conc": {
+            "type": "info",
+            "message": "PlottedScaleInhibitor2Conc is missing scaleinhibitor2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "FdiOffsetPressureProjectedN": {
+            "type": "info",
+            "message": "FdiOffsetPressureProjectedN is missing fdiWellType2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedFrictionReducer2Conc": {
+            "type": "info",
+            "message": "PlottedFrictionReducer2Conc is missing frictionreducer2 as input. It was not run.",
+            "timestamp": 1744755166792
+          },
+          "PlottedFrictionReducer3Conc": {
+            "type": "info",
+            "message": "PlottedFrictionReducer3Conc is missing frictionreducer3 as input. It was not run.",
+            "timestamp": 1744755166792
+          }
+        },
+        "boreholeVolume": 512.2583805,
+        "fdiIsWireline1": false,
+        "fdiIsWireline3": true,
+        "fdiIsWireline4": true,
+        "fdiIsWireline5": false,
+        "fdiIsWireline6": false,
+        "meanSlurryRate": 94.736,
+        "modeSlurryRate": 100,
+        "sampleRateMean": 1.0200037126010046,
+        "fdiPressureMax1": 3299.4954010034526,
+        "fdiPressureMax3": null,
+        "fdiPressureMax4": null,
+        "fdiPressureMax5": 3521.32849238616,
+        "fdiPressureMax6": 2003.4950331262307,
+        "fdiPressureMin1": 3247.976172700191,
+        "fdiPressureMin3": null,
+        "fdiPressureMin4": null,
+        "fdiPressureMin5": 3449.0920334274288,
+        "fdiPressureMin6": 2001.2347412277938,
+        "totalCostActual": null,
+        "totalShearCount": 356571,
+        "fdiPressureMean1": 3265.4656058337105,
+        "fdiPressureMean3": null,
+        "fdiPressureMean4": null,
+        "fdiPressureMean5": 3481.467457780611,
+        "fdiPressureMean6": 2002.377258477069,
+        "fdiVFRtimestamp1": null,
+        "fdiVFRtimestamp3": null,
+        "fdiVFRtimestamp4": null,
+        "fdiVFRtimestamp5": null,
+        "fdiVFRtimestamp6": null,
+        "fracFrequencyMax": 0.82,
+        "fracFrequencyMin": 0.55,
+        "totalCleanVolume": 6686.59,
+        "totalCostPlanned": null,
+        "fdiMaxFirstDeriv1": 23.93,
+        "fdiMaxFirstDeriv3": 19295.17,
+        "fdiMaxFirstDeriv4": 5262.94,
+        "fdiMaxFirstDeriv5": 23.69,
+        "fdiMaxFirstDeriv6": null,
+        "fdiVFFHtimestamp1": null,
+        "fdiVFFHtimestamp3": null,
+        "fdiVFFHtimestamp4": null,
+        "fdiVFFHtimestamp5": null,
+        "fdiVFFHtimestamp6": null,
+        "fracFrequencyMean": 0.74,
+        "pressureShiftAuto": 0,
+        "totalAdditiveHVFR": null,
+        "totalProppantMass": 215252.77,
+        "totalSandPumpTime": 59.67,
+        "totalSlurryVolume": 6983.22,
+        "totalTensileCount": 64852,
+        "fdiMaxSecondDeriv1": 36.68,
+        "fdiMaxSecondDeriv3": 192747.96,
+        "fdiMaxSecondDeriv4": 44862.01,
+        "fdiMaxSecondDeriv5": 56.15,
+        "fdiMaxSecondDeriv6": null,
+        "fdiPressureChange1": null,
+        "fdiPressureChange2": null,
+        "fdiPressureChange3": null,
+        "fdiPressureChange4": null,
+        "fdiPressureChange5": null,
+        "fdiPressureChange6": null,
+        "pseudoEndTimeIndex": 4881,
+        "pumpTimeStageTotal": 76.31666666666666,
+        "stageMeasuredDepth": 17608.7,
+        "totalAdditiveHVFR2": null,
+        "totalAdditiveHVFR3": null,
+        "fallOffEndTimestamp": null,
+        "fracFrequencyMedian": 0.77,
+        "fracFrequencyStdDev": 0.07,
+        "hasFdiPlaybookRules": false,
+        "maxMeasuredPressure": 9414,
+        "totalAdditiveBuffer": null,
+        "vanTotalCleanVolume": 6822.31982421875,
+        "breakdownPressureMax": 9414,
+        "fractureIntensityMax": 127.21,
+        "meanMeasuredPressure": 8902,
+        "modeMeasuredPressure": 8800,
+        "qcPressureDiffMedian": 4648.3,
+        "totalAdditiveBiocide": 42.000042000042,
+        "totalAdditiveBreaker": null,
+        "totalAdditiveBuffer2": null,
+        "totalAdditiveGellant": null,
+        "totalCostActualClean": null,
+        "vanTotalProppantMass": 254664.25,
+        "fallOffStartTimestamp": null,
+        "fdiPressureChangeMax1": null,
+        "fdiPressureChangeMax2": null,
+        "fdiPressureChangeMax3": null,
+        "fdiPressureChangeMax4": null,
+        "fdiPressureChangeMax5": null,
+        "fdiPressureChangeMax6": null,
+        "fractureEffectiveness": 35.6571231454094,
+        "fractureIntensityMode": 96,
+        "meanPredictedPressure": 8336,
+        "qcCleanRateDiffMedian": -0.43,
+        "totalAdditiveBiocide2": null,
+        "totalAdditiveBreaker2": null,
+        "totalAdditiveDiverter": null,
+        "totalAdditiveGellant2": null,
+        "totalCostPlannedClean": null,
+        "isFdiPlaybookTriggered": false,
+        "medianMeasuredPressure": 8902,
+        "qcSlurryRateDiffMedian": 0.45,
+        "totalAdditiveDiverter2": null,
+        "totalShearCountPerHVFR": null,
+        "fdiOffsetPressureAtEnd1": 3247.979795926716,
+        "fdiOffsetPressureAtEnd3": null,
+        "fdiOffsetPressureAtEnd4": null,
+        "fdiOffsetPressureAtEnd5": 3449.0920334274288,
+        "fdiOffsetPressureAtEnd6": 2001.2347412277938,
+        "fractureIntensityMedian": 84.7,
+        "fractureIntensityStdDev": 23.81,
+        "totalAdditiveSurfactant": null,
+        "totalCostActualProppant": null,
+        "totalCostActualPumpTime": null,
+        "totalShearCountPerHVFR2": null,
+        "totalShearCountPerHVFR3": null,
+        "totalAdditiveClayControl": null,
+        "totalAdditiveCrossLinker": null,
+        "totalAdditiveSurfactant2": null,
+        "totalCostPlannedProppant": null,
+        "totalCostPlannedPumpTime": null,
+        "totalProppantMassSurface": 249953.35,
+        "boreholePerfMeasuredDepth": 17598.2,
+        "fdiOffsetPressureAtStart1": 3299.4954010034526,
+        "fdiOffsetPressureAtStart3": null,
+        "fdiOffsetPressureAtStart4": null,
+        "fdiOffsetPressureAtStart5": 3521.32849238616,
+        "fdiOffsetPressureAtStart6": 2003.4950331262307,
+        "fdiOffsetPressureCurrent1": 3247.979795926716,
+        "fdiOffsetPressureCurrent2": null,
+        "fdiOffsetPressureCurrent3": 5383.473644974006,
+        "fdiOffsetPressureCurrent4": 3661.3065425313016,
+        "fdiOffsetPressureCurrent5": 3449.0920334274288,
+        "fdiOffsetPressureCurrent6": 2001.2347412277938,
+        "hasFracBrainPlaybookRules": false,
+        "qcTotalDuplicateAllValues": 35,
+        "totalAdditiveClayControl2": null,
+        "totalAdditiveCrossLinker2": null,
+        "qcPressureLargeDiffPercent": 0.9893486276116346,
+        "qcTotalDuplicateTimestamps": 0,
+        "totalCleanVolumeStageTotal": 6689.72,
+        "totalShearCountPerPumpTime": 79.36503549102878,
+        "fdiMinDeltaPressureFracHit1": 100,
+        "fdiMinDeltaPressureFracHit3": 100,
+        "fdiMinDeltaPressureFracHit4": 100,
+        "fdiMinDeltaPressureFracHit5": 100,
+        "fdiMinDeltaPressureFracHit6": 100,
+        "fdiMinDerivPressureFracHit1": null,
+        "fdiMinDerivPressureFracHit3": null,
+        "fdiMinDerivPressureFracHit4": null,
+        "fdiMinDerivPressureFracHit5": null,
+        "fdiMinDerivPressureFracHit6": null,
+        "fdiPressureChangeDirection1": 0,
+        "fdiPressureChangeDirection2": 0,
+        "fdiPressureChangeDirection3": 0,
+        "fdiPressureChangeDirection4": 0,
+        "fdiPressureChangeDirection5": 0,
+        "fdiPressureChangeDirection6": 0,
+        "instantaneousShutInPressure": null,
+        "totalAdditiveScaleInhibitor": 27.72002772002772,
+        "totalPumpTimePerStageLength": 0.373134328358209,
+        "totalSlurryVolumeStageTotal": 6986.32,
+        "fractureEffectivenessPerHVFR": null,
+        "isFracBrainPlaybookTriggered": false,
+        "qcCleanRatePercentDiffMedian": 0,
+        "totalAdditiveFrictionReducer": 272.5802725802726,
+        "totalAdditiveScaleInhibitor2": null,
+        "totalTensileCountPerPumpTime": 14.43469717563727,
+        "fractureEffectivenessPerHVFR2": null,
+        "fractureEffectivenessPerHVFR3": null,
+        "qcSlurryRatePercentDiffMedian": 0,
+        "totalAdditiveFrictionReducer2": null,
+        "totalAdditiveFrictionReducer3": null,
+        "totalShearCountPerCleanVolume": 53.326319013741546,
+        "totalShearCountPerStageLength": 1773.9850746268658,
+        "totalShearFracsPerTensileFrac": 5.498212711034926,
+        "fdiOffsetPressureDerivativeMax": -0.22450078815629904,
+        "fdiOffsetPressureDerivativeMin": -23.929560666436537,
+        "qcTotalDuplicatePressureValues": 113,
+        "totalCleanVolumePerStageLength": 33.26661691542289,
+        "totalShearCountPerProppantMass": 1.6565233118909182,
+        "totalShearCountPerSandPumpTime": 99.59533865540864,
+        "totalShearCountPerSlurryVolume": 51.061148217311505,
+        "instantaneousShutInPressure1min": null,
+        "instantaneousShutInPressure5min": null,
+        "totalAdditiveHVFRperStageLength": null,
+        "totalProppantMassPerStageLength": 1070.9093034825871,
+        "totalSandPumpTimePerStageLength": 0.29686567164179106,
+        "totalSlurryVolumePerStageLength": 34.7423880597015,
+        "totalTensileCountPerCleanVolume": 9.698846118978897,
+        "totalTensileCountPerStageLength": 322.6467661691542,
+        "fractureEffectivenessPerPumpTime": 0.007923805143424311,
+        "instantaneousShutInPressure10min": null,
+        "qcPercentTotalDuplicateAllValues": 0.007643590303559729,
+        "totalAdditiveHVFR2perStageLength": null,
+        "totalAdditiveHVFR3perStageLength": null,
+        "totalTensileCountPerProppantMass": 0.30128396243496947,
+        "totalTensileCountPerSandPumpTime": 18.114129789035,
+        "totalTensileCountPerSlurryVolume": 9.286863004559947,
+        "qcPercentTotalDuplicateTimestamps": 0,
+        "totalAdditiveBufferPerStageLength": null,
+        "totalShearCountPerFrictionReducer": 1308.133392031697,
+        "fractureIntensityDerivativeCurrent": -1.1704297615031014,
+        "totalAdditiveBiocidePerStageLength": 0.2089552238805971,
+        "totalAdditiveBreakerPerStageLength": null,
+        "totalAdditiveBuffer2PerStageLength": null,
+        "totalAdditiveGellantPerStageLength": null,
+        "totalShearCountPerFrictionReducer2": null,
+        "totalShearCountPerFrictionReducer3": null,
+        "fdiOffsetPressureDerivativeCurrent1": -5.233473260680263,
+        "fdiOffsetPressureDerivativeCurrent2": null,
+        "fdiOffsetPressureDerivativeCurrent3": 125.10259065724807,
+        "fdiOffsetPressureDerivativeCurrent4": -47.904330439368174,
+        "fdiOffsetPressureDerivativeCurrent5": -11.26775884197493,
+        "fdiOffsetPressureDerivativeCurrent6": -0.4612071180335161,
+        "fracBrainPlaybookAppliedCleanScalar": "vanTotalCleanVolume",
+        "fracBrainPlaybookCleanSourceMatches": true,
+        "fractureEffectivenessPerCleanVolume": 0.005332631901374153,
+        "fractureEffectivenessPerStageLength": 0.17739862261397712,
+        "totalAdditiveBiocide2PerStageLength": null,
+        "totalAdditiveBreaker2PerStageLength": null,
+        "totalAdditiveDiverterPerStageLength": null,
+        "totalAdditiveGellant2PerStageLength": null,
+        "fractureEffectivenessPerProppantMass": 0.0001656523311890918,
+        "fractureEffectivenessPerSandPumpTime": 0.009959533865540863,
+        "fractureEffectivenessPerSlurryVolume": 0.005106114821731149,
+        "instantaneousShutInPressureTimestamp": null,
+        "totalAdditiveDiverter2PerStageLength": null,
+        "qcPercentTotalDuplicatePressureValues": 0.024677877265778553,
+        "totalAdditiveSurfactantPerStageLength": null,
+        "fracBrainPlaybookAppliedProppantScalar": "vanTotalProppantMass",
+        "fracBrainPlaybookProppantSourceMatches": true,
+        "totalAdditiveClayControlPerStageLength": null,
+        "totalAdditiveCrossLinkerPerStageLength": null,
+        "totalAdditiveSurfactant2PerStageLength": null,
+        "totalProppantMassSurfacePerStageLength": 1243.5490049751245,
+        "fractureEffectivenessPerFrictionReducer": 230.7551108948944,
+        "totalAdditiveClayControl2PerStageLength": null,
+        "totalAdditiveCrossLinker2PerStageLength": null,
+        "fractureEffectivenessPerFrictionReducer2": null,
+        "fractureEffectivenessPerFrictionReducer3": null,
+        "totalCleanVolumeStageTotalPerStageLength": 33.282189054726366,
+        "fdiOffsetPressureDerivativeSecondCurrent1": -51.51560507673639,
+        "fdiOffsetPressureDerivativeSecondCurrent2": null,
+        "fdiOffsetPressureDerivativeSecondCurrent3": -832.098816241557,
+        "fdiOffsetPressureDerivativeSecondCurrent4": -791.8276746702722,
+        "fdiOffsetPressureDerivativeSecondCurrent5": -72.23645895873142,
+        "fdiOffsetPressureDerivativeSecondCurrent6": -2.26029189843689,
+        "totalAdditiveScaleInhibitorPerStageLength": 0.1379104477611941,
+        "totalSlurryVolumeStageTotalPerStageLength": 34.75781094527363,
+        "totalAdditiveFrictionReducerPerStageLength": 1.3561194029850752,
+        "totalAdditiveScaleInhibitor2PerStageLength": null,
+        "totalAdditiveFrictionReducer2PerStageLength": null,
+        "totalAdditiveFrictionReducer3PerStageLength": null,
+        "instantaneousShutInPressureTimestampOverride": 0
+      }
+    }
+  ]
+}
