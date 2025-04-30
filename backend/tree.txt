@@ -1,0 +1,38 @@
+.
+├── api
+│   ├── monitoringStatus.js
+│   ├── project.js
+│   └── settings.js
+├── app.js
+├── config
+│   └── database.js
+├── database
+│   └── db.js
+├── models
+│   └── headerMonitoring.js
+├── monitorService.js
+├── package.json
+├── package-lock.json
+├── private
+│   ├── db
+│   │   └── monitor.db
+│   ├── logs
+│   └── settings
+│       ├── header_thresholds.json
+│       └── settings.json
+├── routes
+│   ├── monitoring.js
+│   └── projects.js
+├── schemas
+│   ├── database.js
+│   └── settings.js
+├── server.js
+├── services
+│   ├── headerMonitorService.js
+│   ├── headerSettingsService.js
+│   └── projectService.js
+├── tree.txt
+└── utils
+    └── notifications.js
+
+12 directories, 23 files

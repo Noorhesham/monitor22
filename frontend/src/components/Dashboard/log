@@ -1,0 +1,2138 @@
+GET
+http://localhost:3003/
+[HTTP/1.1 304 Not Modified 2ms]
+
+GET
+http://localhost:3003/@vite/client
+[HTTP/1.1 304 Not Modified 1ms]
+
+GET
+http://localhost:3003/src/index.jsx
+[HTTP/1.1 304 Not Modified 0ms]
+
+GET
+http://localhost:3003/@react-refresh
+[HTTP/1.1 304 Not Modified 0ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/react-dom_client.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/react.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+GET
+http://localhost:3003/src/App.jsx
+[HTTP/1.1 304 Not Modified 0ms]
+
+GET
+http://localhost:3003/src/index.css
+[HTTP/1.1 304 Not Modified 1ms]
+
+GET
+http://localhost:3003/node_modules/vite/dist/client/env.mjs
+[HTTP/1.1 304 Not Modified 0ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/chunk-K5YNGTCN.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+[vite] connecting... client:229:9
+GET
+http://localhost:3003/node_modules/.vite/deps/chunk-LAV6FB6A.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/chunk-ZC22LKFR.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+GET
+http://localhost:3003/src/contexts/SettingsContext.jsx
+[HTTP/1.1 200 OK 1ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/react-router-dom.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+GET
+http://localhost:3003/src/components/Settings.jsx
+[HTTP/1.1 304 Not Modified 1ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/Dashboard.jsx
+[HTTP/1.1 200 OK 1ms]
+
+GET
+ws://localhost:3003/?token=6ahxRKz-zKpH
+[HTTP/1.1 101 Switching Protocols 1ms]
+
+[vite] connected. client:325:21
+GET
+http://localhost:3003/src/schemas/settings.js
+[HTTP/1.1 304 Not Modified 1ms]
+
+GET
+http://localhost:3003/src/utils/settings.js
+[HTTP/1.1 200 OK 1ms]
+
+GET
+http://localhost:3003/src/config.js
+[HTTP/1.1 304 Not Modified 1ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/lucide-react.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/hooks/useStageData.js
+[HTTP/1.1 200 OK 1ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/hooks/useMonitoring.js
+[HTTP/1.1 304 Not Modified 1ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/utils/patterns.js
+[HTTP/1.1 304 Not Modified 1ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/components/ActiveProjectsList.jsx
+[HTTP/1.1 304 Not Modified 3ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/components/JobMonitoringPanel.jsx
+[HTTP/1.1 200 OK 2ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/components/ActiveAlertPanel.jsx
+[HTTP/1.1 304 Not Modified 2ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/constants.js
+[HTTP/1.1 304 Not Modified 1ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/HeaderSelector.jsx
+[HTTP/1.1 304 Not Modified 0ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/@mui_material.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/MonitoringView.jsx
+[HTTP/1.1 200 OK 1ms]
+
+GET
+http://localhost:3003/src/components/Dashboard/hooks/useApi.js
+[HTTP/1.1 304 Not Modified 1ms]
+
+GET
+http://localhost:3003/src/services/headerSettingsService.js
+[HTTP/1.1 304 Not Modified 0ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/chunk-TOXUORXJ.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+GET
+http://localhost:3003/node_modules/.vite/deps/date-fns.js?v=96749fd0
+[HTTP/1.1 200 OK 0ms]
+
+Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools chunk-LAV6FB6A.js:21580:25
+Error in parsing value for ‘-webkit-text-size-adjust’.  Declaration dropped. localhost:3003:141:29
+Unknown property ‘-moz-osx-font-smoothing’.  Declaration dropped. localhost:3003:1114:27
+Error in parsing value for ‘-webkit-text-size-adjust’.  Declaration dropped. localhost:3003:1119:29
+Error in parsing value for ‘-moz-text-size-adjust’.  Declaration dropped. localhost:3003:1120:26
+Unknown property ‘text-size-adjust’.  Declaration dropped. localhost:3003:1121:20
+Unknown property ‘-moz-osx-font-smoothing’.  Declaration dropped. localhost:3003:1164:27
+Fetching and processing stages useStageData.js:247:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+GET
+http://localhost:3003/favicon.svg
+[HTTP/1.1 200 OK 0ms]
+
+XHRGET
+http://localhost:3000/api/stages/active/stages
+[HTTP/1.1 200 OK 387ms]
+
+XHRGET
+http://localhost:3003/api/settings
+[HTTP/1.1 200 OK 4ms]
+
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 2ms]
+
+XHRGET
+http://localhost:3003/api/settings/header-thresholds
+[HTTP/1.1 200 OK 5ms]
+
+XHRGET
+http://localhost:3003/api/settings
+[HTTP/1.1 200 OK 5ms]
+
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 200 OK 5ms]
+
+XHRGET
+http://localhost:3003/api/settings/header-thresholds
+[HTTP/1.1 200 OK 5ms]
+
+XHROPTIONS
+http://localhost:3000/api/stages/active/stages
+[HTTP/1.1 204 No Content 1ms]
+
+Main settings changed, applying updates... SettingsContext.jsx:74:21
+Header thresholds changed, applying updates... SettingsContext.jsx:84:19
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    Dashboard Dashboard.jsx:109
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    Dashboard Dashboard.jsx:109
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Header thresholds changed, applying updates... SettingsContext.jsx:84:19
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    Dashboard Dashboard.jsx:109
+    React 8
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    Dashboard Dashboard.jsx:109
+    React 8
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+New stage detected for project 7090: 
+Object { previousStage: undefined, newStage: "39" }
+useStageData.js:178:17
+XHRPOST
+http://localhost:3003/api/projects/active
+[HTTP/1.1 404 Not Found 3ms]
+
+XHRPOST
+http://localhost:3003/api/projects/active
+[HTTP/1.1 404 Not Found 4ms]
+
+XHRPOST
+http://localhost:3003/api/projects/active
+[HTTP/1.1 404 Not Found 5ms]
+
+XHRPOST
+http://localhost:3003/api/projects/active
+[HTTP/1.1 404 Not Found 5ms]
+
+XHRGET
+http://localhost:3000/api/stages/269800/headers
+[HTTP/1.1 200 OK 594ms]
+
+XHRPOST
+http://localhost:3003/api/projects/active
+[HTTP/1.1 404 Not Found 5ms]
+
+XHROPTIONS
+http://localhost:3000/api/stages/269800/headers
+[HTTP/1.1 204 No Content 0ms]
+
+[filterHeaders] Called with 197 headers. forSettings: true useStageData.js:25:13
+[filterHeaders] Called with 197 headers. forSettings: false useStageData.js:25:13
+[filterHeaders - Dashboard] Input headers count: 197 useStageData.js:45:15
+[filterHeaders - Dashboard] Using settings: 
+Object { patternCategories: {} }
+useStageData.js:46:15
+-------- Header Filtering Debug -------- useStageData.js:50:15
+Pattern categories available: false useStageData.js:51:15
+Headers before filtering: 197 useStageData.js:57:15
+Sample headers: 
+Array(3) [ "timestamp", "stage", "well" ]
+useStageData.js:58:15
+No valid pattern categories defined, using default pressure detection useStageData.js:61:15
+[filterHeaders - Default] Excluding: timestamp useStageData.js:78:19
+[filterHeaders - Default] Excluding: stage useStageData.js:78:19
+[filterHeaders - Default] Excluding: well useStageData.js:78:19
+[filterHeaders - Default] Excluding: 2H useStageData.js:78:19
+[filterHeaders - Default] Excluding: 4H useStageData.js:78:19
+[filterHeaders - Default] Excluding: 6H useStageData.js:78:19
+[filterHeaders - Default] Excluding: 8H useStageData.js:78:19
+[filterHeaders - Default] Excluding: p4 useStageData.js:78:19
+[filterHeaders - Default] Excluding: p7 useStageData.js:78:19
+[filterHeaders - Default] Excluding: p8 useStageData.js:78:19
+[filterHeaders - Default] Excluding: 10H useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch1 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch2 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch3 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch4 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch5 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch6 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch7 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch8 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Temp useStageData.js:78:19
+[filterHeaders - Default] Excluding: WELL_NAME useStageData.js:78:19
+[filterHeaders - Default] Excluding: Time useStageData.js:78:19
+[filterHeaders - Default] Excluding: utc_timestamp useStageData.js:78:19
+[filterHeaders - Default] Excluding: timeDelay useStageData.js:78:19
+[filterHeaders - Default] Excluding: timestamp_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: stage_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: well_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Slurry Rate_EWS_F_P_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Rate_EWS_F_1_CC_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Eng RPM_EWS_F_1_EBA1R_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Eng RPM_EWS_F_2_EBA2R_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Wellbore_2H_CBT_AW_WD_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Wellbore_4H_CBT_AW_WD_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Wellbore_6H_CBT_AW_WD_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Wellbore_8H_CBT_AW_WD_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Slurry Rate_EWS_F_1_B1_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Wellbore_10H_CBT_AW_WD_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Biocide Volume_EWS_F_C2_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Pumpdown Rate_EWS_F_1_PR_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Slurry Rate_EWS_F_S_B1SR_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Step Total_EWS_F_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Grand Total_EWS_F_1_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Grand Total_EWS_F_BP_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Biocide Concentration_EWS_F_C2_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Concentration_EWS_F_B_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Concentration_EWS_F_I_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Concentration_EWS_F_S_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Volume Step Total_EWS_F_P_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Concentration_EWS_F_BP_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Concentration_EWS_F_BS_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Volume Grand Total_EWS_F_P_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Concentration_EWS_F_P_I_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Scale Inhibitor Volume_EWS_F_1_SS3_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Friction Reducer Volume_EWS_F_P_SF9_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Friction Reducer Volume_EWS_F_S_SF9_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Volume Grand Total_EWS_F_S_B1CJT_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Slurry Volume Grand Total Target_EWS_F_T_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Scale Inhibitor Concentration_EWS_F_1_SS3_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Friction Reducer Concentration_EWS_F_P_SF9_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Friction Reducer Concentration_EWS_F_S_SF9_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: WELL_NAME_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Time_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: utc_timestamp_jobId_390 useStageData.js:78:19
+[filterHeaders - Default] Excluding: timeDelay_jobId_390 useStageData.js:78:19
+[filterHeaders - Dashboard - Default] Output headers count: 22 useStageData.js:82:17
+New stage detected for project 7105: 
+Object { previousStage: undefined, newStage: "23" }
+useStageData.js:178:17
+XHRGET
+http://localhost:3000/api/stages/269798/headers
+[HTTP/1.1 200 OK 96ms]
+
+XHROPTIONS
+http://localhost:3000/api/stages/269798/headers
+[HTTP/1.1 204 No Content 0ms]
+
+[filterHeaders] Called with 222 headers. forSettings: true useStageData.js:25:13
+[filterHeaders] Called with 222 headers. forSettings: false useStageData.js:25:13
+[filterHeaders - Dashboard] Input headers count: 222 useStageData.js:45:15
+[filterHeaders - Dashboard] Using settings: 
+Object { patternCategories: {} }
+useStageData.js:46:15
+-------- Header Filtering Debug -------- useStageData.js:50:15
+Pattern categories available: false useStageData.js:51:15
+Headers before filtering: 222 useStageData.js:57:15
+Sample headers: 
+Array(3) [ "timestamp", "stage", "well" ]
+useStageData.js:58:15
+No valid pattern categories defined, using default pressure detection useStageData.js:61:15
+[filterHeaders - Default] Excluding: timestamp useStageData.js:78:19
+[filterHeaders - Default] Excluding: stage useStageData.js:78:19
+[filterHeaders - Default] Excluding: well useStageData.js:78:19
+[filterHeaders - Default] Excluding: p1 useStageData.js:78:19
+[filterHeaders - Default] Excluding: p2 useStageData.js:78:19
+[filterHeaders - Default] Excluding: p3 useStageData.js:78:19
+[filterHeaders - Default] Excluding: p4 useStageData.js:78:19
+[filterHeaders - Default] Excluding: p5 useStageData.js:78:19
+[filterHeaders - Default] Excluding: p6 useStageData.js:78:19
+[filterHeaders - Default] Excluding: p7 useStageData.js:78:19
+[filterHeaders - Default] Excluding: p8 useStageData.js:78:19
+[filterHeaders - Default] Excluding: HC1 useStageData.js:78:19
+[filterHeaders - Default] Excluding: HC2 useStageData.js:78:19
+[filterHeaders - Default] Excluding: HC3 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch1 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch2 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch3 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch4 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch5 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch6 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch7 useStageData.js:78:19
+[filterHeaders - Default] Excluding: ch8 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Temp useStageData.js:78:19
+[filterHeaders - Default] Excluding: 36-1HC-1Alt useStageData.js:78:19
+[filterHeaders - Default] Excluding: 36-1HC-2Alt useStageData.js:78:19
+[filterHeaders - Default] Excluding: 36-1HC-3Alt useStageData.js:78:19
+[filterHeaders - Default] Excluding: WELL_NAME useStageData.js:78:19
+[filterHeaders - Default] Excluding: Time useStageData.js:78:19
+[filterHeaders - Default] Excluding: utc_timestamp useStageData.js:78:19
+[filterHeaders - Default] Excluding: timeDelay useStageData.js:78:19
+[filterHeaders - Default] Excluding: timestamp_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: stage_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: well_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Rate_LOS_F_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Slurry Rate_LOS_F_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Rate_LOS_F_1_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Rate_LOS_F_2_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Pumpdown Rate_LPC_P_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Slurry Rate_LOS_F_1_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Rate_LOS_F_CCR_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Slurry Rate_LOS_F_CSR_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Diverter Rate_LOS_F_FD_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Wellbore_1-ALT_CBT_A_W_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Wellbore_2-ALT_CBT_A_W_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Wellbore_3-ALT_CBT_A_W_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Rate_1-ALT_LOS_F_CCR_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Grand Total_LOS_F_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Slurry Rate_1-ALT_LOS_F_CSR_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Diverter Rate_1-ALT_LOS_F_FD_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Concentration_LOS_F_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Grand Total_LOS_F_1_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Volume Step Total_LOS_F_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Volume Grand Total_LOS_F_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Grand Total_LOS_F_1_JPT_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Grand Total_LOS_F_2_JPS_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Concentration_1-ALT_LOS_F_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Volume Step Total_1-ALT_LOS_F_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Clean Volume Grand Total_1-ALT_LOS_F_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Dry Friction Reducer Rate_LOS_F_1_PFR_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Grand Total_1-ALT_LOS_F_1_JPT_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Proppant Grand Total_1-ALT_LOS_F_2_JPS_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Dry Friction Reducer Rate_1-ALT_LOS_F_1_PFR_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liquid Friction Reducer Concentration_LOS_F_1_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liquid Friction Reducer Concentration_LOS_F_L_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liquid Friction Reducer Concentration_1-ALT_LOS_F_1_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liquid Friction Reducer Concentration_1-ALT_LOS_F_L_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: WELL_NAME_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Time_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: utc_timestamp_jobId_397 useStageData.js:78:19
+[filterHeaders - Default] Excluding: timeDelay_jobId_397 useStageData.js:78:19
+[filterHeaders - Dashboard - Default] Output headers count: 16 useStageData.js:82:17
+New stage detected for project 7150: 
+Object { previousStage: undefined, newStage: "4" }
+useStageData.js:178:17
+XHRGET
+http://localhost:3000/api/stages/269795/headers
+[HTTP/1.1 200 OK 77ms]
+
+XHROPTIONS
+http://localhost:3000/api/stages/269795/headers
+[HTTP/1.1 204 No Content 0ms]
+
+[filterHeaders] Called with 187 headers. forSettings: true useStageData.js:25:13
+[filterHeaders] Called with 187 headers. forSettings: false useStageData.js:25:13
+[filterHeaders - Dashboard] Input headers count: 187 useStageData.js:45:15
+[filterHeaders - Dashboard] Using settings: 
+Object { patternCategories: {} }
+useStageData.js:46:15
+-------- Header Filtering Debug -------- useStageData.js:50:15
+Pattern categories available: false useStageData.js:51:15
+Headers before filtering: 187 useStageData.js:57:15
+Sample headers: 
+Array(3) [ "timestamp", "Time", "MRL_Const" ]
+useStageData.js:58:15
+No valid pattern categories defined, using default pressure detection useStageData.js:61:15
+[filterHeaders - Default] Excluding: timestamp useStageData.js:78:19
+[filterHeaders - Default] Excluding: Time useStageData.js:78:19
+[filterHeaders - Default] Excluding: MRL_Const useStageData.js:78:19
+[filterHeaders - Default] Excluding: Well_Name useStageData.js:78:19
+[filterHeaders - Default] Excluding: Stage useStageData.js:78:19
+[filterHeaders - Default] Excluding: P1 useStageData.js:78:19
+[filterHeaders - Default] Excluding: P2 useStageData.js:78:19
+[filterHeaders - Default] Excluding: P3 useStageData.js:78:19
+[filterHeaders - Default] Excluding: P4 useStageData.js:78:19
+[filterHeaders - Default] Excluding: P5 useStageData.js:78:19
+[filterHeaders - Default] Excluding: P6 useStageData.js:78:19
+[filterHeaders - Default] Excluding: P7 useStageData.js:78:19
+[filterHeaders - Default] Excluding: P8 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Temp useStageData.js:78:19
+[filterHeaders - Default] Excluding: R1 useStageData.js:78:19
+[filterHeaders - Default] Excluding: R2 useStageData.js:78:19
+[filterHeaders - Default] Excluding: R3 useStageData.js:78:19
+[filterHeaders - Default] Excluding: R4 useStageData.js:78:19
+[filterHeaders - Default] Excluding: R5 useStageData.js:78:19
+[filterHeaders - Default] Excluding: R6 useStageData.js:78:19
+[filterHeaders - Default] Excluding: R7 useStageData.js:78:19
+[filterHeaders - Default] Excluding: R8 useStageData.js:78:19
+[filterHeaders - Default] Excluding: Elapsed Time useStageData.js:78:19
+[filterHeaders - Default] Excluding: Red Zipper useStageData.js:78:19
+[filterHeaders - Default] Excluding: Blue Zipper useStageData.js:78:19
+[filterHeaders - Default] Excluding: White Zipper useStageData.js:78:19
+[filterHeaders - Default] Excluding: GME Combined Suction Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Combined Clean Rate Calculated useStageData.js:78:19
+[filterHeaders - Default] Excluding: Combined Stage Clean Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Combined Slurry Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Combined Stage Slurry Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: B2 Prop Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Inline Vega Prop Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: B1 Conc Target useStageData.js:78:19
+[filterHeaders - Default] Excluding: BH Sand Ratio useStageData.js:78:19
+[filterHeaders - Default] Excluding: B1 Proppant stage total useStageData.js:78:19
+[filterHeaders - Default] Excluding: B1 Proppant step total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Bio Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Bio Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Bio Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Buffer Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Buffer Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Buffer Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liq FR conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liq FR Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liq FR Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: XL-B BU Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: XL-B BU Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: XL-B BU Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Bio BU Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Bio BU Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Bio BU Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: SI Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: SI Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: SI Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Thin FL09 Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Thin FL09 Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Thin FL09 Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Buffer BU Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Buffer BU Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Buffer BU Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liq FR conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liq FR Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liq FR Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liq Gel Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liq Gel Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Liq Gel Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: SI BU Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: SI BU Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: SI BU Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: BF BU Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: BF BU Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: BF BU Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: BF Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: BF Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: BF Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: XLB Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: XLB Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: XLB Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: Breaker Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: Breaker Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: Breaker Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: XLD Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: XLD Rate useStageData.js:78:19
+[filterHeaders - Default] Excluding: XLD Total useStageData.js:78:19
+[filterHeaders - Default] Excluding: TBD Aquasmart FR Conc useStageData.js:78:19
+[filterHeaders - Default] Excluding: TDB Diverter Flag useStageData.js:78:19
+[filterHeaders - Default] Excluding: timeDelay useStageData.js:78:19
+[filterHeaders - Dashboard - Default] Output headers count: 3 useStageData.js:82:17
+[useStageData - Settings Effect Triggered] Changed dependencies: loading, activeJobs, allHeadersByStage useStageData.js:290:17
+[useStageData] Re-processing headers for dashboard panels. useStageData.js:294:15
+[filterHeaders] Called with 91 headers. forSettings: false useStageData.js:25:13
+[filterHeaders - Dashboard] Input headers count: 91 useStageData.js:45:15
+[filterHeaders - Dashboard] Using settings: 
+Object { patternCategories: {…} }
+useStageData.js:46:15
+-------- Header Filtering Debug -------- useStageData.js:50:15
+Pattern categories available: true useStageData.js:51:15
+Pressure patterns: 
+Array [ "pressure", "psi" ]
+useStageData.js:53:17
+Pressure negative patterns: 
+Array [ "atmospheric", "atm" ]
+useStageData.js:54:17
+Battery patterns: 
+Array [ "battery", "volt" ]
+useStageData.js:55:17
+Headers before filtering: 91 useStageData.js:57:15
+Sample headers: 
+Array(3) [ "timestamp", "Time", "MRL_Const" ]
+useStageData.js:58:15
+Header timestamp excluded - no matching patterns useStageData.js:128:17
+Header Time excluded - no matching patterns useStageData.js:128:17
+Header MRL_Const excluded - no matching patterns useStageData.js:128:17
+Header Well_Name excluded - no matching patterns useStageData.js:128:17
+Header Stage excluded - no matching patterns useStageData.js:128:17
+Header P1 excluded - no matching patterns useStageData.js:128:17
+Header P2 excluded - no matching patterns useStageData.js:128:17
+Header P3 excluded - no matching patterns useStageData.js:128:17
+Header P4 excluded - no matching patterns useStageData.js:128:17
+Header P5 excluded - no matching patterns useStageData.js:128:17
+Header P6 excluded - no matching patterns useStageData.js:128:17
+Header P7 excluded - no matching patterns useStageData.js:128:17
+Header P8 excluded - no matching patterns useStageData.js:128:17
+Header Batt excluded - no matching patterns useStageData.js:128:17
+Header Temp excluded - no matching patterns useStageData.js:128:17
+Header R1 excluded - no matching patterns useStageData.js:128:17
+Header R2 excluded - no matching patterns useStageData.js:128:17
+Header R3 excluded - no matching patterns useStageData.js:128:17
+Header R4 excluded - no matching patterns useStageData.js:128:17
+Header R5 excluded - no matching patterns useStageData.js:128:17
+Header R6 excluded - no matching patterns useStageData.js:128:17
+Header R7 excluded - no matching patterns useStageData.js:128:17
+Header R8 excluded - no matching patterns useStageData.js:128:17
+Header Elapsed Time excluded - no matching patterns useStageData.js:128:17
+Header Wellside pressure included by pressure pattern useStageData.js:110:23
+Header Pumpside Pressure included by pressure pattern useStageData.js:110:23
+Header Red Zipper excluded - no matching patterns useStageData.js:128:17
+Header Blue Zipper excluded - no matching patterns useStageData.js:128:17
+Header White Zipper excluded - no matching patterns useStageData.js:128:17
+Header GME Combined Suction Rate excluded - no matching patterns useStageData.js:128:17
+Header Combined Clean Rate Calculated excluded - no matching patterns useStageData.js:128:17
+Header Combined Stage Clean Total excluded - no matching patterns useStageData.js:128:17
+Header Combined Slurry Rate excluded - no matching patterns useStageData.js:128:17
+Header Combined Stage Slurry Total excluded - no matching patterns useStageData.js:128:17
+Header B2 Prop Conc excluded - no matching patterns useStageData.js:128:17
+Header Inline Vega Prop Conc excluded - no matching patterns useStageData.js:128:17
+Header B1 Conc Target excluded - no matching patterns useStageData.js:128:17
+Header BH Sand Ratio excluded - no matching patterns useStageData.js:128:17
+Header B1 Proppant stage total excluded - no matching patterns useStageData.js:128:17
+Header B1 Proppant step total excluded - no matching patterns useStageData.js:128:17
+Header Bio Conc excluded - no matching patterns useStageData.js:128:17
+Header Bio Rate excluded - no matching patterns useStageData.js:128:17
+Header Bio Total excluded - no matching patterns useStageData.js:128:17
+Header Buffer Conc excluded - no matching patterns useStageData.js:128:17
+Header Buffer Rate excluded - no matching patterns useStageData.js:128:17
+Header Buffer Total excluded - no matching patterns useStageData.js:128:17
+Header Liq FR conc excluded - no matching patterns useStageData.js:128:17
+Header Liq FR Rate excluded - no matching patterns useStageData.js:128:17
+Header Liq FR Total excluded - no matching patterns useStageData.js:128:17
+Header XL-B BU Conc excluded - no matching patterns useStageData.js:128:17
+Header XL-B BU Rate excluded - no matching patterns useStageData.js:128:17
+Header XL-B BU Total excluded - no matching patterns useStageData.js:128:17
+Header Bio BU Conc excluded - no matching patterns useStageData.js:128:17
+Header Bio BU Rate excluded - no matching patterns useStageData.js:128:17
+Header Bio BU Total excluded - no matching patterns useStageData.js:128:17
+Header SI Conc excluded - no matching patterns useStageData.js:128:17
+Header SI Rate excluded - no matching patterns useStageData.js:128:17
+Header SI Total excluded - no matching patterns useStageData.js:128:17
+Header Thin FL09 Conc excluded - no matching patterns useStageData.js:128:17
+Header Thin FL09 Rate excluded - no matching patterns useStageData.js:128:17
+Header Thin FL09 Total excluded - no matching patterns useStageData.js:128:17
+Header Buffer BU Conc excluded - no matching patterns useStageData.js:128:17
+Header Buffer BU Rate excluded - no matching patterns useStageData.js:128:17
+Header Buffer BU Total excluded - no matching patterns useStageData.js:128:17
+Header Liq FR conc excluded - no matching patterns useStageData.js:128:17
+Header Liq FR Rate excluded - no matching patterns useStageData.js:128:17
+Header Liq FR Total excluded - no matching patterns useStageData.js:128:17
+Header Liq Gel Conc excluded - no matching patterns useStageData.js:128:17
+Header Liq Gel Rate excluded - no matching patterns useStageData.js:128:17
+Header Liq Gel Total excluded - no matching patterns useStageData.js:128:17
+Header SI BU Conc excluded - no matching patterns useStageData.js:128:17
+Header SI BU Rate excluded - no matching patterns useStageData.js:128:17
+Header SI BU Total excluded - no matching patterns useStageData.js:128:17
+Header BF BU Conc excluded - no matching patterns useStageData.js:128:17
+Header BF BU Rate excluded - no matching patterns useStageData.js:128:17
+Header BF BU Total excluded - no matching patterns useStageData.js:128:17
+Header BF Conc excluded - no matching patterns useStageData.js:128:17
+Header BF Rate excluded - no matching patterns useStageData.js:128:17
+Header BF Total excluded - no matching patterns useStageData.js:128:17
+Header XLB Conc excluded - no matching patterns useStageData.js:128:17
+Header XLB Rate excluded - no matching patterns useStageData.js:128:17
+Header XLB Total excluded - no matching patterns useStageData.js:128:17
+Header Breaker Conc excluded - no matching patterns useStageData.js:128:17
+Header Breaker Rate excluded - no matching patterns useStageData.js:128:17
+Header Breaker Total excluded - no matching patterns useStageData.js:128:17
+Header XLD Conc excluded - no matching patterns useStageData.js:128:17
+Header XLD Rate excluded - no matching patterns useStageData.js:128:17
+Header XLD Total excluded - no matching patterns useStageData.js:128:17
+Header TBD Aquasmart FR Conc excluded - no matching patterns useStageData.js:128:17
+Header TDB Diverter Flag excluded - no matching patterns useStageData.js:128:17
+Header timeDelay excluded - no matching patterns useStageData.js:128:17
+Filtered 91 headers down to 2 headers useStageData.js:133:15
+Filtered headers sample: 
+Array [ "Wellside pressure", "Pumpside Pressure" ]
+useStageData.js:134:15
+-------- End Header Filtering Debug -------- useStageData.js:138:15
+[filterHeaders] Called with 86 headers. forSettings: false useStageData.js:25:13
+[filterHeaders - Dashboard] Input headers count: 86 useStageData.js:45:15
+[filterHeaders - Dashboard] Using settings: 
+Object { patternCategories: {…} }
+useStageData.js:46:15
+-------- Header Filtering Debug -------- useStageData.js:50:15
+Pattern categories available: true useStageData.js:51:15
+Pressure patterns: 
+Array [ "pressure", "psi" ]
+useStageData.js:53:17
+Pressure negative patterns: 
+Array [ "atmospheric", "atm" ]
+useStageData.js:54:17
+Battery patterns: 
+Array [ "battery", "volt" ]
+useStageData.js:55:17
+Headers before filtering: 86 useStageData.js:57:15
+Sample headers: 
+Array(3) [ "timestamp", "stage", "well" ]
+useStageData.js:58:15
+Header timestamp excluded - no matching patterns useStageData.js:128:17
+Header stage excluded - no matching patterns useStageData.js:128:17
+Header well excluded - no matching patterns useStageData.js:128:17
+Header p1 excluded - no matching patterns useStageData.js:128:17
+Header p2 excluded - no matching patterns useStageData.js:128:17
+Header p3 excluded - no matching patterns useStageData.js:128:17
+Header p4 excluded - no matching patterns useStageData.js:128:17
+Header p5 excluded - no matching patterns useStageData.js:128:17
+Header p6 excluded - no matching patterns useStageData.js:128:17
+Header p7 excluded - no matching patterns useStageData.js:128:17
+Header p8 excluded - no matching patterns useStageData.js:128:17
+Header HC1 excluded - no matching patterns useStageData.js:128:17
+Header HC2 excluded - no matching patterns useStageData.js:128:17
+Header HC3 excluded - no matching patterns useStageData.js:128:17
+Header ch1 excluded - no matching patterns useStageData.js:128:17
+Header ch2 excluded - no matching patterns useStageData.js:128:17
+Header ch3 excluded - no matching patterns useStageData.js:128:17
+Header ch4 excluded - no matching patterns useStageData.js:128:17
+Header ch5 excluded - no matching patterns useStageData.js:128:17
+Header ch6 excluded - no matching patterns useStageData.js:128:17
+Header ch7 excluded - no matching patterns useStageData.js:128:17
+Header ch8 excluded - no matching patterns useStageData.js:128:17
+Header Temp excluded - no matching patterns useStageData.js:128:17
+Header Battery included by battery pattern useStageData.js:121:23
+Header 36-1HC-1Alt excluded - no matching patterns useStageData.js:128:17
+Header 36-1HC-2Alt excluded - no matching patterns useStageData.js:128:17
+Header 36-1HC-3Alt excluded - no matching patterns useStageData.js:128:17
+Header WELL_NAME excluded - no matching patterns useStageData.js:128:17
+Header Time excluded - no matching patterns useStageData.js:128:17
+Header utc_timestamp excluded - no matching patterns useStageData.js:128:17
+Header timeDelay excluded - no matching patterns useStageData.js:128:17
+Header timestamp_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header stage_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header well_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Clean Rate_LOS_F_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Slurry Rate_LOS_F_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Clean Rate_LOS_F_1_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Clean Rate_LOS_F_2_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Pumpdown Rate_LPC_P_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Slurry Rate_LOS_F_1_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Clean Rate_LOS_F_CCR_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Slurry Rate_LOS_F_CSR_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Diverter Rate_LOS_F_FD_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Wellbore_1-ALT_CBT_A_W_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Wellbore_2-ALT_CBT_A_W_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Wellbore_3-ALT_CBT_A_W_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Pumpdown Pressure_LPC_P_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Clean Rate_1-ALT_LOS_F_CCR_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Natural Gas Pressure_LOS_F_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Proppant Grand Total_LOS_F_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Slurry Rate_1-ALT_LOS_F_CSR_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Diverter Rate_1-ALT_LOS_F_FD_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Concentration_LOS_F_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Grand Total_LOS_F_1_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Treating Pressure_LOS_F_POCV_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Treating Pressure_LOS_F_WOCV_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Clean Volume Step Total_LOS_F_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Clean Volume Grand Total_LOS_F_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Natural Gas Pressure_1-ALT_LOS_F_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Proppant Grand Total_LOS_F_1_JPT_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Grand Total_LOS_F_2_JPS_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Concentration_1-ALT_LOS_F_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Treating Pressure_1-ALT_LOS_F_POCV_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Treating Pressure_1-ALT_LOS_F_WOCV_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Clean Volume Step Total_1-ALT_LOS_F_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Clean Volume Grand Total_1-ALT_LOS_F_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Casing Pressure_SNYDER 31H 3ALT_CBT_O_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Casing Pressure_SNYDER 31H 4ALT_CBT_O_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Dry Friction Reducer Rate_LOS_F_1_PFR_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Grand Total_1-ALT_LOS_F_1_JPT_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Grand Total_1-ALT_LOS_F_2_JPS_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Tubing Pressure_EGP 25-36HC #001-ALT_CBT_O_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Tubing Pressure_EGP 25-36HC #002-ALT_CBT_O_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Tubing Pressure_Elm Grove PLT 25H #1_CBT_O_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Casing Pressure_Magnolia PT LD 38H #1_CBT_O_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Dry Friction Reducer Rate_1-ALT_LOS_F_1_PFR_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Casing Pressure_Cupples 12-1 HC #1-ALT_CBT_O_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Liquid Friction Reducer Concentration_LOS_F_1_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Liquid Friction Reducer Concentration_LOS_F_L_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Tubing Pressure_Elm Grove Plantn 30 #13_CBT_O_jobId_397 included by pressure pattern useStageData.js:110:23
+Header Liquid Friction Reducer Concentration_1-ALT_LOS_F_1_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Liquid Friction Reducer Concentration_1-ALT_LOS_F_L_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header WELL_NAME_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header Time_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header utc_timestamp_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Header timeDelay_jobId_397 excluded - no matching patterns useStageData.js:128:17
+Filtered 86 headers down to 16 headers useStageData.js:133:15
+Filtered headers sample: 
+Array(5) [ "Battery", "Pumpdown Pressure_LPC_P_jobId_397", "Natural Gas Pressure_LOS_F_jobId_397", "Treating Pressure_LOS_F_POCV_jobId_397", "Treating Pressure_LOS_F_WOCV_jobId_397" ]
+useStageData.js:134:15
+-------- End Header Filtering Debug -------- useStageData.js:138:15
+[filterHeaders] Called with 86 headers. forSettings: false useStageData.js:25:13
+[filterHeaders - Dashboard] Input headers count: 86 useStageData.js:45:15
+[filterHeaders - Dashboard] Using settings: 
+Object { patternCategories: {…} }
+useStageData.js:46:15
+-------- Header Filtering Debug -------- useStageData.js:50:15
+Pattern categories available: true useStageData.js:51:15
+Pressure patterns: 
+Array [ "pressure", "psi" ]
+useStageData.js:53:17
+Pressure negative patterns: 
+Array [ "atmospheric", "atm" ]
+useStageData.js:54:17
+Battery patterns: 
+Array [ "battery", "volt" ]
+useStageData.js:55:17
+Headers before filtering: 86 useStageData.js:57:15
+Sample headers: 
+Array(3) [ "timestamp", "stage", "well" ]
+useStageData.js:58:15
+Header timestamp excluded - no matching patterns useStageData.js:128:17
+Header stage excluded - no matching patterns useStageData.js:128:17
+Header well excluded - no matching patterns useStageData.js:128:17
+Header 2H excluded - no matching patterns useStageData.js:128:17
+Header 4H excluded - no matching patterns useStageData.js:128:17
+Header 6H excluded - no matching patterns useStageData.js:128:17
+Header 8H excluded - no matching patterns useStageData.js:128:17
+Header p4 excluded - no matching patterns useStageData.js:128:17
+Header p7 excluded - no matching patterns useStageData.js:128:17
+Header p8 excluded - no matching patterns useStageData.js:128:17
+Header 10H excluded - no matching patterns useStageData.js:128:17
+Header ch1 excluded - no matching patterns useStageData.js:128:17
+Header ch2 excluded - no matching patterns useStageData.js:128:17
+Header ch3 excluded - no matching patterns useStageData.js:128:17
+Header ch4 excluded - no matching patterns useStageData.js:128:17
+Header ch5 excluded - no matching patterns useStageData.js:128:17
+Header ch6 excluded - no matching patterns useStageData.js:128:17
+Header ch7 excluded - no matching patterns useStageData.js:128:17
+Header ch8 excluded - no matching patterns useStageData.js:128:17
+Header Temp excluded - no matching patterns useStageData.js:128:17
+Header Battery included by battery pattern useStageData.js:121:23
+Header WELL_NAME excluded - no matching patterns useStageData.js:128:17
+Header Time excluded - no matching patterns useStageData.js:128:17
+Header utc_timestamp excluded - no matching patterns useStageData.js:128:17
+Header timeDelay excluded - no matching patterns useStageData.js:128:17
+Header timestamp_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header stage_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header well_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Slurry Rate_EWS_F_P_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Clean Rate_EWS_F_1_CC_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Eng RPM_EWS_F_1_EBA1R_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Eng RPM_EWS_F_2_EBA2R_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Wellbore_2H_CBT_AW_WD_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Wellbore_4H_CBT_AW_WD_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Wellbore_6H_CBT_AW_WD_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Wellbore_8H_CBT_AW_WD_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Slurry Rate_EWS_F_1_B1_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Wellbore_10H_CBT_AW_WD_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Biocide Volume_EWS_F_C2_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Pumpdown Pressure_EWS_F_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Pumpdown Rate_EWS_F_1_PR_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Slurry Rate_EWS_F_S_B1SR_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Step Total_EWS_F_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Treating Pressure_EWS_F_W_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Casing Pressure_2H_EWS_F_29_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Casing Pressure_4H_EWS_F_49_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Casing Pressure_6H_EWS_F_69_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Casing Pressure_8H_EWS_F_89_jobId_390 included by pressure pattern useStageData.js:110:23
+Header P-Seal Pressure_2H_EWS_F_2P_jobId_390 included by pressure pattern useStageData.js:110:23
+Header P-Seal Pressure_4H_EWS_F_4P_jobId_390 included by pressure pattern useStageData.js:110:23
+Header P-Seal Pressure_6H_EWS_F_6P_jobId_390 included by pressure pattern useStageData.js:110:23
+Header P-Seal Pressure_8H_EWS_F_8P_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Casing Pressure_10H_EWS_F_19_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Natural Gas Pressure_EWS_F_1_jobId_390 included by pressure pattern useStageData.js:110:23
+Header P-Seal Pressure_10H_EWS_F_1P_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Proppant Grand Total_EWS_F_1_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Treating Pressure_EWS_F_P_PP_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Proppant Grand Total_EWS_F_BP_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Biocide Concentration_EWS_F_C2_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Natural Gas Pressure_EWS_F_GSI_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Proppant Concentration_EWS_F_B_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Concentration_EWS_F_I_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Concentration_EWS_F_S_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Clean Volume Step Total_EWS_F_P_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Natural Gas Pressure_EWS_F_1_IP_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Natural Gas Pressure_EWS_F_2_IP_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Proppant Concentration_EWS_F_BP_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Proppant Concentration_EWS_F_BS_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Clean Volume Grand Total_EWS_F_P_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Natural Gas Pressure_2H_CBT_S6_C_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Proppant Concentration_EWS_F_P_I_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Natural Gas Pressure_EWS_F_GSI_IP_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Natural Gas Pressure_EWS_F_GSO_OP_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Scale Inhibitor Volume_EWS_F_1_SS3_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Casing Pressure_1H - Carnegie_CBT_O_jobId_390 included by pressure pattern useStageData.js:110:23
+Header Friction Reducer Volume_EWS_F_P_SF9_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Friction Reducer Volume_EWS_F_S_SF9_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Clean Volume Grand Total_EWS_F_S_B1CJT_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Slurry Volume Grand Total Target_EWS_F_T_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Scale Inhibitor Concentration_EWS_F_1_SS3_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Friction Reducer Concentration_EWS_F_P_SF9_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Friction Reducer Concentration_EWS_F_S_SF9_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header WELL_NAME_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header Time_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header utc_timestamp_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Header timeDelay_jobId_390 excluded - no matching patterns useStageData.js:128:17
+Filtered 86 headers down to 22 headers useStageData.js:133:15
+Filtered headers sample: 
+Array(5) [ "Battery", "Pumpdown Pressure_EWS_F_jobId_390", "Treating Pressure_EWS_F_W_jobId_390", "Casing Pressure_2H_EWS_F_29_jobId_390", "Casing Pressure_4H_EWS_F_49_jobId_390" ]
+useStageData.js:134:15
+-------- End Header Filtering Debug -------- useStageData.js:138:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 3ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 3ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+Polling for settings changes... SettingsContext.jsx:110:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 2ms]
+
+XHRGET
+http://localhost:3003/api/settings
+[HTTP/1.1 304 Not Modified 5ms]
+
+XHRGET
+http://localhost:3003/api/settings/header-thresholds
+[HTTP/1.1 200 OK 2ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Header thresholds changed, applying updates... SettingsContext.jsx:84:19
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 2ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 2ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+Polling for settings changes... SettingsContext.jsx:110:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 4ms]
+
+XHRGET
+http://localhost:3003/api/settings
+[HTTP/1.1 304 Not Modified 4ms]
+
+XHRGET
+http://localhost:3003/api/settings/header-thresholds
+[HTTP/1.1 200 OK 4ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Header thresholds changed, applying updates... SettingsContext.jsx:84:19
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 2ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 5ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Polling for settings changes... SettingsContext.jsx:110:15
+XHRGET
+http://localhost:3003/api/settings
+[HTTP/1.1 304 Not Modified 2ms]
+
+XHRGET
+http://localhost:3003/api/settings/header-thresholds
+[HTTP/1.1 200 OK 2ms]
+
+Header thresholds changed, applying updates... SettingsContext.jsx:84:19
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 2ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 2ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 2ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15
+Polling for settings changes... SettingsContext.jsx:110:15
+XHRGET
+http://localhost:3003/api/settings
+[HTTP/1.1 304 Not Modified 5ms]
+
+XHRGET
+http://localhost:3003/api/settings/header-thresholds
+[HTTP/1.1 200 OK 5ms]
+
+Header thresholds changed, applying updates... SettingsContext.jsx:84:19
+Fetching monitoring status from: /status Dashboard.jsx:71:13
+Connecting to API: /status Dashboard.jsx:74:15
+XHRGET
+http://localhost:3003/status
+[HTTP/1.1 304 Not Modified 3ms]
+
+Raw response text: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:80:15
+Failed to parse response as JSON: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+    fetchMonitoringStatus Dashboard.jsx:87
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:85:17
+Response text was: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FracBrain Dashboard</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
+</html> Dashboard.jsx:86:17
+Error fetching monitoring status: Error: Invalid JSON response from server
+    fetchMonitoringStatus Dashboard.jsx:91
+    intervalId Dashboard.jsx:113
+    setInterval handler*Dashboard/< Dashboard.jsx:112
+    React 7
+    workLoop scheduler.development.js:266
+    flushWork scheduler.development.js:239
+    performWorkUntilDeadline scheduler.development.js:533
+    js scheduler.development.js:571
+    js scheduler.development.js:633
+    __require chunk-ZC22LKFR.js:9
+    js index.js:6
+    __require chunk-ZC22LKFR.js:9
+    React 2
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    js React
+    __require chunk-ZC22LKFR.js:9
+    <anonymous> react-dom_client.js:38
+Dashboard.jsx:94:15

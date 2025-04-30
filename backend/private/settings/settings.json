@@ -1,0 +1,38 @@
+{
+  "pollingInterval": 10,
+  "patternCategories": {
+    "pressure": {
+      "patterns": [
+        "pressure",
+        "casing",
+        "tubing",
+        "cbt",
+        "offset"
+      ],
+      "negativePatterns": [
+        "fdi",
+        "derivative",
+        "projected",
+        "measure"
+      ],
+      "threshold": 50,
+      "alertDuration": 120,
+      "frozenThreshold": 60
+    },
+    "battery": {
+      "patterns": [
+        "bat",
+        "battery"
+      ],
+      "threshold": 20,
+      "alertDuration": 120,
+      "frozenThreshold": 300
+    }
+  },
+  "webhooks": {
+    "enabled": false,
+    "slackWebhookUrl": "",
+    "interval": 3600000
+  },
+  "snoozeSettings": {}
+}

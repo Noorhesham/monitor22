@@ -1,25 +1,5 @@
 {
-  "name": "fracbrain-dashboard",
-  "private": true,
-  "version": "0.1.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite --config vite.config.js",
-    "build": "vite build --config vite.config.js",
-    "preview": "vite preview --config vite.config.js"
-  },
   "dependencies": {
-    "fracbrain-dashboard": "file:",
-    "lucide-react": "^0.241.0",
-    "node-fetch": "^2.7.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.0",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.2",
-    "vite": "^4.3.9"
+    "date-fns": "^4.1.0"
   }
 }

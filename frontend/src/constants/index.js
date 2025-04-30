@@ -1,0 +1,1 @@
+export const INTERVAL_TO_REFETCH_ACTIVE_STAGES = 10000; // 10 seconds
