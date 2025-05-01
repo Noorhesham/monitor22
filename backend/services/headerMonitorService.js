@@ -321,29 +321,76 @@ export class HeaderMonitorService {
       company_id: alert.companyId || null,
       stage_id: alert.stageId || null, // Fixed: Use actual stage_id from config
       dismissed: alert.dismissed || 0,
+      // Add snooze info if available
+      snoozed: alert.snoozed ? 1 : 0,
+      snooze_until: alert.snoozeUntil || null,
     };
 
     try {
-      await db.run(
-        `INSERT OR REPLACE INTO alerts (
+      // Check if table has the necessary columns
+      const tableInfo = await db.all("PRAGMA table_info(alerts)");
+      const columns = tableInfo.map((col) => col.name);
+
+      // Add columns if they don't exist
+      if (!columns.includes("snoozed")) {
+        await db.run("ALTER TABLE alerts ADD COLUMN snoozed INTEGER DEFAULT 0");
+      }
+
+      if (!columns.includes("snooze_until")) {
+        await db.run("ALTER TABLE alerts ADD COLUMN snooze_until TEXT DEFAULT NULL");
+      }
+
+      // Build SQL dynamically based on available columns
+      let sql = `INSERT OR REPLACE INTO alerts (
           id, type, header_id, header_name, value, threshold, 
-          timestamp, project_id, company_id, stage_id, dismissed
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [
-          alertData.id,
-          alertData.type,
-          alertData.header_id,
-          alertData.header_name,
-          alertData.value,
-          alertData.threshold,
-          alertData.timestamp,
-          alertData.project_id,
-          alertData.company_id,
-          alertData.stage_id,
-          alertData.dismissed,
-        ]
-      );
-      console.log("Alert saved:", alert.id);
+          timestamp, project_id, company_id, stage_id, dismissed`;
+
+      if (columns.includes("snoozed") || !columns.includes("snoozed")) {
+        sql += `, snoozed`;
+      }
+
+      if (columns.includes("snooze_until") || !columns.includes("snooze_until")) {
+        sql += `, snooze_until`;
+      }
+
+      sql += `) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?`;
+
+      if (columns.includes("snoozed") || !columns.includes("snoozed")) {
+        sql += `, ?`;
+      }
+
+      if (columns.includes("snooze_until") || !columns.includes("snooze_until")) {
+        sql += `, ?`;
+      }
+
+      sql += `)`;
+
+      // Prepare params array
+      const params = [
+        alertData.id,
+        alertData.type,
+        alertData.header_id,
+        alertData.header_name,
+        alertData.value,
+        alertData.threshold,
+        alertData.timestamp,
+        alertData.project_id,
+        alertData.company_id,
+        alertData.stage_id,
+        alertData.dismissed,
+      ];
+
+      if (columns.includes("snoozed") || !columns.includes("snoozed")) {
+        params.push(alertData.snoozed);
+      }
+
+      if (columns.includes("snooze_until") || !columns.includes("snooze_until")) {
+        params.push(alertData.snooze_until);
+      }
+
+      await db.run(sql, params);
+
+      console.log("Alert saved:", alert.id, alert.snoozed ? `(snoozed until ${alert.snoozeUntil})` : "");
       return true;
     } catch (error) {
       console.error("Alert save failed:", error);
@@ -352,91 +399,150 @@ export class HeaderMonitorService {
   }
 
   static async checkThresholdAlert(projectId, config, currentValue, state) {
+    const COOLDOWN_DURATION = 3600 * 1000; // 1 hour in milliseconds
+    const INITIAL_ALERT_DURATION = 120 * 1000; // 2 minutes in milliseconds
+    const DEFAULT_THRESHOLD = 120; // Default threshold value (2 minutes)
+
     try {
-      const { threshold, alert_duration = 30, first_exceeded_time } = config;
+      const db = await getDb();
       const now = Date.now();
-      console.log(config);
-      console.log(
-        `Config: threshold=${threshold}, alert_duration=${alert_duration}, first_exceeded_time=${first_exceeded_time}`
-      );
-  
-      // Check threshold condition
-      const isBelowThreshold = currentValue < threshold;
-      console.log(`Threshold check: ${currentValue} < ${threshold} = ${isBelowThreshold}`);
-  
+      // Use default threshold of 120 (2 minutes) if not specified
+      const threshold =
+        config.threshold !== null && config.threshold !== undefined ? config.threshold : DEFAULT_THRESHOLD;
       const alertId = `threshold_${projectId}_${config.header_id}`;
-  
+
+      // Check if this alert is already snoozed
+      const snoozeStatus = await this.isAlertSnoozed(alertId);
+
+      // If the alert is already snoozed, skip threshold checking and immediately return alert with snooze info
+      if (snoozeStatus && snoozeStatus.snoozed) {
+        console.log(
+          `\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Alert is snoozed until ${snoozeStatus.snoozeUntil} - skipping threshold check`
+        );
+        // Get any existing alert
+        const existingAlert = await db.get("SELECT * FROM alerts WHERE id = ?", [alertId]);
+        if (existingAlert) {
+          const alert = this.createThresholdAlert(config, currentValue, state, 0);
+          alert.snoozed = true;
+          alert.snoozeUntil = snoozeStatus.snoozeUntil;
+          alert.timestamp = existingAlert.timestamp || new Date().toISOString();
+          return alert;
+        }
+        return null;
+      }
+
+      // 1. Retrieve alert state
+      const { first_exceeded_time, last_alert_time } = await db.get(
+        `SELECT first_exceeded_time, last_alert_time 
+         FROM project_header_settings 
+         WHERE project_id = ? AND header_id = ?`,
+        [projectId, config.header_id]
+      );
+
+      // 2. Check current threshold status
+      const isBelowThreshold = currentValue < threshold;
+      console.log(
+        `\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Current ${currentValue} < ${threshold}? ${isBelowThreshold}`
+      );
+
+      // 3. Handle value recovery
       if (!isBelowThreshold) {
-        console.log(
-          `Threshold not breached, resetting timestamp and deleting alert for projectId=${projectId}, header_id=${config.header_id}`
-        );
-        await this.resetExceededTimestamp(projectId, config.header_id);
-        await this.deleteAlert(alertId);
+        if (last_alert_time) {
+          console.log(
+            `\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Value recovered - clearing alert and resetting state`
+          );
+          await this.deleteAlert(alertId);
+          await this.resetAlertState(projectId, config.header_id);
+        }
         return null;
       }
-  
-      // Calculate breach duration
-      const firstExceeded = first_exceeded_time ? new Date(first_exceeded_time).getTime() : now;
-      console.log(`firstExceeded=${firstExceeded} (${new Date(firstExceeded).toISOString()})`);
-      const elapsedSeconds = (now - firstExceeded) / 1000;
-  
-      // First time below threshold? Record the timestamp
-      if (!first_exceeded_time) {
+
+      // 4. Initial alert phase
+      if (!last_alert_time) {
+        const firstExceeded = first_exceeded_time || now;
+        const elapsed = now - firstExceeded;
+
+        if (!first_exceeded_time) {
+          console.log(`\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Initial breach detected - starting timer`);
+          await db.run(
+            `UPDATE project_header_settings 
+             SET first_exceeded_time = ? 
+             WHERE project_id = ? AND header_id = ?`,
+            [now, projectId, config.header_id]
+          );
+          return null;
+        }
+
+        if (elapsed >= INITIAL_ALERT_DURATION) {
+          console.log(
+            `\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Initial alert triggered after ${elapsed / 1000}s`
+          );
+          const alert = this.createThresholdAlert(config, currentValue, state, elapsed);
+          await this.saveAlert(alert);
+          await db.run(
+            `UPDATE project_header_settings 
+             SET last_alert_time = ? 
+             WHERE project_id = ? AND header_id = ?`,
+            [now, projectId, config.header_id]
+          );
+          return alert;
+        }
+
         console.log(
-          `No first_exceeded_time, setting initial timestamp for projectId=${projectId}, header_id=${config.header_id}`
-        );
-        await this.setInitialExceededTime(projectId, config.header_id, now);
-        console.log(
-          `Threshold breach started at ${new Date(now).toISOString()}, elapsed ${elapsedSeconds.toFixed(1)}s`
+          `\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Breach ongoing: ${elapsed / 1000}s/${
+            INITIAL_ALERT_DURATION / 1000
+          }s`
         );
         return null;
       }
-  
-      console.log(`Breach duration: ${elapsedSeconds.toFixed(1)}s / ${alert_duration}s`);
-  
-      // Check if breach duration meets requirement
-      if (elapsedSeconds >= alert_duration) {
-        const alert = {
-          id: alertId,
-          type: "threshold",
-          headerId: config.header_id,
-          headerName: config.header_name,
-          value: currentValue,
-          threshold,
-          timestamp: new Date().toISOString(),
-          projectId,
-          state,
-        };
-  
+
+      // 5. Cooldown phase
+      const cooldownElapsed = now - last_alert_time;
+      if (cooldownElapsed < COOLDOWN_DURATION) {
         console.log(
-          `ALERT TRIGGERED after ${elapsedSeconds.toFixed(1)} seconds for projectId=${projectId}, header_id=${
-            config.header_id
-          }`
+          `\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m In cooldown: ${cooldownElapsed / 1000}s/${
+            COOLDOWN_DURATION / 1000
+          }s`
         );
-        await this.resetExceededTimestamp(projectId, config.header_id);
-        await this.saveAlert(alert);
-  
-        return alert;
+        return null;
       }
-  
-      return null;
+
+      // 6. Recurring alert check
+      console.log(`\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Cooldown expired - rechecking...`);
+      const alert = this.createThresholdAlert(config, currentValue, state, now - last_alert_time);
+      alert.timestamp = new Date().toISOString();
+
+      await this.saveAlert(alert);
+      await db.run(
+        `UPDATE project_header_settings 
+         SET last_alert_time = ? 
+         WHERE project_id = ? AND header_id = ?`,
+        [now, projectId, config.header_id]
+      );
+
+      console.log(`\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Recurring alert updated`);
+      return alert;
     } catch (error) {
-      console.error(`Threshold check failed for projectId=${projectId}, header_id=${config.header_id}:`, error);
+      console.error(`\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Threshold check failed:`, error);
       return null;
     }
   }
-  static async deleteAlert(alertId) {
+
+  static async resetAlertState(projectId, headerId) {
     const db = await getDb();
-    try {
-      await db.run(`DELETE FROM alerts WHERE id = ?`, [alertId]);
-      console.log(`Deleted alert: ${alertId}`);
-    } catch (error) {
-      console.error(`Failed to delete alert: ${alertId}`, error);
-    }
+    await db.run(
+      `UPDATE project_header_settings 
+       SET first_exceeded_time = NULL,
+           last_alert_time = NULL 
+       WHERE project_id = ? AND header_id = ?`,
+      [projectId, headerId]
+    );
+    console.log(`[${headerId}] Alert state reset`);
   }
+
   static createThresholdAlert(config, value, state, duration) {
     return {
-      id: this.generateAlertId("threshold", config.header_id),
+      id: `threshold_${config.project_id}_${config.header_id}`,
       type: "threshold",
       headerId: config.header_id,
       headerName: config.header_name,
@@ -450,9 +556,155 @@ export class HeaderMonitorService {
       state: state,
     };
   }
+  static async deleteAlert(alertId) {
+    const db = await getDb();
+    try {
+      await db.run(`DELETE FROM alerts WHERE id = ?`, [alertId]);
+      console.log(`Deleted alert: ${alertId}`);
+    } catch (error) {
+      console.error(`Failed to delete alert: ${alertId}`, error);
+    }
+  }
 
   static async checkFrozenAlert(projectId, config, currentValue, state) {
-    // ... (similar structure for frozen alerts) ...
+    const COOLDOWN_DURATION = 3600 * 1000; // 1 hour in milliseconds
+    const FROZEN_DURATION_DEFAULT = 120 * 1000; // 2 minutes in milliseconds by default
+
+    try {
+      const db = await getDb();
+
+      const now = Date.now();
+      // Use default frozen threshold of 120 seconds (2 minutes) if not specified
+      const frozenThreshold =
+        config.frozen_threshold !== null && config.frozen_threshold !== undefined
+          ? config.frozen_threshold * 1000
+          : FROZEN_DURATION_DEFAULT;
+
+      const alertId = `frozen_${projectId}_${config.header_id}`;
+
+      // Check if this alert is already snoozed
+      const snoozeStatus = await this.isAlertSnoozed(alertId);
+
+      // If the alert is already snoozed, skip frozen checking and immediately return alert with snooze info
+      if (snoozeStatus && snoozeStatus.snoozed) {
+        console.log(
+          `\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Alert is snoozed until ${snoozeStatus.snoozeUntil} - skipping frozen check`
+        );
+        // Get any existing alert
+        const existingAlert = await db.get("SELECT * FROM alerts WHERE id = ?", [alertId]);
+        if (existingAlert) {
+          const alert = this.createFrozenAlert(config, currentValue, state, 0);
+          alert.snoozed = true;
+          alert.snoozeUntil = snoozeStatus.snoozeUntil;
+          alert.timestamp = existingAlert.timestamp || new Date().toISOString();
+          return alert;
+        }
+        return null;
+      }
+
+      // Get the last seen value for this header
+      const { last_value, last_value_time, last_frozen_alert_time } = await db.get(
+        `SELECT last_value, last_value_time, last_frozen_alert_time 
+         FROM project_header_settings 
+         WHERE project_id = ? AND header_id = ?`,
+        [projectId, config.header_id]
+      );
+
+      const hasLastValue = last_value !== null && last_value_time !== null;
+      const sameValue = hasLastValue && currentValue === last_value;
+
+      console.log(
+        `\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Current value: ${currentValue}, Last value: ${last_value}, Same value? ${sameValue}`
+      );
+
+      // If value changed or no previous value, update and exit
+      if (!sameValue || !hasLastValue) {
+        // Value is different, update and exit without alert
+        console.log(
+          `\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Value changed or first value - updating last_value and exiting`
+        );
+        await db.run(
+          `UPDATE project_header_settings 
+           SET last_value = ?, last_value_time = ? 
+           WHERE project_id = ? AND header_id = ?`,
+          [currentValue, now, projectId, config.header_id]
+        );
+
+        // If there was an alert, clear it since value has changed
+        if (last_frozen_alert_time) {
+          console.log(
+            `\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Value changed - clearing any existing frozen alert`
+          );
+          await this.deleteAlert(alertId);
+          await db.run(
+            `UPDATE project_header_settings 
+             SET last_frozen_alert_time = NULL 
+             WHERE project_id = ? AND header_id = ?`,
+            [projectId, config.header_id]
+          );
+        }
+
+        return null;
+      }
+
+      // Calculate how long the value has been frozen
+      const frozenDuration = now - last_value_time;
+      console.log(
+        `\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Value frozen for ${frozenDuration / 1000}s, threshold: ${
+          frozenThreshold / 1000
+        }s`
+      );
+
+      // If frozen duration is less than threshold, exit without alert
+      if (frozenDuration < frozenThreshold) {
+        console.log(`\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Still below frozen threshold - no alert yet`);
+        return null;
+      }
+
+      // If we already issued a frozen alert and in cooldown, exit
+      if (last_frozen_alert_time && now - last_frozen_alert_time < COOLDOWN_DURATION) {
+        console.log(`\x1b[36m[FROZEN][${config.header_id}]\x1b[0m In cooldown period - skipping alert`);
+        return null;
+      }
+
+      // Create and save frozen alert
+      console.log(
+        `\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Creating frozen alert - value unchanged for ${
+          frozenDuration / 1000
+        }s`
+      );
+      const alert = this.createFrozenAlert(config, currentValue, state, frozenDuration);
+      await this.saveAlert(alert);
+
+      // Update last alert time
+      await db.run(
+        `UPDATE project_header_settings 
+         SET last_frozen_alert_time = ? 
+         WHERE project_id = ? AND header_id = ?`,
+        [now, projectId, config.header_id]
+      );
+
+      return alert;
+    } catch (error) {
+      console.error(`\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Frozen check failed:`, error);
+      return null;
+    }
+  }
+
+  static createFrozenAlert(config, value, state, duration) {
+    return {
+      id: `frozen_${config.project_id}_${config.header_id}`,
+      type: "frozen",
+      headerId: config.header_id,
+      headerName: config.header_name,
+      value: value,
+      frozenDuration: Math.floor(duration / 1000), // Convert ms to seconds
+      timestamp: new Date().toISOString(),
+      projectId: config.project_id,
+      companyId: config.company_id,
+      stageId: config.stage_id,
+      state: state,
+    };
   }
 
   static createResponse(value, state, config, alert = null) {
@@ -467,92 +719,89 @@ export class HeaderMonitorService {
   }
 
   /**
-   * Process multiple headers for a project
-   */
-  static async processProjectHeaders(projectId, headerValues) {
-    const results = [];
-
-    for (const { headerId, value, state } of headerValues) {
-      const result = await this.checkHeaderValue(projectId, headerId, value, state);
-      if (result) {
-        results.push({ headerId, ...result });
-      }
-    }
-
-    return results;
-  }
-
-  /**
-   * Monitor all headers for all active projects
+   * Monitor only headers that are explicitly requested by frontend
    * @param {Object} options - Options for monitoring process
    * @param {boolean} options.cleanupDuplicates - Whether to clean up duplicate headers (default: true)
+   * @param {Array} options.headerIds - Array of header IDs to monitor (from frontend)
    * @returns {Promise<Object>} - Monitoring results
    */
-  static async monitorAllHeaders(options = { cleanupDuplicates: true }) {
-    console.log("Starting header monitoring cycle for all projects");
+  static async monitorAllHeaders(options = { cleanupDuplicates: true, headerIds: [] }) {
+    console.log("STRICTLY monitoring ONLY headers explicitly requested from frontend");
+    console.log("Frontend headerIds:", JSON.stringify(options.headerIds || []));
 
     // Initialize results
     const results = {
       headerValues: {},
       alerts: [],
-      totalProjects: 0,
-      activeProjects: 0,
       processedHeaders: 0,
-      duplicatesFound: 0,
-      duplicatesCleaned: 0,
       errors: [],
     };
 
     try {
-      // Get all active projects from database instead of API
+      // If no headerIds provided, return empty results immediately
+      if (!options.headerIds || !Array.isArray(options.headerIds) || options.headerIds.length === 0) {
+        console.log("⚠️ No headerIds received from frontend - returning empty results");
+        return { headerValues: [], alerts: [] };
+      }
+
+      // Get database connection
       const db = await getDb();
-      const projects = await db.all(`
-        SELECT * FROM active_projects 
-        WHERE is_deleted = 0
-      `);
 
-      if (!projects || !Array.isArray(projects)) {
-        console.error("Failed to fetch projects from database");
-        results.errors.push("Failed to fetch projects from database");
-        return results;
+      // Array to store headers we'll process
+      let headersToProcess = [];
+
+      // Get info for each requested header ID
+      for (const headerId of options.headerIds) {
+        const headerInfo = await db.get(
+          `
+          SELECT 
+            phs.*, 
+            ap.company_id, 
+            ap.company_name, 
+            ap.project_name,
+            ap.stage_id
+          FROM 
+            project_header_settings phs
+          JOIN 
+            active_projects ap ON ap.project_id = phs.project_id
+          WHERE 
+            phs.header_id = ?
+        `,
+          [headerId]
+        );
+
+        if (headerInfo) {
+          headersToProcess.push(headerInfo);
+        } else {
+          console.log(`⚠️ Header ID ${headerId} from frontend not found in database`);
+        }
       }
 
-      results.totalProjects = projects.length;
-      results.activeProjects = projects.length;
-
-      if (projects.length === 0) {
-        console.log("No active projects found");
-        return results;
+      if (headersToProcess.length === 0) {
+        console.log("⚠️ None of the frontend requested headers were found in database");
+        return { headerValues: [], alerts: [] };
       }
 
-      console.log(`Found ${projects.length} active projects`);
+      console.log(`Processing ONLY the ${headersToProcess.length} headers explicitly requested by frontend`);
 
-      // Get all monitored headers
-      const monitoredHeaders = await this.getAllMonitoredHeaders();
-      if (!monitoredHeaders || monitoredHeaders.length === 0) {
-        console.log("No monitored headers found");
-        return results;
-      }
-
-      console.log(`Found ${monitoredHeaders.length} monitored headers`);
-
-      // Process each monitored header
-      for (const header of monitoredHeaders) {
+      // Process each header
+      for (const header of headersToProcess) {
         try {
           const headerValue = await this.fetchHeaderValue(header.header_id);
 
           // Store result in headerValues
           results.headerValues[header.header_id] = {
-            id: header.header_id, // Add id property for frontend compatibility
+            id: header.header_id,
             headerId: header.header_id,
             value: headerValue.value,
             timestamp: headerValue.timestamp,
-            lastUpdated: headerValue.timestamp, // Add lastUpdated for frontend compatibility
+            lastUpdated: headerValue.timestamp,
             companyId: header.company_id,
             stageId: header.stage_id,
             projectId: header.project_id,
             name: header.header_name,
-            state: headerValue.state || "ENDED", // Make sure state is always included
+            state: headerValue.state || "ENDED",
+            isMonitored: true, // These headers are being monitored by request
           };
 
           // Check for alerts
@@ -563,20 +812,10 @@ export class HeaderMonitorService {
               headerValue.value,
               headerValue.state
             );
-            console.log(alertCheck, "alertCheck");
-            if (alertCheck && alertCheck.alertState) {
+
+            if (alertCheck && alertCheck.alert) {
               // Add alert to results
-              results.alerts.push({
-                type: alertCheck.alertState,
-                headerId: header.header_id,
-                headerName: header.header_name,
-                value: headerValue.value,
-                threshold: alertCheck.threshold,
-                timestamp: new Date().toISOString(),
-                companyId: header.company_id,
-                stageId: header.stage_id,
-                projectId: header.project_id,
-              });
+              results.alerts.push(alertCheck.alert);
             }
           }
 
@@ -584,17 +823,6 @@ export class HeaderMonitorService {
         } catch (error) {
           console.error(`Error processing header ${header.header_id}:`, error);
           results.errors.push(`Error processing header ${header.header_id}: ${error.message}`);
-        }
-      }
-
-      // Cleanup duplicate headers if enabled
-      if (options.cleanupDuplicates) {
-        try {
-          const cleanupCount = await this.cleanupDuplicateHeaders();
-          results.duplicatesCleaned = cleanupCount;
-        } catch (cleanupError) {
-          console.error("Error cleaning up duplicate headers:", cleanupError);
-          results.errors.push(`Cleanup error: ${cleanupError.message}`);
         }
       }
 
@@ -852,10 +1080,18 @@ export class HeaderMonitorService {
         [alertId, now]
       );
 
-      return !!snooze;
+      if (snooze) {
+        return {
+          snoozed: true,
+          snoozeUntil: snooze.snooze_until,
+          createdAt: snooze.created_at,
+        };
+      } else {
+        return { snoozed: false };
+      }
     } catch (error) {
       console.error(`Error checking snooze status for alert ${alertId}:`, error);
-      return false;
+      return { snoozed: false };
     }
   }
 
@@ -867,20 +1103,52 @@ export class HeaderMonitorService {
       const db = await getDb();
       const now = new Date().toISOString();
 
-      // Get all non-dismissed alerts
-      const alerts = await db.all(
-        `SELECT a.*, s.snooze_until 
-         FROM alerts a 
-         LEFT JOIN alert_snoozes s ON a.id = s.alert_id AND s.snooze_until > ?
-         WHERE a.dismissed = 0
-         ORDER BY a.timestamp DESC`,
-        [now]
-      );
+      // Check if alerts table has snooze columns
+      const tableInfo = await db.all("PRAGMA table_info(alerts)");
+      const columns = tableInfo.map((col) => col.name);
+      const hasSnoozed = columns.includes("snoozed");
+      const hasSnoozeUntil = columns.includes("snooze_until");
 
-      return alerts.map((alert) => ({
-        ...alert,
-        snoozed: !!alert.snooze_until,
-      }));
+      // Build query with appropriate columns
+      let query = `
+        SELECT a.*
+        FROM alerts a
+        LEFT JOIN alert_snoozes s ON a.id = s.alert_id AND s.snooze_until > ?
+        WHERE a.dismissed = 0
+      `;
+
+      // Order by timestamp
+      query += ` ORDER BY a.timestamp DESC`;
+
+      const alerts = await db.all(query, [now]);
+
+      // Process alerts to include snooze information
+      return alerts.map((alert) => {
+        // Check for snooze status from either internal columns or joined table
+        let snoozed = false;
+        let snoozeUntil = null;
+
+        // First check direct columns if they exist
+        if (hasSnoozed && hasSnoozeUntil) {
+          snoozed = alert.snoozed === 1;
+          snoozeUntil = alert.snooze_until;
+        }
+
+        // Then check join result (for backward compatibility)
+        if (!snoozed && alert.snooze_until) {
+          snoozed = true;
+          snoozeUntil = alert.snooze_until;
+        }
+
+        return {
+          ...alert,
+          snoozed,
+          snoozeUntil,
+          // Convert string values to numbers for frontend
+          value: typeof alert.value === "string" ? parseFloat(alert.value) : alert.value,
+          threshold: typeof alert.threshold === "string" ? parseFloat(alert.threshold) : alert.threshold,
+        };
+      });
     } catch (error) {
       console.error("Error fetching active alerts:", error);
       return [];

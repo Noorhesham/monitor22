@@ -310,12 +310,23 @@ router.get("/active-stages", async (req, res) => {
 });
 
 // Get monitored headers - Added for frontend compatibility
+// Get monitored headers - Added for frontend compatibility
 router.get("/monitored-headers", async (req, res) => {
   try {
     const db = await getDb();
+    const headerIds = req.query.headerIds;
+    console.log("Header IDs from query:", headerIds);
+    // Parse headerIds into an array if provided
+    let idsArray = [];
+    if (headerIds) {
+      idsArray = headerIds
+        .split(",")
+        .map((id) => parseInt(id.trim(), 10))
+        .filter((id) => !isNaN(id));
+    }
 
-    // Join with active_projects to get company and project names
-    const monitoredHeaders = await db.all(`
+    // Base SQL query to fetch monitored headers
+    let query = `
       SELECT 
         phs.*,
         ap.company_name,
@@ -327,13 +338,25 @@ router.get("/monitored-headers", async (req, res) => {
         active_projects ap ON phs.project_id = ap.project_id
       WHERE 
         phs.is_monitored = 1
-      ORDER BY
-        phs.updated_at DESC
-    `);
+    `;
+
+    let params = [];
+
+    // Add filter for specific header IDs if provided
+    if (idsArray.length > 0) {
+      const placeholders = idsArray.map(() => "?").join(",");
+      query += ` AND phs.header_id IN (${placeholders})`;
+      params = idsArray;
+    }
+
+    query += ` ORDER BY phs.updated_at DESC`;
+
+    // Execute the query
+    const monitoredHeaders = await db.all(query, params);
 
     console.log(`GET /monitored-headers: Found ${monitoredHeaders.length} headers.`);
     res.json({
-      headers: monitoredHeaders, // Send the actual headers with project info
+      headers: monitoredHeaders,
       lastUpdated: new Date(),
       timestamp: Date.now(),
     });
@@ -342,12 +365,28 @@ router.get("/monitored-headers", async (req, res) => {
     res.status(500).json({ error: "Failed to get monitored headers" });
   }
 });
-
 // Route to get all monitored header values
 router.get("/header-values", async (req, res) => {
   try {
     const includeRawData = req.query.includeRawData === "true";
-    const result = await HeaderMonitorService.monitorAllHeaders({ cleanupDuplicates: false });
+    let headerIds = [];
+
+    // Extract header IDs from query parameter if provided
+    if (req.query.headerIds) {
+      headerIds = req.query.headerIds
+        .split(",")
+        .map((id) => id.trim())
+        .filter((id) => id);
+      console.log(`Request to monitor specific headers: ${headerIds.join(", ")}`);
+    } else {
+      console.log("No specific headers requested, will fall back to is_monitored=1 headers");
+    }
+
+    // Pass the header IDs to the service
+    const result = await HeaderMonitorService.monitorAllHeaders({
+      cleanupDuplicates: false,
+      headerIds: headerIds,
+    });
 
     // Make sure we're returning an array of header values with state information
     const headerValues = Array.isArray(result.headerValues) ? result.headerValues : [];
@@ -839,6 +878,71 @@ router.post("/cleanup-duplicate-headers", async (req, res) => {
       error: "Failed to clean up duplicate headers",
       details: error.message,
     });
+  }
+});
+
+// Ensure database is properly set up for monitoring
+router.get("/setup", async (req, res) => {
+  try {
+    const db = await getDb();
+
+    // Check if project_header_settings table has the necessary columns
+    const tableInfo = await db.all("PRAGMA table_info(project_header_settings)");
+    const columns = tableInfo.map((col) => col.name);
+
+    console.log("Current columns in project_header_settings:", columns);
+
+    // Add missing columns if needed
+    const columnsToAdd = [
+      { name: "last_value", type: "REAL", default: "NULL" },
+      { name: "last_value_time", type: "INTEGER", default: "NULL" },
+      { name: "last_frozen_alert_time", type: "INTEGER", default: "NULL" },
+      { name: "first_exceeded_time", type: "INTEGER", default: "NULL" },
+      { name: "last_alert_time", type: "INTEGER", default: "NULL" },
+    ];
+
+    let columnsAdded = 0;
+
+    for (const column of columnsToAdd) {
+      if (!columns.includes(column.name)) {
+        await db.run(
+          `ALTER TABLE project_header_settings ADD COLUMN ${column.name} ${column.type} DEFAULT ${column.default}`
+        );
+        console.log(`Added missing column: ${column.name}`);
+        columnsAdded++;
+      }
+    }
+
+    // Check if alerts table has the necessary columns
+    const alertsTableInfo = await db.all("PRAGMA table_info(alerts)");
+    const alertsColumns = alertsTableInfo.map((col) => col.name);
+
+    console.log("Current columns in alerts:", alertsColumns);
+
+    // Add missing columns to alerts table if needed
+    const alertColumnsToAdd = [
+      { name: "snoozed", type: "INTEGER", default: "0" },
+      { name: "snooze_until", type: "TEXT", default: "NULL" },
+      { name: "frozen_duration", type: "INTEGER", default: "NULL" },
+    ];
+
+    for (const column of alertColumnsToAdd) {
+      if (!alertsColumns.includes(column.name)) {
+        await db.run(`ALTER TABLE alerts ADD COLUMN ${column.name} ${column.type} DEFAULT ${column.default}`);
+        console.log(`Added missing column to alerts: ${column.name}`);
+        columnsAdded++;
+      }
+    }
+
+    res.json({
+      success: true,
+      message: columnsAdded > 0 ? `Added ${columnsAdded} missing columns` : "Database schema is already up-to-date",
+      project_header_settings_columns: columns,
+      alerts_columns: alertsColumns,
+    });
+  } catch (error) {
+    console.error("Error setting up database:", error);
+    res.status(500).json({ error: "Failed to set up database", details: error.message });
   }
 });
 

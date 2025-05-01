@@ -10,7 +10,7 @@ class DatabaseService {
     this.connectionAttempts = 0;
     this.maxConnectionAttempts = 5;
     this.connectionBackoff = 1000; // ms
-    this.schemaVersion = '1.0'; // Current schema version
+    this.schemaVersion = "1.0"; // Current schema version
   }
 
   /**
@@ -22,10 +22,10 @@ class DatabaseService {
     if (this.db) {
       try {
         // Quick test query to verify connection is still valid
-        await this.db.get('SELECT 1');
+        await this.db.get("SELECT 1");
         return this.db;
       } catch (error) {
-        console.error('Database connection test failed, will reinitialize:', error);
+        console.error("Database connection test failed, will reinitialize:", error);
         this.db = null;
         this.lastError = error;
       }
@@ -42,10 +42,10 @@ class DatabaseService {
 
     this.initPromise = new Promise(async (resolve, reject) => {
       try {
-        console.log('Initializing database connection...');
+        console.log("Initializing database connection...");
 
         // Get database path from config or use default
-        const dbPath = process.env.DB_PATH || path.join(__dirname, '../data/monitoring.db');
+        const dbPath = process.env.DB_PATH || path.join(__dirname, "../data/monitoring.db");
         const dbDir = path.dirname(dbPath);
 
         // Ensure database directory exists
@@ -57,7 +57,7 @@ class DatabaseService {
         // Initialize database connection
         const newDb = await sqlite.open({
           filename: dbPath,
-          driver: sqlite3.Database
+          driver: sqlite3.Database,
         });
 
         console.log(`Connected to database at ${dbPath}`);
@@ -69,17 +69,19 @@ class DatabaseService {
         this.connectionAttempts = 0;
         this.lastError = null;
         this.db = newDb;
-        
+
         resolve(this.db);
       } catch (error) {
         this.lastError = error;
-        console.error('Database initialization failed:', error);
+        console.error("Database initialization failed:", error);
 
         // Implement retry with exponential backoff if under max attempts
         if (this.connectionAttempts < this.maxConnectionAttempts) {
           const backoffTime = this.connectionBackoff * Math.pow(2, this.connectionAttempts - 1);
-          console.log(`Retrying database connection in ${backoffTime}ms (attempt ${this.connectionAttempts} of ${this.maxConnectionAttempts})`);
-          
+          console.log(
+            `Retrying database connection in ${backoffTime}ms (attempt ${this.connectionAttempts} of ${this.maxConnectionAttempts})`
+          );
+
           setTimeout(() => {
             this.isInitializing = false;
             this.getDb().then(resolve).catch(reject);
@@ -103,7 +105,7 @@ class DatabaseService {
    */
   async verifyDatabaseSchema(db) {
     try {
-      console.log('Verifying database schema...');
+      console.log("Verifying database schema...");
 
       // Check if schema version table exists
       const hasVersionTable = await db.get(
@@ -112,7 +114,7 @@ class DatabaseService {
 
       // Create schema version table if it doesn't exist
       if (!hasVersionTable) {
-        console.log('Creating schema version table');
+        console.log("Creating schema version table");
         await db.exec(`
           CREATE TABLE schema_version (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -120,12 +122,12 @@ class DatabaseService {
             applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
           )
         `);
-        await db.run('INSERT INTO schema_version (version) VALUES (?)', [this.schemaVersion]);
+        await db.run("INSERT INTO schema_version (version) VALUES (?)", [this.schemaVersion]);
       }
 
       // Get current schema version
-      const versionRecord = await db.get('SELECT version FROM schema_version ORDER BY id DESC LIMIT 1');
-      const currentVersion = versionRecord ? versionRecord.version : '0';
+      const versionRecord = await db.get("SELECT version FROM schema_version ORDER BY id DESC LIMIT 1");
+      const currentVersion = versionRecord ? versionRecord.version : "0";
       console.log(`Current database schema version: ${currentVersion}`);
 
       // Check if upgrade is needed
@@ -139,7 +141,7 @@ class DatabaseService {
 
       return true;
     } catch (error) {
-      console.error('Schema verification failed:', error);
+      console.error("Schema verification failed:", error);
       throw error;
     }
   }
@@ -155,42 +157,42 @@ class DatabaseService {
       console.log(`Upgrading database schema from ${currentVersion} to ${this.schemaVersion}`);
 
       // Begin transaction for schema upgrade
-      await db.exec('BEGIN TRANSACTION');
+      await db.exec("BEGIN TRANSACTION");
 
       // Apply schema updates based on current version
       switch (currentVersion) {
-        case '0':
+        case "0":
           // Initial schema creation will be handled by createTablesIfNeeded
           break;
-        
+
         // Add future migration paths here
-        case '0.9':
+        case "0.9":
           // Example: Upgrade from 0.9 to 1.0
-          console.log('Upgrading schema from 0.9 to 1.0');
+          console.log("Upgrading schema from 0.9 to 1.0");
           // Add any specific migration SQL here
           break;
-          
+
         default:
           console.warn(`Unknown schema version: ${currentVersion}. Attempting to recreate tables.`);
       }
 
       // Update schema version
-      await db.run('INSERT INTO schema_version (version) VALUES (?)', [this.schemaVersion]);
-      
+      await db.run("INSERT INTO schema_version (version) VALUES (?)", [this.schemaVersion]);
+
       // Commit transaction
-      await db.exec('COMMIT');
-      
+      await db.exec("COMMIT");
+
       console.log(`Schema upgrade completed to version ${this.schemaVersion}`);
       return true;
     } catch (error) {
       // Rollback transaction on error
       try {
-        await db.exec('ROLLBACK');
+        await db.exec("ROLLBACK");
       } catch (rollbackError) {
-        console.error('Failed to rollback schema upgrade transaction:', rollbackError);
+        console.error("Failed to rollback schema upgrade transaction:", rollbackError);
       }
-      
-      console.error('Schema upgrade failed:', error);
+
+      console.error("Schema upgrade failed:", error);
       throw error;
     }
   }
@@ -202,7 +204,7 @@ class DatabaseService {
    */
   async createTablesIfNeeded(db) {
     try {
-      console.log('Ensuring all required tables exist...');
+      console.log("Ensuring all required tables exist...");
 
       // Create settings table
       await db.exec(`
@@ -233,6 +235,10 @@ class DatabaseService {
           header_id TEXT NOT NULL,
           is_monitored BOOLEAN DEFAULT 1,
           first_exceeded_time TIMESTAMP,
+          
+          last_value_time TIMESTAMP,
+          last_frozen_alert_time TIMESTAMP,
+          last_alert_time TIMESTAMP,
           last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
           UNIQUE(project_id, header_id)
         )
@@ -244,6 +250,8 @@ class DatabaseService {
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           first_exceeded_time TIMESTAMP,
           project_id TEXT NOT NULL,
+          last_frozen_alert_time TIMESTAMP,
+          last_alert_time TIMESTAMP,
           header_id TEXT NOT NULL,
           threshold_name TEXT NOT NULL,
           threshold_value REAL,
@@ -291,10 +299,10 @@ class DatabaseService {
         CREATE INDEX IF NOT EXISTS idx_monitoring_logs_recent ON monitoring_logs(project_id, header_id, timestamp);
       `);
 
-      console.log('All required tables and indexes created successfully');
+      console.log("All required tables and indexes created successfully");
       return true;
     } catch (error) {
-      console.error('Failed to create database tables:', error);
+      console.error("Failed to create database tables:", error);
       throw error;
     }
   }
@@ -307,11 +315,11 @@ class DatabaseService {
     if (this.db) {
       try {
         await this.db.close();
-        console.log('Database connection closed successfully');
+        console.log("Database connection closed successfully");
         this.db = null;
         return true;
       } catch (error) {
-        console.error('Error closing database connection:', error);
+        console.error("Error closing database connection:", error);
         throw error;
       }
     }
@@ -327,9 +335,9 @@ class DatabaseService {
       connected: !!this.db,
       lastError: this.lastError ? this.lastError.message : null,
       connectionAttempts: this.connectionAttempts,
-      schemaVersion: this.schemaVersion
+      schemaVersion: this.schemaVersion,
     };
   }
 }
 
-module.exports = new DatabaseService(); 
+module.exports = new DatabaseService();
