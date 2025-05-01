@@ -42,7 +42,7 @@ const AlertsSidebar = () => {
   const { alerts, loading, error } = useSelector((state) => state.alerts);
   const [snoozeAnchorEl, setSnoozeAnchorEl] = useState(null);
   const [selectedAlertId, setSelectedAlertId] = useState(null);
-  console.log(alerts)
+
   // Auto-refresh alerts every 30 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,7 +80,7 @@ const AlertsSidebar = () => {
   const handleRefresh = () => {
     dispatch(fetchAlerts());
   };
-
+  // console.log(alerts)
   return (
     <>
       <Drawer
@@ -177,7 +177,7 @@ const AlertsSidebar = () => {
                 <Typography variant="body1">{alert.headerName}</Typography>
 
                 <Typography variant="body2" color="text.secondary">
-                  Stage: {alert.stageName || alert.stageId || "Unknown"}
+                  Stage: {alert.header_name || alert.stageId || "Unknown"}
                 </Typography>
 
                 <Typography

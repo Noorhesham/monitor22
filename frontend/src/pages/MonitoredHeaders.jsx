@@ -27,11 +27,14 @@ import {
   Switch,
   FormControlLabel,
   Skeleton,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SettingsIcon from "@mui/icons-material/Settings";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import NotificationsOffIcon from "@mui/icons-material/NotificationsOff";
 import {
   fetchMonitoredHeaders,
   fetchHeaderValues,
@@ -39,17 +42,18 @@ import {
   removeProjectHeaders,
   updateHeaderSettings,
   clearMonitoredHeadersError, // Import the clear error action
+  addMonitoredHeader,
 } from "../store/slices/monitoredHeadersSlice";
 import { fetchSettings } from "../store/slices/settingsSlice";
 import { fetchActiveStages } from "../store/slices/stagesSlice";
 import { INTERVAL_TO_REFETCH_ACTIVE_STAGES } from "../constants";
+import axios from "axios";
 
 const MonitoredHeaders = () => {
   const dispatch = useDispatch();
   const { monitoredHeaders, headerValues, loading, error, removingHeader, selectedStageHeaders } = useSelector(
     (state) => state.monitoredHeaders
   );
-  console.log("Monitored Headers:", monitoredHeaders);
   const { settings, loading: settingsLoading, error: settingsError } = useSelector((state) => state.settings);
   const [expandedProjects, setExpandedProjects] = useState({});
   const [settingsDialogOpen, setSettingsDialogOpen] = useState(false);
@@ -71,7 +75,7 @@ const MonitoredHeaders = () => {
         // Then fetch all data together
         await Promise.all([
           dispatch(fetchSettings()),
-          // dispatch(fetchMonitoredHeaders()),
+          dispatch(fetchMonitoredHeaders(monitoredHeaders)),
           dispatch(fetchHeaderValues()),
         ]);
       } catch (error) {
@@ -94,15 +98,15 @@ const MonitoredHeaders = () => {
   }, [settings?.pollingInterval]);
 
   //refresh the stages  in 10 seconds
-  // useEffect(() => {
-  //   dispatch(fetchActiveStages()); //INITIAL FETCH
+  useEffect(() => {
+    dispatch(fetchActiveStages()); //INITIAL FETCH
 
-  //   const stagesInterval = setInterval(() => {
-  //     dispatch(fetchActiveStages());
-  //   }, INTERVAL_TO_REFETCH_ACTIVE_STAGES);
+    const stagesInterval = setInterval(() => {
+      dispatch(fetchActiveStages());
+    }, INTERVAL_TO_REFETCH_ACTIVE_STAGES);
 
-  //   return () => clearInterval(stagesInterval);
-  // }, [dispatch]);
+    return () => clearInterval(stagesInterval);
+  }, [dispatch]);
 
   // Manual refresh function
   const refreshData = async () => {
@@ -111,7 +115,11 @@ const MonitoredHeaders = () => {
       dispatch(clearMonitoredHeadersError());
 
       // Fetch all data in parallel
-      await Promise.all([dispatch(fetchSettings()), dispatch(fetchMonitoredHeaders()), dispatch(fetchHeaderValues())]);
+      await Promise.all([
+        dispatch(fetchSettings()),
+        dispatch(fetchMonitoredHeaders(monitoredHeaders)),
+        dispatch(fetchHeaderValues()),
+      ]);
     } catch (error) {
       console.error("Error refreshing data:", error);
     }
@@ -296,7 +304,29 @@ const MonitoredHeaders = () => {
 
   // Check if a header has an active alert, safely
   const hasAlert = (headerId) => {
-    return headerValues?.[headerId]?.hasAlert;
+    if (!Array.isArray(headerValues)) {
+      return false;
+    }
+    const headerValue = headerValues.find((h) => h.id === headerId);
+    return headerValue?.alert && !headerValue.alert.snoozed;
+  };
+
+  // Check if a header has a snoozed alert
+  const hasSnoozedAlert = (headerId) => {
+    if (!Array.isArray(headerValues)) {
+      return false;
+    }
+    const headerValue = headerValues.find((h) => h.id === headerId);
+    return headerValue?.alert && headerValue.alert.snoozed;
+  };
+
+  // Get snooze until time
+  const getSnoozeUntil = (headerId) => {
+    if (!Array.isArray(headerValues)) {
+      return null;
+    }
+    const headerValue = headerValues.find((h) => h.id === headerId);
+    return headerValue?.alert?.snoozeUntil;
   };
 
   // Check if a header has frozen data
@@ -392,6 +422,7 @@ const MonitoredHeaders = () => {
     }
 
     const headerValue = headerValues.find((header) => header.id === headerId);
+
     return headerValue?.state || null;
   };
 
@@ -428,6 +459,147 @@ const MonitoredHeaders = () => {
       return "Error";
     }
   };
+
+  // Add state for snooze functionality
+  const [snoozeAnchorEl, setSnoozeAnchorEl] = useState(null);
+  const [headerToSnooze, setHeaderToSnooze] = useState(null);
+  const [isSnoozing, setIsSnoozing] = useState(false);
+
+  // Function to handle opening snooze menu
+  const handleSnoozeClick = (event, headerId) => {
+    setSnoozeAnchorEl(event.currentTarget);
+    setHeaderToSnooze(headerId);
+  };
+
+  // Function to handle closing snooze menu
+  const handleSnoozeClose = () => {
+    setSnoozeAnchorEl(null);
+    setHeaderToSnooze(null);
+  };
+
+  // Function to handle snooze duration selection
+  const handleSnooze = async (duration) => {
+    if (!headerToSnooze) return;
+
+    setIsSnoozing(true);
+    try {
+      // Find the alert for this header
+      const headerValue = headerValues.find((h) => h.id === headerToSnooze);
+      if (headerValue?.alert?.id) {
+        // Call the API to snooze the alert
+        await axios.post(`/api/monitoring/alerts/${headerValue.alert.id}/snooze`, {
+          duration: duration,
+        });
+
+        // Refresh the data to show updated snooze status
+        await dispatch(fetchHeaderValues());
+      }
+    } catch (error) {
+      console.error("Failed to snooze alert:", error);
+    } finally {
+      setIsSnoozing(false);
+      handleSnoozeClose();
+    }
+  };
+
+  // Get alert ID from header
+  const getAlertId = (headerId) => {
+    const headerValue = headerValues.find((h) => h.id === headerId);
+    return headerValue?.alert?.id;
+  };
+
+  useEffect(() => {
+    const refreshEndedHeaders = async () => {
+      try {
+        // 1. Filter headers with "ENDED" state
+        const endedHeaders = headerValues?.filter((header) => header.state === "ENDED") || [];
+
+        if (endedHeaders.length === 0) return;
+
+        console.log(`Found ${endedHeaders.length} ENDED headers that need refreshing`);
+
+        // 2. Fetch all active stages
+        const stagesResponse = await axios.get("/api/monitoring/active-stages");
+        const activeStages = stagesResponse.data.stages || [];
+
+        if (activeStages.length === 0) {
+          console.log("No active stages available to find replacement headers");
+          return;
+        }
+
+        // Process each ended header
+        for (const endedHeader of endedHeaders) {
+          console.log(`Processing ended header: ${endedHeader.name} (ID: ${endedHeader.id})`);
+
+          // Find this header in our monitored headers to get settings
+          const monitoredHeader = monitoredHeaders.find((h) => h.headerId === endedHeader.id);
+          if (!monitoredHeader) {
+            console.log(`Cannot find header ${endedHeader.id} in monitored headers list`);
+            continue;
+          }
+
+          // Keep track if we found a replacement
+          let replacementFound = false;
+
+          // Search through active stages for a replacement
+          for (const stage of activeStages) {
+            if (replacementFound) break;
+
+            try {
+              // Fetch headers for this stage
+              const headersResponse = await axios.get(`/api/monitoring/headers/${stage.stageId}`);
+              const stageHeaders = headersResponse.data.headers || [];
+
+              // Look for a header with the same name
+              const matchingHeader = stageHeaders.find(
+                (h) => h.name.toLowerCase() === monitoredHeader.headerName.toLowerCase()
+              );
+
+              if (matchingHeader) {
+                console.log(`Found replacement header ${matchingHeader.id} in stage ${stage.stageId}`);
+
+                // Prepare replacement data with same settings
+                const replacement = {
+                  stageId: stage.stageId,
+                  projectId: monitoredHeader.projectId,
+                  headerId: matchingHeader.id,
+                  headerName: matchingHeader.name,
+                  projectName: monitoredHeader.projectName,
+                  companyName: monitoredHeader.companyName,
+                  settings: monitoredHeader.settings,
+                };
+
+                // Remove old header
+                await dispatch(removeMonitoredHeader(endedHeader.id));
+
+                // Add new header
+                await dispatch(addMonitoredHeader(replacement));
+
+                replacementFound = true;
+                break;
+              }
+            } catch (error) {
+              console.error(`Error fetching headers for stage ${stage.stageId}:`, error);
+            }
+          }
+
+          if (!replacementFound) {
+            console.log(`No replacement found for header ${monitoredHeader.headerName}`);
+          }
+        }
+
+        // Refresh header values after replacing
+        await dispatch(fetchHeaderValues());
+      } catch (error) {
+        console.error("Error refreshing ended headers:", error);
+      }
+    };
+
+    // Only run if we have headerValues
+    if (Array.isArray(headerValues) && headerValues.length > 0) {
+      refreshEndedHeaders();
+    }
+  }, [headerValues, dispatch, monitoredHeaders]);
 
   return (
     <Box>
@@ -490,7 +662,6 @@ const MonitoredHeaders = () => {
                   size="small" // Smaller button
                   startIcon={<DeleteIcon />}
                   onClick={() => handleRemoveProject(project.projectId)}
-                  disabled={removingHeader}
                 >
                   Remove All From Project
                 </Button>
@@ -500,11 +671,13 @@ const MonitoredHeaders = () => {
                 {/* Reduced spacing */}
                 {sortHeadersByState(project.headers).map((header) => {
                   const isAlerting = hasAlert(header.headerId);
+                  const isSnoozed = hasSnoozedAlert(header.headerId);
                   const isDataFrozen = isFrozen(header.headerId);
                   const currentValue = getCurrentValue(header.headerId);
                   const displayThreshold = getDisplayThreshold(header);
                   const displayAlertDuration = getDisplayAlertDuration(header);
                   const displayFrozenThreshold = getDisplayFrozenThreshold(header);
+                  const snoozeUntil = getSnoozeUntil(header.headerId);
 
                   return (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={header.headerId || header.id}>
@@ -512,13 +685,21 @@ const MonitoredHeaders = () => {
                         variant="outlined"
                         sx={{
                           height: "100%", // Ensure cards have same height
-                          borderColor: isAlerting ? "error.main" : isDataFrozen ? "warning.main" : "divider",
-                          borderWidth: isAlerting || isDataFrozen ? 2 : 1,
+                          borderColor: isAlerting
+                            ? "error.main"
+                            : isDataFrozen
+                            ? "warning.main"
+                            : isSnoozed
+                            ? "info.main"
+                            : "divider",
+                          borderWidth: isAlerting || isDataFrozen || isSnoozed ? 2 : 1,
                           backgroundColor:
-                            isAlerting || isDataFrozen
+                            isAlerting || isDataFrozen || isSnoozed
                               ? isAlerting
                                 ? "error.light"
-                                : "warning.light"
+                                : isDataFrozen
+                                ? "warning.light"
+                                : "info.light"
                               : "background.paper", // Background hint
                         }}
                       >
@@ -533,15 +714,25 @@ const MonitoredHeaders = () => {
                                 {header.headerName}
                               </Typography>
                             </Tooltip>
-                            {(isAlerting || isDataFrozen) && (
+                            {(isAlerting || isDataFrozen || isSnoozed) && (
                               <Chip
-                                label={isAlerting ? "Alert" : "Frozen"}
-                                color={isAlerting ? "error" : "warning"}
+                                label={isAlerting ? "Alert" : isDataFrozen ? "Frozen" : "Snoozed"}
+                                color={isAlerting ? "error" : isDataFrozen ? "warning" : "info"}
                                 size="small"
                                 sx={{ ml: 1 }} // Add margin
                               />
                             )}
                           </Box>
+                          {/* Snooze Until Display */}
+                          {isSnoozed && snoozeUntil && (
+                            <Typography
+                              variant="caption"
+                              color="text.secondary"
+                              sx={{ display: "block", fontStyle: "italic", mb: 1 }}
+                            >
+                              Snoozed until: {new Date(snoozeUntil).toLocaleString()}
+                            </Typography>
+                          )}
                           {/* Header ID and State display */}
                           <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                             <Typography

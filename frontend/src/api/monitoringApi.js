@@ -25,16 +25,20 @@ export const fetchStageHeaders = async (stageId) => {
 };
 
 // Monitored headers
-export const fetchMonitoredHeaders = async () => {
+export const fetchMonitoredHeaders = async (headerIds = []) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/monitoring/monitored-headers`);
+    let url = `${API_BASE_URL}/monitoring/monitored-headers`;
+    if (headerIds.length > 0) {
+      const idsString = headerIds.join(',');
+      url += `?headerIds=${idsString}`;
+    }
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error('Error fetching monitored headers:', error);
     throw error;
   }
 };
-
 export const addMonitoredHeader = async (headerData) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/monitoring/monitored-headers`, headerData);

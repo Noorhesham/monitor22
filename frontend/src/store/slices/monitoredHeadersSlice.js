@@ -3,11 +3,19 @@ import axios from "axios";
 
 export const fetchMonitoredHeaders = createAsyncThunk(
   "monitoredHeaders/fetchMonitoredHeaders",
-  async (_, { rejectWithValue }) => {
+  async (headerIds = [], { rejectWithValue }) => {
     try {
-      const response = await axios.get("/api/monitoring/monitored-headers");
+      let url = `/api/monitoring/monitored-headers`;
+      if (headerIds.length > 0) {
+        const idsString = headerIds.join(",");
+        url += `?headerIds=${idsString}`;
+      }
+      const response = await axios.get(url);
+      console.log("fetchMonitoredHeaders response:", response);
+
       return response.data;
     } catch (error) {
+      console.error("Error in fetchMonitoredHeaders thunk:", error.response?.data || error.message);
       return rejectWithValue(error.response?.data || "Failed to fetch monitored headers");
     }
   }
@@ -77,11 +85,21 @@ export const updateHeaderSettings = createAsyncThunk(
 
 export const fetchHeaderValues = createAsyncThunk(
   "monitoredHeaders/fetchHeaderValues",
-  async (_, { rejectWithValue }) => {
+  async (_, { getState, rejectWithValue }) => {
     try {
+      // Get the currently monitored headers from state
+      const state = getState();
+      const monitoredHeaders = state.monitoredHeaders.monitoredHeaders || [];
+
+      // Extract just the headerIds from monitored headers
+      const headerIds = monitoredHeaders.map((header) => header.headerId);
+
+      console.log("Requesting values for specific header IDs:", headerIds);
+
       const response = await axios.get("/api/monitoring/header-values", {
         params: {
           includeRawData: true, // Always include raw data to get the last value
+          headerIds: headerIds.join(","), // Pass the specific headers to monitor
         },
       });
       return response.data;
