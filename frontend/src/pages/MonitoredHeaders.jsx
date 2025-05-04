@@ -72,10 +72,13 @@ const MonitoredHeaders = () => {
         // First clear any errors
         dispatch(clearMonitoredHeadersError());
 
-        // Then fetch all data together
+        // Get the current header IDs to maintain the same set across refreshes
+        const currentHeaderIds = monitoredHeaders.map((header) => header.headerId);
+
+        // Then fetch all data together - explicitly passing the current headerIds
         await Promise.all([
           dispatch(fetchSettings()),
-          dispatch(fetchMonitoredHeaders(monitoredHeaders)),
+          dispatch(fetchMonitoredHeaders(currentHeaderIds)),
           dispatch(fetchHeaderValues()),
         ]);
       } catch (error) {
@@ -95,7 +98,7 @@ const MonitoredHeaders = () => {
 
     // Clean up interval on component unmount
     return () => clearInterval(refreshInterval);
-  }, [settings?.pollingInterval]);
+  }, [settings?.pollingInterval, dispatch, monitoredHeaders]);
 
   //refresh the stages  in 10 seconds
   useEffect(() => {
@@ -114,10 +117,13 @@ const MonitoredHeaders = () => {
       console.log("Manually refreshing all data...");
       dispatch(clearMonitoredHeadersError());
 
-      // Fetch all data in parallel
+      // Get current header IDs to maintain consistency
+      const currentHeaderIds = monitoredHeaders.map((header) => header.headerId);
+
+      // Fetch all data in parallel, passing the explicit IDs
       await Promise.all([
         dispatch(fetchSettings()),
-        dispatch(fetchMonitoredHeaders(monitoredHeaders)),
+        dispatch(fetchMonitoredHeaders(currentHeaderIds)),
         dispatch(fetchHeaderValues()),
       ]);
     } catch (error) {
@@ -196,7 +202,7 @@ const MonitoredHeaders = () => {
     setCurrentHeader(header);
 
     // Determine default values from global settings based on header type
-    let defaultThreshold = "";
+    let defaultThreshold = 20; // Set default to 20
     let defaultAlertDuration = "";
     let defaultFrozenThreshold = "";
 
@@ -211,7 +217,7 @@ const MonitoredHeaders = () => {
     if (pressureConfig?.patterns?.some((pattern) => headerName.includes(pattern.toLowerCase()))) {
       if (!pressureConfig?.negativePatterns?.some((pattern) => headerName.includes(pattern.toLowerCase()))) {
         headerType = "pressure";
-        defaultThreshold = pressureConfig.threshold;
+        defaultThreshold = pressureConfig.threshold || 20; // Default to 20 if not set
         defaultAlertDuration = pressureConfig.alertDuration;
         defaultFrozenThreshold = pressureConfig.frozenThreshold;
       }
@@ -221,7 +227,7 @@ const MonitoredHeaders = () => {
     if (!headerType && batteryConfig?.patterns?.some((pattern) => headerName.includes(pattern.toLowerCase()))) {
       if (!batteryConfig?.negativePatterns?.some((pattern) => headerName.includes(pattern.toLowerCase()))) {
         headerType = "battery";
-        defaultThreshold = batteryConfig.threshold;
+        defaultThreshold = batteryConfig.threshold || 20; // Default to 20 if not set
         defaultAlertDuration = batteryConfig.alertDuration;
         defaultFrozenThreshold = batteryConfig.frozenThreshold;
       }
@@ -345,7 +351,7 @@ const MonitoredHeaders = () => {
     }
     // Logic to determine global default (simplified example)
     // This needs the full settings object available here or passed in
-    if (!settings) return "N/A"; // Settings not loaded
+    if (!settings) return 20; // Default to 20 if settings not loaded
     const headerName = header?.headerName?.toLowerCase() || "";
     const pressureConfig = settings?.patternCategories?.pressure;
     const batteryConfig = settings?.patternCategories?.battery;
@@ -353,13 +359,13 @@ const MonitoredHeaders = () => {
       pressureConfig?.patterns?.some((p) => headerName.includes(p.toLowerCase())) &&
       !pressureConfig?.negativePatterns?.some((p) => headerName.includes(p.toLowerCase()))
     )
-      return pressureConfig.threshold;
+      return pressureConfig.threshold || 20; // Default to 20 if not set
     if (
       batteryConfig?.patterns?.some((p) => headerName.includes(p.toLowerCase())) &&
       !batteryConfig?.negativePatterns?.some((p) => headerName.includes(p.toLowerCase()))
     )
-      return batteryConfig.threshold;
-    return "N/A"; // No matching global category
+      return batteryConfig.threshold || 20; // Default to 20 if not set
+    return 20; // Default to 20 when no matching global category
   };
 
   // Similar helpers for alertDuration and frozenThreshold...
@@ -367,7 +373,7 @@ const MonitoredHeaders = () => {
     if (header?.settings?.alertDuration !== null && header?.settings?.alertDuration !== undefined) {
       return header.settings.alertDuration;
     }
-    if (!settings) return "N/A";
+    if (!settings) return 20; // Default to 20 if settings not loaded
     const headerName = header?.headerName?.toLowerCase() || "";
     const pressureConfig = settings?.patternCategories?.pressure;
     const batteryConfig = settings?.patternCategories?.battery;
@@ -375,20 +381,20 @@ const MonitoredHeaders = () => {
       pressureConfig?.patterns?.some((p) => headerName.includes(p.toLowerCase())) &&
       !pressureConfig?.negativePatterns?.some((p) => headerName.includes(p.toLowerCase()))
     )
-      return pressureConfig.alertDuration;
+      return pressureConfig.alertDuration || 20; // Default to 20 if not set
     if (
       batteryConfig?.patterns?.some((p) => headerName.includes(p.toLowerCase())) &&
       !batteryConfig?.negativePatterns?.some((p) => headerName.includes(p.toLowerCase()))
     )
-      return batteryConfig.alertDuration;
-    return "N/A";
+      return batteryConfig.alertDuration || 20; // Default to 20 if not set
+    return 20; // Default to 20 when no matching global category
   };
 
   const getDisplayFrozenThreshold = (header) => {
     if (header?.settings?.frozenThreshold !== null && header?.settings?.frozenThreshold !== undefined) {
       return header.settings.frozenThreshold;
     }
-    if (!settings) return "N/A";
+    if (!settings) return 20; // Default to 20 if settings not loaded
     const headerName = header?.headerName?.toLowerCase() || "";
     const pressureConfig = settings?.patternCategories?.pressure;
     const batteryConfig = settings?.patternCategories?.battery;
@@ -396,13 +402,13 @@ const MonitoredHeaders = () => {
       pressureConfig?.patterns?.some((p) => headerName.includes(p.toLowerCase())) &&
       !pressureConfig?.negativePatterns?.some((p) => headerName.includes(p.toLowerCase()))
     )
-      return pressureConfig.frozenThreshold;
+      return pressureConfig.frozenThreshold || 20; // Default to 20 if not set
     if (
       batteryConfig?.patterns?.some((p) => headerName.includes(p.toLowerCase())) &&
       !batteryConfig?.negativePatterns?.some((p) => headerName.includes(p.toLowerCase()))
     )
-      return batteryConfig.frozenThreshold;
-    return "N/A";
+      return batteryConfig.frozenThreshold || 20; // Default to 20 if not set
+    return 20; // Default to 20 when no matching global category
   };
 
   // Get the timestamp for a header

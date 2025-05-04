@@ -401,7 +401,7 @@ export class HeaderMonitorService {
   static async checkThresholdAlert(projectId, config, currentValue, state) {
     const COOLDOWN_DURATION = 3600 * 1000; // 1 hour in milliseconds
     const INITIAL_ALERT_DURATION = 120 * 1000; // 2 minutes in milliseconds
-    const DEFAULT_THRESHOLD = 120; // Default threshold value (2 minutes)
+    const DEFAULT_THRESHOLD = 20; // Default threshold value (changed from 120 to 20)
 
     try {
       const db = await getDb();
@@ -439,7 +439,8 @@ export class HeaderMonitorService {
         [projectId, config.header_id]
       );
 
-      // 2. Check current threshold status
+      // 2. Check current threshold status - values BELOW threshold are concerning
+      // For pressure/battery headers, lower values are concerning (below threshold)
       const isBelowThreshold = currentValue < threshold;
       console.log(
         `\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Current ${currentValue} < ${threshold}? ${isBelowThreshold}`
@@ -462,6 +463,13 @@ export class HeaderMonitorService {
         const firstExceeded = first_exceeded_time || now;
         const elapsed = now - firstExceeded;
 
+        // Log more details to debug immediate alerts issue
+        console.log(`\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Alert status check:
+          - First exceeded time: ${first_exceeded_time ? new Date(first_exceeded_time).toISOString() : "none"}
+          - Current time: ${new Date(now).toISOString()}
+          - Elapsed: ${elapsed / 1000}s
+          - Required wait time: ${INITIAL_ALERT_DURATION / 1000}s`);
+
         if (!first_exceeded_time) {
           console.log(`\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Initial breach detected - starting timer`);
           await db.run(
@@ -473,6 +481,7 @@ export class HeaderMonitorService {
           return null;
         }
 
+        // ALWAYS enforce the wait period before triggering alert
         if (elapsed >= INITIAL_ALERT_DURATION) {
           console.log(
             `\x1b[31m[THRESHOLD][${config.header_id}]\x1b[0m Initial alert triggered after ${elapsed / 1000}s`
@@ -541,13 +550,18 @@ export class HeaderMonitorService {
   }
 
   static createThresholdAlert(config, value, state, duration) {
+    // Use default threshold of 20 if not specified (consistent with default in threshold check)
+    const DEFAULT_THRESHOLD = 20;
+    const threshold =
+      config.threshold !== null && config.threshold !== undefined ? config.threshold : DEFAULT_THRESHOLD;
+
     return {
       id: `threshold_${config.project_id}_${config.header_id}`,
       type: "threshold",
       headerId: config.header_id,
       headerName: config.header_name,
       value: value,
-      threshold: config.threshold,
+      threshold: threshold, // Use calculated threshold with default
       duration: duration,
       timestamp: new Date().toISOString(),
       projectId: config.project_id,
@@ -611,6 +625,7 @@ export class HeaderMonitorService {
       );
 
       const hasLastValue = last_value !== null && last_value_time !== null;
+      // We should check all values for being frozen, including zeros
       const sameValue = hasLastValue && currentValue === last_value;
 
       console.log(
@@ -652,8 +667,15 @@ export class HeaderMonitorService {
       console.log(
         `\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Value frozen for ${frozenDuration / 1000}s, threshold: ${
           frozenThreshold / 1000
-        }s`
+        }s, value: ${currentValue}`
       );
+
+      // Add more detailed logging for debugging zero value frozen alerts
+      console.log(`\x1b[36m[FROZEN][${config.header_id}]\x1b[0m Frozen check details:
+        - Last value time: ${last_value_time ? new Date(last_value_time).toISOString() : "none"}
+        - Current time: ${new Date(now).toISOString()}
+        - Frozen duration: ${frozenDuration / 1000}s
+        - Required frozen duration: ${frozenThreshold / 1000}s`);
 
       // If frozen duration is less than threshold, exit without alert
       if (frozenDuration < frozenThreshold) {
@@ -692,13 +714,16 @@ export class HeaderMonitorService {
   }
 
   static createFrozenAlert(config, value, state, duration) {
+    // Ensure we never show a zero-duration frozen alert (minimum 1 second)
+    const frozenDurationSeconds = Math.max(1, Math.floor(duration / 1000));
+
     return {
       id: `frozen_${config.project_id}_${config.header_id}`,
       type: "frozen",
       headerId: config.header_id,
       headerName: config.header_name,
       value: value,
-      frozenDuration: Math.floor(duration / 1000), // Convert ms to seconds
+      frozenDuration: frozenDurationSeconds, // Convert ms to seconds with minimum of 1
       timestamp: new Date().toISOString(),
       projectId: config.project_id,
       companyId: config.company_id,

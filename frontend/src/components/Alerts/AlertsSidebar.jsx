@@ -187,9 +187,11 @@ const AlertsSidebar = () => {
                   sx={{ mt: 1 }}
                 >
                   {alert.type === "threshold"
-                    ? `Value ${alert.value} is ${alert.value < alert.threshold ? "below" : "above"} threshold (${
-                        alert.threshold
-                      })`
+                    ? alert.threshold !== null
+                      ? `Value ${alert.value} is ${alert.value < alert.threshold ? "below" : "above"} threshold (${
+                          alert.threshold
+                        })`
+                      : `Value ${alert.value} is outside acceptable range (default threshold: 20)`
                     : `Value hasn't changed for ${alert.frozenDuration || 0} seconds`}
                 </Typography>
 
