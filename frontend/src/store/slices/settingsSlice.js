@@ -1,38 +1,34 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const fetchSettings = createAsyncThunk(
-  'settings/fetchSettings',
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await axios.get('/api/settings');
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response?.data || 'Failed to fetch settings');
-    }
+export const fetchSettings = createAsyncThunk("settings/fetchSettings", async (_, { rejectWithValue }) => {
+  try {
+    const response = await axios.get("/api/settings");
+    return response.data;
+  } catch (error) {
+    return rejectWithValue(error.response?.data || "Failed to fetch settings");
   }
-);
+});
 
-export const updateSettings = createAsyncThunk(
-  'settings/updateSettings',
-  async (settings, { rejectWithValue }) => {
-    try {
-      const response = await axios.post('/api/settings', settings);
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response?.data || 'Failed to update settings');
-    }
+export const updateSettings = createAsyncThunk("settings/updateSettings", async (settings, { rejectWithValue }) => {
+  try {
+    const response = await axios.post("/api/settings", settings);
+    return response.data;
+  } catch (error) {
+    return rejectWithValue(error.response?.data || "Failed to update settings");
   }
-);
+});
 
 export const updatePatternCategories = createAsyncThunk(
-  'settings/updatePatternCategories',
+  "settings/updatePatternCategories",
   async (patternCategories, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/api/settings/patterns', { patternCategories });
+      console.log("patternCategories", patternCategories);
+      const response = await axios.post("/api/settings/patterns", { patternCategories });
+      console.log("response", response);
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response?.data || 'Failed to update pattern categories');
+      return rejectWithValue(error.response?.data || "Failed to update pattern categories");
     }
   }
 );
@@ -42,40 +38,40 @@ const initialState = {
     pollingInterval: 5,
     patternCategories: {
       pressure: {
-        patterns: ['pressure', 'psi'],
-        negativePatterns: ['atmospheric', 'atm'],
+        patterns: ["pressure", "psi"],
+        negativePatterns: ["atmospheric", "atm"],
         threshold: 100,
         alertDuration: 120,
-        frozenThreshold: 60
+        frozenThreshold: 60,
       },
       battery: {
-        patterns: ['battery', 'batt', 'volt'],
+        patterns: ["battery", "batt", "volt"],
         threshold: 20,
         alertDuration: 300,
-        frozenThreshold: 300
-      }
+        frozenThreshold: 300,
+      },
     },
     webhooks: {
       enabled: false,
       slackEnabled: false,
       emailEnabled: false,
       teamsEnabled: false,
-      slackWebhookUrl: '',
-      emailRecipients: '',
-      teamsWebhookUrl: '',
+      slackWebhookUrl: "",
+      emailRecipients: "",
+      teamsWebhookUrl: "",
       sendThresholdAlerts: true,
       sendFrozenAlerts: true,
       sendErrorAlerts: true,
-      interval: 3600000
-    }
+      interval: 3600000,
+    },
   },
   loading: false,
   error: null,
-  updated: false
+  updated: false,
 };
 
 const settingsSlice = createSlice({
-  name: 'settings',
+  name: "settings",
   initialState,
   reducers: {
     clearSettingsError: (state) => {
@@ -83,7 +79,7 @@ const settingsSlice = createSlice({
     },
     clearSettingsUpdated: (state) => {
       state.updated = false;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -97,7 +93,7 @@ const settingsSlice = createSlice({
       })
       .addCase(fetchSettings.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload || 'Failed to fetch settings';
+        state.error = action.payload || "Failed to fetch settings";
       })
       .addCase(updateSettings.pending, (state) => {
         state.loading = true;
@@ -111,7 +107,7 @@ const settingsSlice = createSlice({
       })
       .addCase(updateSettings.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload || 'Failed to update settings';
+        state.error = action.payload || "Failed to update settings";
         state.updated = false;
       })
       .addCase(updatePatternCategories.pending, (state) => {
@@ -126,11 +122,11 @@ const settingsSlice = createSlice({
       })
       .addCase(updatePatternCategories.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload || 'Failed to update pattern categories';
+        state.error = action.payload || "Failed to update pattern categories";
         state.updated = false;
       });
   },
 });
 
 export const { clearSettingsError, clearSettingsUpdated } = settingsSlice.actions;
-export default settingsSlice.reducer; 
+export default settingsSlice.reducer;

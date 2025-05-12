@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 router.post('/patterns', async (req, res) => {
   try {
     const { patternCategories } = req.body;
-    
+    console.log("patternCategories", patternCategories);z``
     if (!patternCategories) {
       return res.status(400).json({ error: 'Missing pattern categories data' });
     }

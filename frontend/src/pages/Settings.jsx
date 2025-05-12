@@ -195,37 +195,35 @@ const Settings = () => {
     const trimmedPattern = pattern.trim();
     if (!trimmedPattern) return;
 
-    setLocalSettings((prevSettings) => {
-      const newSettings = JSON.parse(JSON.stringify(prevSettings)); // Deep copy
+    // Create a new settings object with the updated pattern
+    const newSettings = JSON.parse(JSON.stringify(localSettings)); // Deep copy
 
-      // Ensure category exists
-      if (!newSettings.patternCategories) {
-        newSettings.patternCategories = {};
-      }
-      if (!newSettings.patternCategories[category]) {
-        newSettings.patternCategories[category] = {};
-      }
+    // Ensure category exists
+    if (!newSettings.patternCategories) {
+      newSettings.patternCategories = {};
+    }
+    if (!newSettings.patternCategories[category]) {
+      newSettings.patternCategories[category] = {};
+    }
 
-      // Ensure the specific pattern array (patterns or negativePatterns) exists
-      if (!Array.isArray(newSettings.patternCategories[category][patternType])) {
-        newSettings.patternCategories[category][patternType] = [];
-      }
+    // Ensure the specific pattern array (patterns or negativePatterns) exists
+    if (!Array.isArray(newSettings.patternCategories[category][patternType])) {
+      newSettings.patternCategories[category][patternType] = [];
+    }
 
-      // Add the pattern if it doesn't already exist
-      if (!newSettings.patternCategories[category][patternType].includes(trimmedPattern)) {
-        newSettings.patternCategories[category][patternType].push(trimmedPattern);
-      }
+    // Add the pattern if it doesn't already exist
+    if (!newSettings.patternCategories[category][patternType].includes(trimmedPattern)) {
+      newSettings.patternCategories[category][patternType].push(trimmedPattern);
+    }
 
-      return newSettings;
-    });
+    // Update state with the new settings
+    setLocalSettings(newSettings);
 
     // Clear the input field
     setPatternState("");
 
-    // Save the changes immediately
-    if (localSettings.patternCategories) {
-      dispatch(updatePatternCategories(localSettings.patternCategories));
-    }
+    // Save the changes immediately using the updated newSettings
+    dispatch(updatePatternCategories(newSettings.patternCategories));
   };
 
   const handleRemovePattern = (category, patternType, index) => {
@@ -236,6 +234,9 @@ const Settings = () => {
       }
       return newSettings;
     });
+
+    // Save the changes immediately
+    setTimeout(() => handleSavePatterns(), 0);
   };
 
   const handleAddCustomWebhook = () => {
